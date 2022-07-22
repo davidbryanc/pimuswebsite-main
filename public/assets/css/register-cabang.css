@@ -1,0 +1,146 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    height: 100%;
+}
+
+#card {
+    display: flex;
+    margin-top: 150px;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-cabang {
+    width: 100%;
+    max-width: 98rem;
+    padding: 5rem;
+    background-color: #fff;
+    box-shadow: 0 0.4rem 4rem rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 0.8rem;
+}
+
+.card-cabang .image {
+    min-width: 30rem;
+    max-width: 30rem;
+    height: 30rem;
+    transform: translateX(-8rem);
+    position: relative;
+    border-radius: 0.8rem;
+    background-color: #ebb014;
+}
+
+.card-cabang .image img {
+    width: 75%;
+    height: 75%;
+    margin: 60px auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 0.8rem;
+}
+
+.card-cabang .image::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0.5rem 0.5rem 3rem 1px rgba(0, 0, 0, 0.5);
+    border-radius: 0.8rem;
+}
+
+.title {
+    font-family: joyrideextended, Montserrat, sans-serif;
+    color: #ebb010 !important;
+    font-size: 3rem;
+    margin: 1.5rem 0 2rem;
+    text-transform: lowercase;
+}
+
+.desc {
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.card-cabang .buttons {
+    display: inline-block;
+    padding: 0.8rem 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #fff;
+    font-weight: 500;
+    background-color: #ebb014;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.card-cabang .buttons:hover {
+    background-color: #090907;
+    color: #ebb014 !important;
+}
+
+@media screen and (max-width: 1068px) {
+    .card-cabang {
+        max-width: 80rem;
+    }
+
+    .card-cabang .image {
+        min-width: 20rem;
+        max-width: 20rem;
+        max-height: 20rem;
+        transform: translateX(-3rem);
+    }
+
+    .card-cabang .image img {
+        margin: 40px auto;
+    }
+}
+
+@media screen and (max-width: 868px) {
+    .card-cabang {
+        max-width: 70rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #card {
+        margin-top: 200px;
+    }
+
+    .card-cabang {
+        padding: 2.5rem;
+        flex-direction: column;
+    }
+
+    .card-cabang .title {
+        margin: -3rem 0 2rem;
+    }
+
+    .card-cabang .image {
+        min-width: 100%;
+        max-width: 100%;
+        transform: translate(0, -6rem);
+    }
+}
+
+@media screen and (max-width: 468px) {
+    .card-cabang .buttons {
+        margin-bottom: 10px;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+}

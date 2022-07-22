@@ -1,0 +1,6 @@
+#particles-js
+{
+    background-image: linear-gradient(to right, rgba(156,65,0,1), rgba(9,9,7,1)) !important;
+    background-size: cover !important;
+    z-index: -1;
+}

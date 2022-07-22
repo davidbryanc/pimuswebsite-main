@@ -1,0 +1,206 @@
+@extends('layout.mainweb')
+
+@section('title')
+    PIMUS 11
+@endsection
+
+@section('style')
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+@endsection
+
+@section('content')
+    <!-- Main Banner -->
+    <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+        <div class="container">
+            @if (session('status'))
+                <div class="alert alert-danger">
+                    {{ session('status') }}
+                </div>
+            @endif
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-6 align-self-center">
+                            <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                                <h6><img src="{{ url('assets/images/web/Asset 1.png') }}" alt=""> </h6>
+                                <p style="color: #fff; font-weight: bold;">THE SURVIVOR, THE CONTRIVER</p>
+                                <p style="color: #fff" font size="1">Eksistensi dan masa depan dunia bergantung pada
+                                    manusia.
+                                    Untuk menyelamatkan dunia dan terus maju menjadi generasi penerus bangsa, manusia
+                                    “Conqueror”
+                                    dibutuhkan, yakni seorang penakluk yang berjuang dengan menyusun strategi untuk membawa
+                                    perubahan.</h6>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                                <h6><img src="{{ url('assets/images/web/Bumper.png') }}" alt=""> </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Main Banner -->
+
+    <!-- Fun Fact Pimus -->
+    <div id="about" class="about-us section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="left-image wow fadeIn maskot" data-wow-duration="1s" data-wow-delay="0.2s">
+                        <img src="{{ url('assets/images/web/Owl.png') }}" alt="person graphic">
+                    </div>
+                </div>
+                <div class="col-lg-8 align-self-center">
+                    <div class="services">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div data-tilt class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+                                    <div class="icon">
+                                        <i class="fas fa-trophy" style="height: 175px; width: 100px; color: #de8d00;"></i>
+                                    </div>
+                                    <div class="right-text">
+                                        <p>Fakultas dengan perolehan gelar Juara Umum terbanyak adalah Fakultas Teknik</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div data-tilt class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
+                                    <div class="icon">
+                                        <i class="fas fa-film" style="height: 175px; width: 100px; color: #de8d00;"></i>
+                                    </div>
+                                    <div class="right-text">
+                                        <p>Video Digital Pendidikan merupakan cabang baru yang menggantikan cabang Film
+                                            Pendek pada PIMUS sebelumnya</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div data-tilt class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                                    <div class="icon">
+                                        <i class="fas fa-hand-holding-heart"
+                                            style="height: 175px; width: 100px; color: #de8d00;"></i>
+                                    </div>
+                                    <div class="right-text">
+                                        <p>Maskot PIMUS merupakan burung hantu yang bernama dr. Pimly. Burung hantu
+                                            merupakan hewan yang melambangkan pengetahuan, kebijaksanaan, dan pembawa
+                                            perubahan</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div data-tilt class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="1.1s">
+                                    <div class="icon">
+                                        <i class="fas fa-hands-helping"
+                                            style="height: 175px; width: 100px; color: #de8d00;"></i>
+                                    </div>
+                                    <div class="right-text">
+                                        <p>Logo PIMUS berupa tangan-tangan dengan warna yang melambangkan setiap fakultas
+                                            dan politeknik saling menggenggam satu sama lain dengan piala di bagian tengah
+                                            yang diperebutkan</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Fun Fact Pimus -->
+
+    <!-- Throwback Pimus -->
+    <div id="services" class="our-services section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 align-self-center  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
+                    <div class="left-image drive-responsive">
+                        <iframe src="https://drive.google.com/file/d/1_ZlZre5YX7lt7cqatA618Igm9CUYuywM/preview" width="640"
+                            height="400" allow="autoplay"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
+                    <div class="section-heading">
+                        <h2 style="color: #ebb010; text-align: left; font-family: joyrideextended, Montserrat, sans-serif; text-transform: none;"
+                            data-aos="zoom-in">pekan ilmiah mahasiswa</h2>
+                        <p style="color: #fff;">Pekan Ilmiah Mahasiswa Universitas Surabaya atau PIMUS merupakan acara
+                            tahunan yang diselenggarakan oleh Direktorat Pengembangan Kemahasiswaan Universitas Surabaya
+                            dengan tujuan untuk menyaring mahasiswa/i terbaik UBAYA untuk menjadi perwakilan pada kompetisi
+                            nasional. Di tahun yang kesebelas ini, PIMUS memiliki 8 cabang lomba yang terdiri dari PKM 5
+                            Bidang, Karya Tulis Ilmiah, Pemilihan Mahasiswa Berprestasi, Video Digital Pendidikan, Poster
+                            Digital, Kompetisi MIPA, Debat Bahasa Inggris, dan Debat Bahasa Indonesia. Yuk daftarkan dirimu
+                            sekarang, dapatkan pengalaman berharga, kesempatan menjadi perwakilan UBAYA, dan total hadiah
+                            puluhan juta rupiah!</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Throwback Pimus -->
+
+    <!-- Timeline Pimus -->
+    <h1 style="color: #ebb010; margin-top: 1em ; text-align: center; font-family: joyrideextended, Montserrat, sans-serif;"
+        data-aos="zoom-in">timeline pimus xi</h1>
+    <link rel="stylesheet" href="{{ url('/assets/css/timeline.css') }}">
+    <div class="content">
+        <div class="timeline col-lg-6 wow fadeInRight">
+            <ul>
+                <li>
+                    <div class="timeline-content">
+                        <h3 style="color: #fff512" class="date">16-22 September 2021</h3>
+                        <h1>Open Registration </h1>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-content">
+                        <h3 style="color: #fff512" class="date">25 September 2021</h3>
+                        <h1>Technical Meeting PKM, PILMAPRES, Video Digital Pendidikan, KTI</h1>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-content">
+                        <h3 style="color: #fff512" class="date">16 Oktober 2021</h3>
+                        <h1>Klinik PKM, PILMAPRES, Video Digital Pendidikan, KTI</h1>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-content">
+                        <h3 style="color: #fff512" class="date">18-24 Oktober 2021</h3>
+                        <h1>Pengumpulan Proposal untuk di Revisi (PKM, KTI, dan Pilmapres)</h1>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-content">
+                        <h3 style="color: #fff512" class="date">28-29 Oktober 2021</h3>
+                        <h1>Pengumpulan Final Proposal (PKM, KTI, dan Pilmapres)</h1>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-content">
+                        <h3 style="color: #fff512" class="date">30 Oktober 2021</h3>
+                        <h1>Technical Meeting Debat Indonesia, Debat Inggris, K-MIPA, Poster</h1>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-content">
+                        <h3 style="color: #fff512" class="date">8-12 November 2021</h3>
+                        <h1>Acara Perlombaan PIMUS XI</h1>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- End Timeline Pimus -->
+@endsection
+
+@section('script')
+    <script>
+        AOS.init();
+    </script>
+@endsection
