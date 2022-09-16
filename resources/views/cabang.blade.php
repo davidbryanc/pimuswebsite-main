@@ -10,35 +10,33 @@
 
 @section('content')
     {{-- card --}}
-    @foreach ($cabang as $item)
+    {{-- @foreach ($category as $item) --}}
     <section id="card">
         <div class="container">
             <div class="card-cabang">
                 <?php
                     date_default_timezone_set('Asia/Jakarta');
 
-                    foreach ($tanggal as $calendar) {
-                        $timeNow = date('Y-m-d H:i:s');
-                        $timeNow = strtotime($timeNow);
+                    $timeNow = date('Y-m-d H:i:s');
+                    $timeNow = strtotime($timeNow);
 
-                        if ($timeNow > strtotime($calendar->awal) && $timeNow < strtotime($calendar->akhir))
-                            $buka = true;
-                        else
-                            $buka = false;
-                    }
+                    if ($timeNow > strtotime($date[0]->open) && $timeNow < strtotime($date[0]->close))
+                        $open = true;
+                    else
+                        $open = false;
 
-                $nama_cabang = $item->nama == 'PKM-Riset' ? 'Program Kreativitas Mahasiswa' : $item->nama;
+                $category_name = $category->name == 'PKM-Riset' ? 'Program Kreativitas Mahasiswa' : $category->name;
 
                 echo '
                     <div class="image">
-                        <img src="/assets/images/icon cabang/'.$item->nama.'.png" alt="Gambar '.$item->nama.'">
+                        <img src="/assets/images/icon cabang/'.$category->name.'.png" alt="Gambar '.$category->name.'">
                     </div>
                     <div class="info">
-                        <h1 class="title text-lowercase">'.$nama_cabang.'</h1>
-                        <p class="desc">'.$item->deskripsi.'</p>';
-                if ($userID==null) {
-                    if ($buka == true) {
-                        if($item->idlomba==8)
+                        <h1 class="title text-lowercase">'.$category_name.'</h1>
+                        <p class="desc">'.$category->description.'</p>';
+                if ($userId==null) {
+                    if ($open == true) {
+                        if($category->id==8)
                             {
                                 echo '
                                 <div>
@@ -71,8 +69,8 @@
                 else 
                 {
                     if ($user==null) {
-                        if ($buka == true) {
-                            if($item->idlomba==8)
+                        if ($open == true) {
+                            if($category->id==8)
                                 {
                                     echo '
                                     <div>
@@ -88,7 +86,7 @@
                                 {
                                     echo '
                                     <div>
-                                        <a href="/registration/cabang/register?cabang='.$item->idlomba.'" class="buttons" id="register">Register Now!</a>
+                                        <a href="/registration/cabang/register?cabang='.$category->id.'" class="buttons" id="register">Register Now!</a>
                                     </div>
                                     ';
                                 }
@@ -107,7 +105,7 @@
                             $pesan = $item1->pesan;
                             if($status=='Tolak')
                             {
-                                if($item->idlomba==8)
+                                if($category->id==8)
                                 {
                                     echo '
                                     <div>
@@ -124,7 +122,7 @@
                                 {
                                     echo '
                                     <div>
-                                        <a href="/registration/cabang/register?cabang='.$item->idlomba.'" class="buttons" id="register">Register Now!</a>
+                                        <a href="/registration/cabang/register?cabang='.$category->id.'" class="buttons" id="register">Register Now!</a>
                                     </div>
                                     ';
                                 }
@@ -154,5 +152,5 @@
             </div>
         </div>
     </section>
-    @endforeach
+    {{-- @endforeach --}}
 @endsection

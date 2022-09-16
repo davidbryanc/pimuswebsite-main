@@ -8,19 +8,18 @@
     <section id="form" style="margin-top: 150px; margin-bottom: 50px;">
         <div class="container">
             <div >
-            @foreach ($cabang as $item)
             <form action="/registration/cabang/upload" method="POST" enctype="multipart/form-data" class="form-register">
                 @csrf
                 <div id="awal" style="visibility: visible; display: block;">
                     <div style="text-align: center;">
-                        <h1 class="text-lowercase">form registrasi {{$item->nama}}</h1>  
+                        <h1 class="text-lowercase">form registrasi {{$category->name}}</h1>  
                     </div>
-                    <input type="text" id="cabang" value="{{$item->idlomba}}" name="idLomba" readonly hidden>
-                    @if ($kelompok!=null)
-                        @if ($ketuakelompok != null)
+                    <input type="text" id="cabang" value="{{$category->id}}" name="idLomba" readonly hidden>
+                    @if ($team!=null)
+                        @if ($teamLeader != null)
                             <label>Edit Kelompok</label><br>
-                            @foreach ($kelompok as $item1)
-                                @foreach ($ketuakelompok as $ketua)
+                            @foreach ($team as $item1)
+                                @foreach ($teamLeader as $ketua)
                                     @if ($ketua->idkelompok == $item1->idkelompok)
                                             <input type="radio" id="{{$item1->idkelompok}}" name="idKelompok" value="{{$item1->idkelompok}}" required>
                                             <label for="{{$item1->idkelompok}}">Kelompok {{$item1->idkelompok}} (Ketua : {{$ketua->nama}})</label><br>
@@ -45,7 +44,7 @@
                     <br>
 
                     <?php
-                    $id = $item->idlomba;
+                    $id = $category->id;
                     if($id!=1 && $id!=5)
                     {
                         echo '
@@ -180,7 +179,6 @@
                     <input type="submit" value="Submit">
                 </div>
             </form>
-            @endforeach
         </div>
         </div>
     </section>

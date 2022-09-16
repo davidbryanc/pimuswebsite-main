@@ -48,12 +48,12 @@ class SubmissionController extends Controller
 
         // Submission melalui Google Form
 
-        $listSubmission = DB::table('tanggal_submission')
-                            ->join('cabang_lomba', 'tanggal_submission.idlomba', '=', 'cabang_lomba.idlomba')
-                            ->select('tanggal_submission.*', 'cabang_lomba.nama')
+        $listSubmission = DB::table('submission_dates')
+                            ->join('competition_categories', 'submission_dates.id', '=', 'competition_categories.id')
+                            ->select('submission_dates.*', 'competition_categories.name')
                             ->get();
                             
-        return view('submission', ["listSubmission"=>$listSubmission]);
+        return view('submission', compact('listSubmission'));
     }
 
     /**

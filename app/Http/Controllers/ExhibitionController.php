@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\CompetitionCategory;
+use App\Submission;
+use App\Team;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,9 +15,9 @@ class ExhibitionController extends Controller
     public function index($idlomba)
     {
         $viewable = [1, 4, 6, 7];
-        $cabang = DB::table('cabang_lomba')->where('idlomba', $idlomba)->first();
+        $cabang = CompetitionCategory::find($idlomba);
         if (in_array($idlomba, $viewable)) {
-            $submissions = DB::table('pengumpulan')->get();
+            $submissions = Submission::all();
 
             // Catcher jika data tidak lengkap
             foreach ($submissions as $submission) {
@@ -23,22 +26,23 @@ class ExhibitionController extends Controller
                                 ->where('idkelompok', '=', $submission->idkelompok)
                                 ->first()->idlomba;
 
-                    DB::table('pengumpulan')
-                        ->where('id', '=', $submission->id)
-                        ->update(['idlomba' => $idcabang]);
+                    // DB::table('pengumpulan')
+                    //     ->where('id', '=', $submission->id)
+                    //     ->update(['idlomba' => $idcabang]);
+
+                    Submission::where('id', $submission->id)->update(['competition_categories_id' => $idcabang]);
                 }
             }
 
-            $submissions = DB::table('pengumpulan')
-                            ->where('idlomba', '=', $idlomba)
-                            ->get();
+            
+            $submissions = Submission::where('competition_categories_id', $idlomba)->get();
 
-            $groups = DB::table('kelompok')->get();
+            $groups = Team::all();
 
             $leaders = DB::table('users')
-                    ->join('detail_user', 'users.nrp', '=', 'detail_user.nrp')
-                    ->select('users.nama', 'detail_user.idkelompok')
-                    ->where('detail_user.role', '=', 'Ketua')
+                    ->join('user_details', 'users.nrp', '=', 'user_details.nrp')
+                    ->select('users.name', 'user_details.teams_id')
+                    ->where('user_details.role', '=', 'Ketua')
                     ->get();
 
             return view('exhibition', [

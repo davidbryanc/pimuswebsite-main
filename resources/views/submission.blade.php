@@ -57,10 +57,10 @@
                 @foreach ($listSubmission as $list)
                     <tr>
                         <td data-label="Competition Name">
-                            @if ($list->idlomba >= 8)
+                            @if ($list->id >= 8)
                                 PKM
                             @else
-                                {{ $list->nama }}
+                                {{ $list->name }}
                             @endif
                         </td>
                         <td data-label="Starting Date">

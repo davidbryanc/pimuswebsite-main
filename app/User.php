@@ -37,4 +37,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function team(){
+        return $this->belongsToMany("App\Team", "user_details", "nrp", "teams_id")
+        ->withPivot("role", "id_card", "self_photo", "line", "borang", "gpa_recap", "schedule", "achievement_list", "competition_type");
+    }
 }

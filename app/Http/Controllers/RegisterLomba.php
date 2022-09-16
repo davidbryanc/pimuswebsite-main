@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CompetitionCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -204,58 +205,66 @@ class RegisterLomba extends Controller
     {
         $userId = isset(Auth::user()->nrp) ? Auth::user()->nrp : null;
         $id = $_GET['cabang'];
-        $user = DB::table('detail_user')
-                ->join('kelompok','detail_user.idkelompok','=','kelompok.idkelompok')
-                ->join('cabang_lomba','kelompok.idlomba','=','cabang_lomba.idlomba')
-                ->where('detail_user.nrp','=',$userId)
-                ->where('kelompok.idlomba','=',$id)
-                ->get();
-        $cabang = DB::table('cabang_lomba')->where('idlomba',$id)->get();
 
-        $tanggal = DB::table('tanggal')->get();
+        $user = DB::table('user_details')
+                ->join('teams','user_details.teams_id','=','teams.id')
+                ->join('competition_categories','teams.competition_categories_id','=','competition_categories.id')
+                ->where('user_details.nrp','=',$userId)
+                ->where('teams.competition_categories_id','=',$id)
+                ->get();
+
+
+        $category = CompetitionCategory::find($id);
+
+        $date = DB::table('dates')->get();
 
         if($user->isEmpty())
         {
             $user = null;
         }
 
-        return view('cabang', ['cabang' => $cabang, 'user' => $user, 'userID'=>$userId, 'tanggal'=>$tanggal]);
+        // return view('cabang', ['cabang' => $cabang, 'user' => $user, 'userID'=>$userId, 'tanggal'=>$tanggal]);
+        return view('cabang', compact('category', 'user', 'date', 'userId'));   
     }
 
     public function showRegister()
     {
         $id = $_GET['cabang'];
-        $cabang = DB::table('cabang_lomba')->where('idlomba',$id)->get();
+
+        $category = CompetitionCategory::find($id);
+
         $userId = Auth::user()->nrp;
-        $kelompok = DB::table('detail_user')
-                        ->join('kelompok','detail_user.idkelompok','=','kelompok.idkelompok')
-                        ->where('detail_user.nrp','=',$userId)
-                        ->where('kelompok.idlomba','=',$id)
-                        ->orderBy('kelompok.idkelompok')
+        
+        $team = DB::table('user_details')
+                        ->join('teams','user_details.teams_id','=','teams.id')
+                        ->where('user_details.nrp','=',$userId)
+                        ->where('teams.competition_categories_id','=',$id)
+                        ->orderBy('teams.id')
                         ->get();
 
-        $ketuakelompok = DB::table('users')
-                            ->join('detail_user', 'users.nrp', '=', 'detail_user.nrp')
-                            ->join('kelompok','detail_user.idkelompok','=','kelompok.idkelompok')
-                            ->select('users.nama', 'kelompok.idkelompok')
-                            ->where('kelompok.idlomba','=',$id)
-                            ->where('detail_user.role', '=', "Ketua")
-                            ->orderBy('kelompok.idkelompok')
+        $teamLeader = DB::table('users')
+                            ->join('user_details', 'users.nrp', '=', 'user_details.nrp')
+                            ->join('teams','user_details.teams_id','=','teams.id')
+                            ->select('users.name', 'teams.id')
+                            ->where('teams.competition_categories_id','=',$id)
+                            ->where('user_details.role', '=', "Ketua")
+                            ->orderBy('teams.id')
                             ->get();
         
-        if($kelompok->isEmpty())
+        if($team->isEmpty())
         {
-            $kelompok = null;
-            $ketuakelompok = null;
+            $team = null;
+            $teamLeader = null;
         }
         
-        return view('registerlomba', ['cabang' => $cabang, 'kelompok' => $kelompok, 'ketuakelompok'=>$ketuakelompok]);
+        //return view('registerlomba', ['cabang' => $category, 'kelompok' => $kelompok, 'ketuakelompok'=>$ketuakelompok]);
+        return view('registerLomba', compact('category', 'team', 'teamLeader'));
     }
 
     public function showRegistration()
     {
-        $tanggal = DB::table('tanggal')->get();
+        $date = DB::table('dates')->get();
 
-        return view('registration', ['tanggal' => $tanggal]);
+        return view('registration', compact('date'));
     }
 }
