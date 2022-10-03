@@ -1,9 +1,8 @@
-<?php
-if(isset($pesan))
+@if(isset($pesan))
 {
-    echo "<script type='text/javascript'>alert('$pesan');</script>";
+    <script type='text/javascript'>alert('$pesan')</script>
 }
-?>
+@endif
 @extends('layout.mainweb')
 
 @section('title')
@@ -17,127 +16,125 @@ if(isset($pesan))
 @section('content')
     {{-- Registration card --}}
     <div id="portfolio" class="our-portfolio section" style="margin-bottom: 80px;">
-        <div class="container">
-            <?php           
-                echo "<div class='row'><p></p>
-                    <div class='col-lg-6 offset-lg-3 mt-5'>
-                        <div class='section-heading  wow bounceIn' data-wow-duration='1s' data-wow-delay='0.2s'>
-                            <h2>cabang lomba</h2>
-                            <button class='btn-mekanisme' data-bs-toggle='modal' data-bs-target='#mekanisme'>Mekanisme Pendaftaran</button>
+        <div class="container">          
+            <div class='row'><p></p>
+                <div class='col-lg-6 offset-lg-3 mt-5'>
+                    <div class='section-heading  wow bounceIn' data-wow-duration='1s' data-wow-delay='0.2s'>
+                        <h2>cabang lomba</h2>
+                        <button class='btn-mekanisme' data-bs-toggle='modal' data-bs-target='#mekanisme'>Mekanisme Pendaftaran</button>
+                    </div>
+                </div>
+            </div>
+            <div class='row mb-3'>
+                <div class='col-lg-3 col-sm-6 mb-5'>
+                    <a href='/registration/cabang?cabang=1'>
+                        <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.3s'>
+                            <div class='hidden-content'>
+                                <h4>PILMAPRES</h4>
+                                <p>Kompetisi mahasiswa/i UBAYA yang memiliki keunggulan bidang akademik maupun non akademik.
+                                </p>
+                            </div>
+                            <div class='showed-content'>
+                                <img src='/assets/images/icon cabang/Pilmapres.png' alt=''>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class='row mb-3'>
-                    <div class='col-lg-3 col-sm-6 mb-5'>
-                        <a href='/registration/cabang?cabang=1'>
-                            <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.3s'>
-                                <div class='hidden-content'>
-                                    <h4>PILMAPRES</h4>
-                                    <p>Kompetisi mahasiswa/i UBAYA yang memiliki keunggulan bidang akademik maupun non akademik.
-                                    </p>
-                                </div>
-                                <div class='showed-content'>
-                                    <img src='/assets/images/icon cabang/Pilmapres.png' alt=''>
-                                </div>
+                <div class='col-lg-3 col-sm-6 mb-5'>
+                    <a href='/registration/cabang?cabang=2'>
+                        <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.4s'>
+                            <div class='hidden-content'>
+                                <h4>Debat Inggris</h4>
+                                <p>Kompetisi yang mengasah kemampuan berpikir kritis dan berargumentasi dengan menggunakan Bahasa Inggris. </p>
                             </div>
-                        </a>
-                    </div>
-                    <div class='col-lg-3 col-sm-6 mb-5'>
-                        <a href='/registration/cabang?cabang=2'>
-                            <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.4s'>
-                                <div class='hidden-content'>
-                                    <h4>Debat Inggris</h4>
-                                    <p>Kompetisi yang mengasah kemampuan berpikir kritis dan berargumentasi dengan menggunakan Bahasa Inggris. </p>
-                                </div>
-                                <div class='showed-content'>
-                                    <img src='/assets/images/icon cabang/Debat Inggris.png' alt=''>
-                                </div>
+                            <div class='showed-content'>
+                                <img src='/assets/images/icon cabang/Debat Inggris.png' alt=''>
                             </div>
-                        </a>
-                    </div>
-                    <div class='col-lg-3 col-sm-6 mb-5'>
-                        <a href='/registration/cabang?cabang=3'>
-                            <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.5s'>
-                                <div class='hidden-content'>
-                                    <h4>Debat Indonesia</h4>
-                                    <p>Kompetisi yang mengasah kemampuan berpikir kritis dan berargumentasi dengan menggunakan Bahasa Indonesia. 
-                                    </p>
-                                </div>
-                                <div class='showed-content'>
-                                    <img src='/assets/images/icon cabang/Debat Indonesia.png' alt=''>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class='col-lg-3 col-sm-6 mb-5'>
-                        <a href='/registration/cabang?cabang=4'>
-                            <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.4s'>
-                                <div class='hidden-content'>
-                                    <h4>KTI</h4>
-                                    <p>Kompetisi untuk menuliskan ide kreatif berupa respons intelektual atas persoalan aktual. </p>
-                                </div>
-                                <div class='showed-content'>
-                                    <img src='/assets/images/icon cabang/Karya Tulis Ilmiah.png' alt=''>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class='col-lg-3 col-sm-6 mb-5'>
-                        <a href='/registration/cabang?cabang=5'>
-                            <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.5s'>
-                                <div class='hidden-content'>
-                                    <h4>Kompetisi MIPA</h4>
-                                    <p>Kompetisi di bidang Matematika dan Ilmu Pengetahuan Alam. </p>
-                                </div>
-                                <div class='showed-content'>
-                                    <img src='/assets/images/icon cabang/Kompetisi MIPA.png' alt=''>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class='col-lg-3 col-sm-6 mb-5'>
-                        <a href='/registration/cabang?cabang=7'>
-                            <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.5s'>
-                                <div class='hidden-content'>
-                                    <h4>Video Digital Pendidikan</h4>
-                                    <p>Kompetisi membuat suatu karya video pendidikan sesuai dengan tema yang ditentukan. </p>
-                                </div>
-                                <div class='showed-content'>
-                                    <img src='/assets/images/icon cabang/Video Digital Pendidikan.png' alt=''>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class='col-lg-3 col-sm-6 mb-5'>
-                        <a href='/registration/cabang?cabang=6'>
-                            <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.4s'>
-                                <div class='hidden-content'>
-                                    <h4>Poster Digital</h4>
-                                    <p>Kompetisi untuk menyampaikan informasi dalam bentuk visual sesuai dengan tema yang ditentukan. </p>
-                                </div>
-                                <div class='showed-content'>
-                                    <img src='/assets/images/icon cabang/Poster Digital.png' alt=''>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class='col-lg-3 col-sm-6 mb-5'>
-                        <a href='/registration/cabang?cabang=8'>
-                            <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.5s'>
-                                <div class='hidden-content'>
-                                    <h4>PKM</h4>
-                                    <p>Kompetisi untuk mengkaji, mengembangkan, dan menerapkan ilmu serta teknologi kepada masyarakat luas.
-                                    </p>
-                                </div>
-                                <div class='showed-content'>
-                                    <img src='/assets/images/icon cabang/PKM-Riset.png' alt=''>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
-                </div>";
-            ?>
+                <div class='col-lg-3 col-sm-6 mb-5'>
+                    <a href='/registration/cabang?cabang=3'>
+                        <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.5s'>
+                            <div class='hidden-content'>
+                                <h4>Debat Indonesia</h4>
+                                <p>Kompetisi yang mengasah kemampuan berpikir kritis dan berargumentasi dengan menggunakan Bahasa Indonesia. 
+                                </p>
+                            </div>
+                            <div class='showed-content'>
+                                <img src='/assets/images/icon cabang/Debat Indonesia.png' alt=''>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='col-lg-3 col-sm-6 mb-5'>
+                    <a href='/registration/cabang?cabang=4'>
+                        <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.4s'>
+                            <div class='hidden-content'>
+                                <h4>KTI</h4>
+                                <p>Kompetisi untuk menuliskan ide kreatif berupa respons intelektual atas persoalan aktual. </p>
+                            </div>
+                            <div class='showed-content'>
+                                <img src='/assets/images/icon cabang/Karya Tulis Ilmiah.png' alt=''>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='col-lg-3 col-sm-6 mb-5'>
+                    <a href='/registration/cabang?cabang=5'>
+                        <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.5s'>
+                            <div class='hidden-content'>
+                                <h4>Kompetisi MIPA</h4>
+                                <p>Kompetisi di bidang Matematika dan Ilmu Pengetahuan Alam. </p>
+                            </div>
+                            <div class='showed-content'>
+                                <img src='/assets/images/icon cabang/Kompetisi MIPA.png' alt=''>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='col-lg-3 col-sm-6 mb-5'>
+                    <a href='/registration/cabang?cabang=7'>
+                        <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.5s'>
+                            <div class='hidden-content'>
+                                <h4>Video Digital Pendidikan</h4>
+                                <p>Kompetisi membuat suatu karya video pendidikan sesuai dengan tema yang ditentukan. </p>
+                            </div>
+                            <div class='showed-content'>
+                                <img src='/assets/images/icon cabang/Video Digital Pendidikan.png' alt=''>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='col-lg-3 col-sm-6 mb-5'>
+                    <a href='/registration/cabang?cabang=6'>
+                        <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.4s'>
+                            <div class='hidden-content'>
+                                <h4>Poster Digital</h4>
+                                <p>Kompetisi untuk menyampaikan informasi dalam bentuk visual sesuai dengan tema yang ditentukan. </p>
+                            </div>
+                            <div class='showed-content'>
+                                <img src='/assets/images/icon cabang/Poster Digital.png' alt=''>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='col-lg-3 col-sm-6 mb-5'>
+                    <a href='/registration/cabang?cabang=8'>
+                        <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.5s'>
+                            <div class='hidden-content'>
+                                <h4>PKM</h4>
+                                <p>Kompetisi untuk mengkaji, mengembangkan, dan menerapkan ilmu serta teknologi kepada masyarakat luas.
+                                </p>
+                            </div>
+                            <div class='showed-content'>
+                                <img src='/assets/images/icon cabang/PKM-Riset.png' alt=''>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            </div>
     </div>
 
 
