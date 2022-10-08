@@ -59,10 +59,10 @@ class RegisterController extends Controller
         return User::create([
             'nrp' => $data['nrp'],
             'email' => $data['email'],
-            'nama' => $data['nama'],
+            'name' => $data['nama'],
             'password' => Hash::make($data['password']),
-            'tiket_vote' => 3,
-            'divisi' => 'Umum',
+            'vote_tickets' => 3,
+            'role' => 'Umum',
         ]);
     }
 
@@ -86,11 +86,11 @@ class RegisterController extends Controller
         
         $user = new User();
         $user->nrp = $request->nrp;
-        $user->nama = $request->nama;
+        $user->name = $request->nama;
         $user->email = "s".$request->nrp."@student.ubaya.ac.id";
         $user->password = Hash::make($request->password);
-        $user->tiket_vote = 3;
-        $user->divisi = "Umum";
+        $user->vote_tickets = 3;
+        $user->role = "Umum";
         $user->save();
 
         if($user != null){
