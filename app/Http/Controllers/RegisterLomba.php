@@ -15,20 +15,20 @@ class RegisterLomba extends Controller
         try
         {
             // Generate idkelompok where is Empty
-            $idkelompok = 1;
-            $group = DB::table('kelompok')->where('idkelompok', '=', $idkelompok)->get();
+            $id = 1;
+            $group = DB::table('teams')->where('id', '=', $id)->get();
 
             while (!$group->isEmpty()) {
-                $idkelompok++;
-                $group = DB::table('kelompok')->where('idkelompok', '=', $idkelompok)->get();
+                $id++;
+                $group = DB::table('teams')->where('id', '=', $id)->get();
             }
 
-            $idkelompok = $req->idKelompok != null ? $req->idKelompok : $idkelompok;
+            $idkelompok = $req->idKelompok != null ? $req->idKelompok : $id;
             $idLomba = $req->idLomba;
 
             // Get contest name
-            $contestDB = DB::table('cabang_lomba')
-                        ->where('idlomba', '=', $idLomba)
+            $contestDB = DB::table('competition_categories')
+                        ->where('id', '=', $idLomba)
                         ->get();
 
             foreach ($contestDB as $contest) {
@@ -37,7 +37,7 @@ class RegisterLomba extends Controller
             }
 
             // Delete if there is residuals of detail_user
-            DB::table('detail_user')->where('idkelompok',$idkelompok)->delete();
+            DB::table('user_details')->where('teams_id',$idkelompok)->delete();
 
             // Delete all files that group had
             function rrmdir($dir) {
@@ -72,21 +72,21 @@ class RegisterLomba extends Controller
             $jumlahAnggota = $req->jumlahAnggota;
 
             // Make new/update data in table kelompok
-            $group = DB::table('kelompok')->where('idkelompok', '=', $idkelompok)->get();
+            $group = DB::table('teams')->where('id', '=', $idkelompok)->get();
 
             if ($group->isEmpty()) {
-                DB::table('kelompok')->insert([
-                    'idkelompok' => $idkelompok,
-                    'idlomba' => $idLomba,
-                    'formulir_pendaftaran' => $path_formPendaftaran,
-                    'surat_pernyataan' => $path_suratPernyataan,
+                DB::table('teams')->insert([
+                    'id' => $idkelompok,
+                    'competition_categories_id' => $idLomba,
+                    'registration_form' => $path_formPendaftaran,
+                    'statement_letter' => $path_suratPernyataan,
                     'status' => 'Pending'
                 ]); 
             }
             else {
-                DB::table('kelompok')->where('idKelompok',$idkelompok)->update([
-                    'formulir_pendaftaran' => $path_formPendaftaran,
-                    'surat_pernyataan' => $path_suratPernyataan,
+                DB::table('teams')->where('id',$idkelompok)->update([
+                    'registration_form' => $path_formPendaftaran,
+                    'statement_letter' => $path_suratPernyataan,
                     'status' => 'Pending'
                 ]);  
             }
@@ -110,10 +110,10 @@ class RegisterLomba extends Controller
                     $idLine = null;
                 }
 
-                DB::table('detail_user')->insert([
+                DB::table('user_details')->insert([
                     'nrp' => $nrp,
-                    'ktm' => $path_ktm,
-                    'pas_foto' => $path_pasFoto,
+                    'id_card' => $path_ktm,
+                    'self_photo' => $path_pasFoto,
                     'line' => $idLine,
                     'idkelompok' => $idkelompok,
                     'role' => $role
@@ -124,8 +124,8 @@ class RegisterLomba extends Controller
                     $jadwalKuliah = $req->file("jadwalKuliah$i");
                     $jadwalKuliah->move('storage/jadwalKuliah/'.$contestName.'/'.$idkelompok,$jadwalKuliah->getClientOriginalName());
                     $path_jadwalKuliah = 'storage/jadwalKuliah/'.$contestName.'/'.$idkelompok.'/'.$jadwalKuliah->getClientOriginalName();
-                    DB::table('detail_user')->where('nrp', $req->nrpAnggota[$i-1])->update([
-                        'jadwal_kuliah' => $path_jadwalKuliah,
+                    DB::table('user_details')->where('nrp', $req->nrpAnggota[$i-1])->update([
+                        'schedule' => $path_jadwalKuliah,
                     ]);
                 }
             }
@@ -142,22 +142,22 @@ class RegisterLomba extends Controller
                     $daftarPrestasi = $req->file("daftarPrestasi");
                     $daftarPrestasi->move('storage/daftarPrestasi/'.$contestName.'/'.$idkelompok,$daftarPrestasi->getClientOriginalName());
                     $path_daftarPrestasi = 'storage/daftarPrestasi/'.$contestName.'/'.$idkelompok.'/'.$daftarPrestasi->getClientOriginalName();
-                    DB::table('detail_user')->where('nrp', $req->nrpAnggota[0])->update([
+                    DB::table('user_details')->where('nrp', $req->nrpAnggota[0])->update([
                         'borang' => $path_borang,
-                        'rekap_ipk' => $path_rekapIPK,
-                        'daftar_prestasi' => $path_daftarPrestasi
+                        'gpa_recap' => $path_rekapIPK,
+                        'achievement_list' => $path_daftarPrestasi
                     ]);
                 break;
                 case 5:
                     $jenisKompetisi = $req->jenisKompetisi;
-                    DB::table('detail_user')->where('nrp', $req->nrpAnggota[0])->update([
-                        'jenis_kompetisi' => $jenisKompetisi
+                    DB::table('user_details')->where('nrp', $req->nrpAnggota[0])->update([
+                        'competition_type' => $jenisKompetisi
                     ]);
                 break;
                 default:
                     $jenisKelompok = $req->jenisKelompok;
-                    DB::table('kelompok')->where('idkelompok',$idkelompok)->update([
-                        'jenis_kelompok' => $jenisKelompok
+                    DB::table('teams')->where('idkelompok',$idkelompok)->update([
+                        'team_type' => $jenisKelompok
                     ]);
                 break;
             }
@@ -167,33 +167,33 @@ class RegisterLomba extends Controller
         }
         catch(\Exception $ex){
             // Delete all residuals data            
-            $group = DB::table('detail_user')
-                        ->join('kelompok', 'detail_user.idkelompok', '=', 'kelompok.idkelompok')
-                        ->select(DB::raw('detail_user.nrp as nrpKetua'), 'kelompok.status')
-                        ->where('detail_user.role', '=', "Ketua")
+            $group = DB::table('user_details')
+                        ->join('teams', 'user_details.teams_id', '=', 'teams.id')
+                        ->select(DB::raw('user_details.nrp as nrpKetua'), 'teams.status')
+                        ->where('user_details.role', '=', "Ketua")
                         ->get();
             
             if ($group->isEmpty()) {
                 foreach ($group as $groupStat) {
                     if ($groupStat->status != "Tolak") {
-                        DB::table('detail_user')
-                            ->where('idkelompok',$idkelompok)
+                        DB::table('user_details')
+                            ->where('teams_id',$idkelompok)
                             ->where('role', '!=', "Ketua")
                             ->delete();
     
-                        DB::table('kelompok')->where('idKelompok',$idkelompok)->update([
+                        DB::table('teams')->where('id',$idkelompok)->update([
                             'status' => 'Tolak'
                         ]);
                     }
                     else {
-                        DB::table('detail_user')->where('idkelompok',$idkelompok)->delete();
-                        DB::table('kelompok')->where('idKelompok',$idkelompok)->delete();
+                        DB::table('user_details')->where('teams_id',$idkelompok)->delete();
+                        DB::table('teams')->where('id',$idkelompok)->delete();
                     }
                 }
             }
             else {                
-                DB::table('detail_user')->where('idkelompok',$idkelompok)->delete();
-                DB::table('kelompok')->where('idKelompok',$idkelompok)->delete();
+                DB::table('user_details')->where('idkelompok',$idkelompok)->delete();
+                DB::table('teams')->where('idKelompok',$idkelompok)->delete();
             }
 
             $pesan = 'GAGAL melakukan registrasi !\nPerhatikan apakah: \n    Ada anggota yang belum registrasi awal\n   Salah mengisi NRP\n   Penamaan file salah';
