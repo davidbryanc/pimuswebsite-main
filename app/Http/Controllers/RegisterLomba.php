@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CompetitionCategory;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -12,8 +13,8 @@ class RegisterLomba extends Controller
 {
     public function upload(Request $req)
     {
-        try
-        {
+        // try
+        // {
             // Generate idkelompok where is Empty
             $id = 1;
             $group = DB::table('teams')->where('id', '=', $id)->get();
@@ -27,14 +28,12 @@ class RegisterLomba extends Controller
             $idLomba = $req->idLomba;
 
             // Get contest name
-            $contestDB = DB::table('competition_categories')
+            $contest = DB::table('competition_categories')
                         ->where('id', '=', $idLomba)
                         ->get();
 
-            foreach ($contestDB as $contest) {
-                $idLomba = $contest->idlomba;
-                $contestName = $contest->nama;
-            }
+            $idLomba = $contest[0]->id;
+            $contestName = $contest[0]->name;
 
             // Delete if there is residuals of detail_user
             DB::table('user_details')->where('teams_id',$idkelompok)->delete();
@@ -73,6 +72,7 @@ class RegisterLomba extends Controller
 
             // Make new/update data in table kelompok
             $group = DB::table('teams')->where('id', '=', $idkelompok)->get();
+            // dd($group);
 
             if ($group->isEmpty()) {
                 DB::table('teams')->insert([
@@ -110,12 +110,13 @@ class RegisterLomba extends Controller
                     $idLine = null;
                 }
 
+                // dd($nrp);
                 DB::table('user_details')->insert([
                     'nrp' => $nrp,
                     'id_card' => $path_ktm,
                     'self_photo' => $path_pasFoto,
                     'line' => $idLine,
-                    'idkelompok' => $idkelompok,
+                    'teams_id' => $idkelompok,
                     'role' => $role
                 ]);
 
@@ -156,7 +157,7 @@ class RegisterLomba extends Controller
                 break;
                 default:
                     $jenisKelompok = $req->jenisKelompok;
-                    DB::table('teams')->where('idkelompok',$idkelompok)->update([
+                    DB::table('teams')->where('id',$idkelompok)->update([
                         'team_type' => $jenisKelompok
                     ]);
                 break;
@@ -164,41 +165,41 @@ class RegisterLomba extends Controller
 
             $pesan = 'Registrasi berhasil!';
             return view('registration', ['pesan' => $pesan]);
-        }
-        catch(\Exception $ex){
-            // Delete all residuals data            
-            $group = DB::table('user_details')
-                        ->join('teams', 'user_details.teams_id', '=', 'teams.id')
-                        ->select(DB::raw('user_details.nrp as nrpKetua'), 'teams.status')
-                        ->where('user_details.role', '=', "Ketua")
-                        ->get();
+        // }
+        // catch(Exception $ex){
+        //     // Delete all residuals data            
+        //     $group = DB::table('user_details')
+        //                 ->join('teams', 'user_details.teams_id', '=', 'teams.id')
+        //                 ->select(DB::raw('user_details.nrp as nrpKetua'), 'teams.status')
+        //                 ->where('user_details.role', '=', "Ketua")
+        //                 ->get();
             
-            if ($group->isEmpty()) {
-                foreach ($group as $groupStat) {
-                    if ($groupStat->status != "Tolak") {
-                        DB::table('user_details')
-                            ->where('teams_id',$idkelompok)
-                            ->where('role', '!=', "Ketua")
-                            ->delete();
+        //     if ($group->isEmpty()) {
+        //         foreach ($group as $groupStat) {
+        //             if ($groupStat->status != "Tolak") {
+        //                 DB::table('user_details')
+        //                     ->where('teams_id',$idkelompok)
+        //                     ->where('role', '!=', "Ketua")
+        //                     ->delete();
     
-                        DB::table('teams')->where('id',$idkelompok)->update([
-                            'status' => 'Tolak'
-                        ]);
-                    }
-                    else {
-                        DB::table('user_details')->where('teams_id',$idkelompok)->delete();
-                        DB::table('teams')->where('id',$idkelompok)->delete();
-                    }
-                }
-            }
-            else {                
-                DB::table('user_details')->where('idkelompok',$idkelompok)->delete();
-                DB::table('teams')->where('idKelompok',$idkelompok)->delete();
-            }
+        //                 DB::table('teams')->where('id',$idkelompok)->update([
+        //                     'status' => 'Tolak'
+        //                 ]);
+        //             }
+        //             else {
+        //                 DB::table('user_details')->where('teams_id',$idkelompok)->delete();
+        //                 DB::table('teams')->where('id',$idkelompok)->delete();
+        //             }
+        //         }
+        //     }
+        //     else {                
+        //         DB::table('user_details')->where('idkelompok',$idkelompok)->delete();
+        //         DB::table('teams')->where('idKelompok',$idkelompok)->delete();
+        //     }
 
-            $pesan = 'GAGAL melakukan registrasi !\nPerhatikan apakah: \n    Ada anggota yang belum registrasi awal\n   Salah mengisi NRP\n   Penamaan file salah';
-            return view('registration', ['pesan' => $pesan]);
-        }       
+        //     $pesan = 'GAGAL melakukan registrasi !\nPerhatikan apakah: \n    Ada anggota yang belum registrasi awal\n   Salah mengisi NRP\n   Penamaan file salah';
+        //     return view('registration', ['pesan' => $pesan]);
+        // }       
     }
 
     public function showCabang()
@@ -212,6 +213,8 @@ class RegisterLomba extends Controller
                 ->where('user_details.nrp','=',$userId)
                 ->where('teams.competition_categories_id','=',$id)
                 ->get();
+
+        // dd($user);
 
 
         $category = CompetitionCategory::find($id);

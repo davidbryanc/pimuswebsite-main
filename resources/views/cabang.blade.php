@@ -102,7 +102,7 @@
                     else {                        
                         foreach ($user as $item1) {
                             $status = $item1->status;
-                            $pesan = $item1->pesan;
+                            $pesan = $item1->message;
                             if($status=='Tolak')
                             {
                                 if($category->id==8)
@@ -128,7 +128,7 @@
                                 }
                                 echo '
                                 <div class="mt-3" style="font-weight: bold;">
-                                    <p class="text-danger" style="font-size: 20px;">*) Registrasi '.$item1->nama.' Anda ditolak karena '.$pesan.'</p>
+                                    <p class="text-danger" style="font-size: 20px;">*) Registrasi '.$item1->name.' Anda ditolak karena '.$pesan.'</p>
                                 </div>
                                 ';
                             }
@@ -137,9 +137,9 @@
                                 echo '<div class="mt-3" style="font-weight: bold;"> ';
     
                                 if ($status == 'Terima') {
-                                    echo ' <p class="text-success" style="font-size: 20px;">*) Registrasi '.$item1->nama.' Anda di'.strtolower($status).'</p>';
+                                    echo ' <p class="text-success" style="font-size: 20px;">*) Registrasi '.$item1->name.' Anda di'.strtolower($status).'</p>';
                                 } elseif ($status == 'Pending'){
-                                    echo ' <p class="text-warning" style="font-size: 20px;">*) Registrasi '.$item1->nama.' Anda sedang '.strtolower($status).'</p>';
+                                    echo ' <p class="text-warning" style="font-size: 20px;">*) Registrasi '.$item1->name.' Anda sedang '.strtolower($status).'</p>';
                                 }
                                                         
                                 echo '</div>';
