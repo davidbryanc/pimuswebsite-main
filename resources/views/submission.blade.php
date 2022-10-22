@@ -19,42 +19,42 @@
             <thead>
                 <tr>
                     {{-- Submission with webstie --}}
-                    {{-- <th>Competition Name</th>
+                    <th>Competition Name</th>
                     <th>Deadline</th>
                     <th>Status</th>
-                    <th></th> --}}
+                    <th></th>
 
                     {{-- Submission with Google Form --}}
-                    <th>Competition Name</th>
+                    {{-- <th>Competition Name</th>
                     <th>Starting Date</th>
                     <th>Deadline</th>
-                    <th></th>
+                    <th></th> --}}
                 </tr>
             </thead>
             <tbody>
                 {{-- Submission with website --}}
-                {{-- @foreach ($group as $grp)
+                @foreach ($group as $grp)
                     <tr>
-                        <td data-label="Competition Name">{{ $grp->nama }}</td>
+                        <td data-label="Competition Name">{{ $grp->name }}</td>
                         <td data-label="Deadline">21 Oktober 2021 23:59 WIB</td>
                         @if ($grp->link_drive != null)
                             <td data-label="Status"><span class="text_open text-success">Submitted</span></td>
                             <td data-label="Submit" class="tdButton"><button class="btnSubmit" id="submitLink"
-                                    onclick="SetID({{ $grp->idlomba }}, {{ $grp->idkelompok_ketua }})" data-bs-toggle="modal"
+                                    onclick="SetID({{ $grp->id }}, {{ $grp->idkelompok_ketua }})" data-bs-toggle="modal"
                                     data-bs-target="#formGDriveSubmission" disabled>Submit</button>
                             </td>
                         @else
                             <td data-label="Status"><span class="text_open text-danger">NOT Submitted</span></td>
                             <td data-label="Submit" class="tdButton"><button class="btnSubmit" id="submitLink"
-                                    onclick="SetID({{ $grp->idlomba }}, {{ $grp->idkelompok_ketua }})" data-bs-toggle="modal"
+                                    onclick="SetID({{ $grp->id }}, {{ $grp->idkelompok_ketua }})" data-bs-toggle="modal"
                                     data-bs-target="#formGDriveSubmission">Submit</button></td>
                         @endif
                     </tr>
-                @endforeach --}}
+                @endforeach
 
                 {{-- Submission with Google Form --}}
                 
-                @foreach ($listSubmission as $list)
+                {{-- @foreach ($listSubmission as $list)
                     <tr>
                         <td data-label="Competition Name">
                             @if ($list->id >= 8)
@@ -77,12 +77,12 @@
                             @endif
                         </td>
                     </tr>
-                @endforeach
+                @endforeach --}}
             </tbody>
         </table>
     </div>
 
-    {{-- <div class="modal fade" id="formGDriveSubmission" tabindex="-1" aria-labelledby="formGDriveSubmissionLabel"
+    <div class="modal fade" id="formGDriveSubmission" tabindex="-1" aria-labelledby="formGDriveSubmissionLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -113,11 +113,11 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 @endsection
 
 @section('script')
-    {{-- <script>
+    <script>
         var idlomba = null;
         var idkelompok = null;
 
@@ -144,7 +144,7 @@
         });
 
         // Set the date we're counting down to
-        var countDownDate = new Date("Oct 23, 2021 23:59:59").getTime();
+        var countDownDate = new Date("Oct 23, 2023 23:59:59").getTime();
 
         // Update the count down every 1 second
         var x = setInterval(function() {
@@ -186,6 +186,6 @@
                 $(".btnSubmit").attr('disabled','true');
             }
         }, 1000);
-    </script> --}}
+    </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 @endsection

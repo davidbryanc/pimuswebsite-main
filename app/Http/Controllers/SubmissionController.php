@@ -17,43 +17,43 @@ class SubmissionController extends Controller
     {
         // // Submission Melalui Website
 
-        // $status = "";
-        // //Ketentuan agar bisa masuk submission
-        // //1. Yang mengumpulkan adalah ketua kelompok
-        // $user = Auth::user();
-        // // //Cek detail_user 
-        // $group = DB::table('detail_user')
-        //     ->join('kelompok', 'detail_user.idkelompok', '=', 'kelompok.idkelompok')
-        //     ->join('cabang_lomba', 'kelompok.idlomba', '=', 'cabang_lomba.idlomba')
-        //     ->join('pengumpulan', 'kelompok.idkelompok', '=', 'pengumpulan.idkelompok', 'left')
-        //     ->select(DB::raw('kelompok.idkelompok as idkelompok_ketua'), 'detail_user.*', 'kelompok.*', 'cabang_lomba.*', 'pengumpulan.*')
-        //     ->where('detail_user.nrp', '=', $user->nrp)
-        //     ->where('detail_user.role', '=', 'Ketua')
-        //     ->where('kelompok.status', '=', 'Terima')
-        //     ->get();
+        $status = "";
+        //Ketentuan agar bisa masuk submission
+        //1. Yang mengumpulkan adalah ketua kelompok
+        $user = Auth::user();
+        // //Cek detail_user 
+        $group = DB::table('user_details')
+            ->join('teams', 'user_details.teams_id', '=', 'teams.id')
+            ->join('competition_categories', 'teams.competition_categories_id', '=', 'competition_categories.id')
+            ->join('submissions', 'teams.id', '=', 'submissions.teams_id', 'left')
+            ->select(DB::raw('teams.id as idkelompok_ketua'), 'user_details.*', 'teams.*', 'competition_categories.*', 'submissions.*')
+            ->where('user_details.nrp', '=', $user->nrp)
+            ->where('user_details.role', '=', 'Ketua')
+            ->where('teams.status', '=', 'Terima')
+            ->get();
 
-        // if ($group->isNotEmpty()) {
-        //     if (count($group) > 0) {
-        //         return view('submission', ["group" => $group]);
-        //     }
-        //     else {
-        //         $status = "Anda tidak termasuk kelompok apapun";
-        //     }
-        // }
-        // else {
-        //     $status = "Hanya anggota yang sudah mendaftar dan berperan menjadi ketua yang boleh mengumpulkan";
-        // }
+        if ($group->isNotEmpty()) {
+            if (count($group) > 0) {
+                return view('submission', ["group" => $group]);
+            }
+            else {
+                $status = "Anda tidak termasuk kelompok apapun";
+            }
+        }
+        else {
+            $status = "Hanya anggota yang sudah mendaftar dan berperan menjadi ketua yang boleh mengumpulkan";
+        }
 
-        // return redirect()->route('index')->with('status', $status);
+        return redirect()->route('index')->with('status', $status);
 
         // Submission melalui Google Form
 
-        $listSubmission = DB::table('submission_dates')
-                            ->join('competition_categories', 'submission_dates.id', '=', 'competition_categories.id')
-                            ->select('submission_dates.*', 'competition_categories.name')
-                            ->get();
+        // $listSubmission = DB::table('submission_dates')
+        //                     ->join('competition_categories', 'submission_dates.id', '=', 'competition_categories.id')
+        //                     ->select('submission_dates.*', 'competition_categories.name')
+        //                     ->get();
                             
-        return view('submission', compact('listSubmission'));
+        // return view('submission', compact('listSubmission'));
     }
 
     /**
@@ -67,17 +67,21 @@ class SubmissionController extends Controller
         $lomba = $request->idlomba;
         $idkelompok = $request->idkelompok;
         $link = $request->linkdrive;
+
+
         if ($lomba == 6 || $lomba == 7) {
-            DB::table('pengumpulan')->insert([
-                'idkelompok' => $idkelompok,
+            DB::table('submissions')->insert([
+                'teams_id' => $idkelompok,
+                'competition_categories_id' => $lomba,
                 'link_drive' => $link,
                 'like_count' => 0
             ]);
             $status = "Berhasil";
             $message = "Kelompok Anda telah berhasil mengunggah link pengumpulan.";
         } else if ($lomba == 4 || $lomba == 8 || $lomba == 9 || $lomba == 10 || $lomba == 11) {
-            DB::table('pengumpulan')->insert([
-                'idkelompok' => $idkelompok,
+            DB::table('submissions')->insert([
+                'teams_id' => $idkelompok,
+                'competition_categories_id' => $lomba,
                 'link_drive' => $link,
             ]);
             $status = "Berhasil";

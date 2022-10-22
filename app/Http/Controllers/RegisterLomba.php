@@ -13,8 +13,8 @@ class RegisterLomba extends Controller
 {
     public function upload(Request $req)
     {
-        // try
-        // {
+        try
+        {
             // Generate idkelompok where is Empty
             $id = 1;
             $group = DB::table('teams')->where('id', '=', $id)->get();
@@ -165,41 +165,41 @@ class RegisterLomba extends Controller
 
             $pesan = 'Registrasi berhasil!';
             return view('registration', ['pesan' => $pesan]);
-        // }
-        // catch(Exception $ex){
-        //     // Delete all residuals data            
-        //     $group = DB::table('user_details')
-        //                 ->join('teams', 'user_details.teams_id', '=', 'teams.id')
-        //                 ->select(DB::raw('user_details.nrp as nrpKetua'), 'teams.status')
-        //                 ->where('user_details.role', '=', "Ketua")
-        //                 ->get();
+        }
+        catch(Exception $ex){
+            // Delete all residuals data            
+            $group = DB::table('user_details')
+                        ->join('teams', 'user_details.teams_id', '=', 'teams.id')
+                        ->select(DB::raw('user_details.nrp as nrpKetua'), 'teams.status')
+                        ->where('user_details.role', '=', "Ketua")
+                        ->get();
             
-        //     if ($group->isEmpty()) {
-        //         foreach ($group as $groupStat) {
-        //             if ($groupStat->status != "Tolak") {
-        //                 DB::table('user_details')
-        //                     ->where('teams_id',$idkelompok)
-        //                     ->where('role', '!=', "Ketua")
-        //                     ->delete();
+            if ($group->isEmpty()) {
+                foreach ($group as $groupStat) {
+                    if ($groupStat->status != "Tolak") {
+                        DB::table('user_details')
+                            ->where('teams_id',$idkelompok)
+                            ->where('role', '!=', "Ketua")
+                            ->delete();
     
-        //                 DB::table('teams')->where('id',$idkelompok)->update([
-        //                     'status' => 'Tolak'
-        //                 ]);
-        //             }
-        //             else {
-        //                 DB::table('user_details')->where('teams_id',$idkelompok)->delete();
-        //                 DB::table('teams')->where('id',$idkelompok)->delete();
-        //             }
-        //         }
-        //     }
-        //     else {                
-        //         DB::table('user_details')->where('idkelompok',$idkelompok)->delete();
-        //         DB::table('teams')->where('idKelompok',$idkelompok)->delete();
-        //     }
+                        DB::table('teams')->where('id',$idkelompok)->update([
+                            'status' => 'Tolak'
+                        ]);
+                    }
+                    else {
+                        DB::table('user_details')->where('teams_id',$idkelompok)->delete();
+                        DB::table('teams')->where('id',$idkelompok)->delete();
+                    }
+                }
+            }
+            else {                
+                DB::table('user_details')->where('idkelompok',$idkelompok)->delete();
+                DB::table('teams')->where('idKelompok',$idkelompok)->delete();
+            }
 
-        //     $pesan = 'GAGAL melakukan registrasi !\nPerhatikan apakah: \n    Ada anggota yang belum registrasi awal\n   Salah mengisi NRP\n   Penamaan file salah';
-        //     return view('registration', ['pesan' => $pesan]);
-        // }       
+            $pesan = 'GAGAL melakukan registrasi !\nPerhatikan apakah: \n    Ada anggota yang belum registrasi awal\n   Salah mengisi NRP\n   Penamaan file salah';
+            return view('registration', ['pesan' => $pesan]);
+        }       
     }
 
     public function showCabang()
