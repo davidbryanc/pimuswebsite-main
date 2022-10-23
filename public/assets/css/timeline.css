@@ -29,7 +29,7 @@ html {
 }
 .timeline ul li {
   padding: 20px;
-  background-color: #9c4100 ;
+  background-color: #312f60 ;
   color: white;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -63,7 +63,7 @@ html {
     transform: translateX(-50%);
     width: 2px;
     height: 93%;
-    background-color: #fff512;
+    background-color: #fff293;
   }
   .timeline ul li {
     width: 50%;
@@ -88,7 +88,7 @@ html {
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background-color: #fff512;
+    background-color: #faba8e;
     top: 0px;
   }
   .timeline ul li:nth-child(odd)::before {
@@ -104,7 +104,7 @@ html {
     top: -30px;
   }
   .timeline ul li:hover::before {
-    background-color: #de8d00;
+    background-color: #211e51;
   }
-  
+
 }

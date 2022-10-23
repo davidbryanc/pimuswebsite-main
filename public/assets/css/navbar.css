@@ -1,9 +1,9 @@
 .navbar {
-    background-color: #9c4100 !important;
+    background-color: #312f60 !important;
 }
 .navbar li a {
     font-weight: bold;
-    color: #fff512 !important;
+    color: #ffffff !important;
     transition: color 0.15s ease-in-out;
 }
 
@@ -17,15 +17,18 @@
     text-align: center;
     text-decoration: none;
     border-radius: 50px;
-    background-color: #ffde40;
-    color: #9c4100 !important;
+    background-color: #25244b;
+    border: 1px solid #fff;
+    box-shadow: 1px 1px 1px #fff;
+
+    color: #ffffff !important;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
         border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .navbar .btnLogin:hover {
-    background-color: #090907;
-    color: #ffde40 !important;
+    background-color: #5a5b8a;
+    color: #faba8e !important;
 }
 
 .nav-center {
@@ -34,7 +37,7 @@
 }
 
 .nav-item .dropdown-menu {
-    background-color: #9c4100;
+    background-color: #312f60;
 }
 
 @media (max-width: 991px) {

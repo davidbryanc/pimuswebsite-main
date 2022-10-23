@@ -125,7 +125,7 @@
                 </div>
                 <div class="col-lg-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
                     <div class="section-heading">
-                        <h2 style="color: #ebb010; text-align: left; font-family: joyrideextended, Montserrat, sans-serif; text-transform: none;"
+                        <h2 style="color: #ffffff; text-align: left; font-family: joyrideextended, Montserrat, sans-serif; text-transform: none;"
                             data-aos="zoom-in">pekan ilmiah mahasiswa</h2>
                         <p style="color: #fff;">Pekan Ilmiah Mahasiswa Universitas Surabaya atau PIMUS merupakan acara
                             tahunan yang diselenggarakan oleh Direktorat Pengembangan Kemahasiswaan Universitas Surabaya
@@ -145,7 +145,7 @@
     <!-- End Throwback Pimus -->
 
     <!-- Timeline Pimus -->
-    <h1 style="color: #ebb010; margin-top: 1em ; text-align: center; font-family: joyrideextended, Montserrat, sans-serif;"
+    <h1 style="color: #ffffff; margin-top: 1em ; text-align: center; font-family: joyrideextended, Montserrat, sans-serif;"
         data-aos="zoom-in">timeline pimus xi</h1>
     <link rel="stylesheet" href="{{ url('/assets/css/timeline.css') }}">
     <div class="content">
@@ -153,43 +153,43 @@
             <ul>
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #fff512" class="date">16-22 September 2021</h3>
+                        <h3 style="color: #ffffff" class="date">16-22 September 2021</h3>
                         <h1>Open Registration </h1>
                     </div>
                 </li>
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #fff512" class="date">25 September 2021</h3>
+                        <h3 style="color: #ffffff" class="date">25 September 2021</h3>
                         <h1>Technical Meeting PKM, PILMAPRES, Video Digital Pendidikan, KTI</h1>
                     </div>
                 </li>
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #fff512" class="date">16 Oktober 2021</h3>
+                        <h3 style="color: #ffffff" class="date">16 Oktober 2021</h3>
                         <h1>Klinik PKM, PILMAPRES, Video Digital Pendidikan, KTI</h1>
                     </div>
                 </li>
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #fff512" class="date">18-24 Oktober 2021</h3>
+                        <h3 style="color: #ffffff" class="date">18-24 Oktober 2021</h3>
                         <h1>Pengumpulan Proposal untuk di Revisi (PKM, KTI, dan Pilmapres)</h1>
                     </div>
                 </li>
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #fff512" class="date">28-29 Oktober 2021</h3>
+                        <h3 style="color: #ffffff" class="date">28-29 Oktober 2021</h3>
                         <h1>Pengumpulan Final Proposal (PKM, KTI, dan Pilmapres)</h1>
                     </div>
                 </li>
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #fff512" class="date">30 Oktober 2021</h3>
+                        <h3 style="color: #ffffff" class="date">30 Oktober 2021</h3>
                         <h1>Technical Meeting Debat Indonesia, Debat Inggris, K-MIPA, Poster</h1>
                     </div>
                 </li>
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #fff512" class="date">8-12 November 2021</h3>
+                        <h3 style="color: #ffffff" class="date">8-12 November 2021</h3>
                         <h1>Acara Perlombaan PIMUS XI</h1>
                     </div>
                 </li>
