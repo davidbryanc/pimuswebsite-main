@@ -1110,7 +1110,7 @@ Portfolio
 
 .our-portfolio .section-heading h2 {
   font-family: joyrideextended, Montserrat, sans-serif;
-  color: #ebb010 !important;
+  color: #ffffff !important;
   font-size: 2.5em;
   text-transform: none;
   text-align: center;
@@ -1135,9 +1135,8 @@ Portfolio
 }
 
 .our-portfolio .hidden-content {
-  background: rgb(222, 141, 0
-  );
-  background: linear-gradient(105deg, rgba(222, 141, 0,1) 0%, rgba(235, 176, 20,1) 100%);
+  background: rgb(255, 0, 0);
+  background: linear-gradient(180deg, #faba8e 36%, rgb(83, 83, 122));
   padding: 30px;
   border-radius: 20px;
   text-align: center;

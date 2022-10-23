@@ -16,7 +16,7 @@
 @section('content')
     {{-- Registration card --}}
     <div id="portfolio" class="our-portfolio section" style="margin-bottom: 80px;">
-        <div class="container">          
+        <div class="container">
             <div class='row'><p></p>
                 <div class='col-lg-6 offset-lg-3 mt-5'>
                     <div class='section-heading  wow bounceIn' data-wow-duration='1s' data-wow-delay='0.2s'>
@@ -58,7 +58,7 @@
                         <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.5s'>
                             <div class='hidden-content'>
                                 <h4>Debat Indonesia</h4>
-                                <p>Kompetisi yang mengasah kemampuan berpikir kritis dan berargumentasi dengan menggunakan Bahasa Indonesia. 
+                                <p>Kompetisi yang mengasah kemampuan berpikir kritis dan berargumentasi dengan menggunakan Bahasa Indonesia.
                                 </p>
                             </div>
                             <div class='showed-content'>
@@ -142,7 +142,7 @@
         <div class="modal fade" id="mekanisme" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
-            <div class="modal-header" style="background-color: #ebb010;">
+            <div class="modal-header" style="background-color: #211e51;">
                 <h5 class="modal-title text-white fw-bold" id="exampleModalLabel">Mekanisme Pendaftaran PIMUS XI</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>

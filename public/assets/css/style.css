@@ -529,7 +529,7 @@
     }
     .comingsoon-info p {
         font-size: 0.8em;
-    
+
     }
     .comingsoon-info h2 {
         font-size: 2em;
@@ -549,7 +549,7 @@
     }
     .comingsoon-info p {
         font-size: 0.8em;
-    
+
     }
     .comingsoon-info h2 {
         font-size: 2em;
@@ -790,7 +790,7 @@
 
 .google-maps {
     position: relative;
-    padding-bottom: 75%; 
+    padding-bottom: 75%;
     height: 0;
     overflow: hidden;
 }
@@ -830,7 +830,7 @@
 
 /* register */
 .form-register {
-    padding-left: 20%; 
+    padding-left: 20%;
     margin-right: 20%
 }
 
@@ -908,21 +908,21 @@
 
 @media (max-width: 1068px) {
     .form-register {
-        padding-left: 15%; 
+        padding-left: 15%;
         margin-right: 15%
     }
 }
 
 @media (max-width: 468px) {
     .form-register {
-        padding-left: 10%; 
+        padding-left: 10%;
         margin-right: 10%
     }
 }
 
 @media (max-width: 368px) {
     .form-register {
-        padding-left: 5%; 
+        padding-left: 5%;
         margin-right: 5%
     }
 }
@@ -951,8 +951,8 @@ h3.regis {
     margin-bottom: 5em;
     width: 100%;
     min-height: 50px;
-    background-color: #ffde40;
-    color: #9c4100 !important;
+    background-color: #5a5b8a;
+    color: #ffffff !important;
     border-radius: 25px;
     font-weight: bold;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
@@ -961,8 +961,8 @@ h3.regis {
 }
 
 .btn-mekanisme:hover{
-    background-color: #090907;
-    color: #ffde40 !important;
+    background-color: #f8ba8e;
+    color: #65081b !important;
 }
 
 .hidden-content p {
@@ -1038,14 +1038,14 @@ h3.regis {
 
 @media (max-width: 468px) {
     .card-reset {
-        margin-left: 5%; 
+        margin-left: 5%;
         margin-right: 5%
     }
 }
 
 @media (max-width: 368px) {
     .card-reset {
-        margin-left: 0%; 
+        margin-left: 0%;
         margin-right: 0%
     }
 }
