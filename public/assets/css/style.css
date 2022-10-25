@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     font-family: joyrideextended, Montserrat, sans-serif;
-    color: #ebb010;
+    color: #ffffff;
     font-size: 45px;
     margin-bottom: 25px;
 }
@@ -201,7 +201,7 @@
 
 .container-faq h2 {
     font-family: joyrideextended, Montserrat, sans-serif;
-    color: #ebb010;
+    color: #f7f7f7;
     position: relative;
     margin-bottom: 25px;
     font-size: 45px;
@@ -211,7 +211,7 @@
     width: 100%;
     height: 65px;
     padding: 0 5px;
-    border: 2px solid #ffde40;
+    border: 2px solid #ffffff;
     cursor: pointer;
     border-radius: 50px;
     display: flex;
@@ -224,7 +224,7 @@
     padding: 21px;
     width: 30px;
     height: 30px;
-    background: url(../images/faq/add.png) no-repeat 9px 9px #ffde40;
+    background: url(../images/faq/add.png) no-repeat 9px 9px #faba8e;
     border-radius: 50px;
     float: left;
     transition: all 0.5s ease-in;
@@ -235,7 +235,7 @@
     margin: 0;
     padding: 3px 0 0 0;
     font-weight: normal;
-    color: #ffde40;
+    color: #ffffff;
     transition: all 0.5s ease-in;
     font-weight: 500;
 }
@@ -247,7 +247,7 @@
 }
 
 .active-faq {
-    background-color: #ffde40;
+    background-color: #faba8e;
     color: #fff;
 }
 

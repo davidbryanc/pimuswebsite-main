@@ -17,11 +17,11 @@
         <div class="image-slider">
             <div class="slide active">
                 <img src="{{ url('/assets/images/slider/1.jpg') }}" alt="1">
-                
+
             </div>
             <div class="slide">
                 <img src="{{ url('/assets/images/slider/2.jpg') }}" alt="2">
-                
+
             </div>
             <div class="slide">
                 <img src="{{ url('/assets/images/slider/3.jpg') }}" alt="3">
@@ -155,8 +155,8 @@
                     </form>
                 </div>
                 <div class="phone-info col-lg-6 wow fadeInLeft">
-                    <h4 style="color: #ffde40">Contact Us</h4>
-                    <h2 style="color: #ffde40"><a style="color: #ffde40" href="https://www.instagram.com/pimus11/"
+                    <h4 style="color: #ffffff">Contact Us</h4>
+                    <h2 style="color: #ffffff"><a style="color: #ffffff" href="https://www.instagram.com/pimus11/"
                             TARGET="_blank"><i class="bi bi-instagram"></i> Pimus11 </a></span></h2>
                 </div>
             </div>
