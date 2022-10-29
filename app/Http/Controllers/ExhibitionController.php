@@ -65,13 +65,13 @@ class ExhibitionController extends Controller
                 $likes = DB::table('submissions')
                 ->where('id', $id)->first()->like_count;
 
-                $tikets = Auth::user()->tiket_vote;
+                $tikets = Auth::user()->vote_tickets;
 
                 if ($tikets > 0) {
                     $decreaseTickets = DB::table('users')
                         ->where('nrp', (string)Auth::user()->nrp)
                         ->update([
-                            'tiket_vote' => $tikets - 1
+                            'vote_tickets' => $tikets - 1
                         ]);
 
                     if ($decreaseTickets == true) {
@@ -85,7 +85,7 @@ class ExhibitionController extends Controller
                         DB::table('users')
                         ->where('nrp', (string)Auth::user()->nrp)
                         ->update([
-                            'tiket_vote' => $tikets
+                            'vote_tickets' => $tikets
                         ]);
 
                         throw new Exception("Error decrease tickets");

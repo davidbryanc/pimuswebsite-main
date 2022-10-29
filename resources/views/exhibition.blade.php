@@ -27,7 +27,7 @@ PIMUS 11 - Exhibition
                     $counter = 1;
                 @endphp
                 @foreach ($submissions as $submission)
-                @if ($submission->link_drive != null)
+                @if ($submission->link_exhibition != null)
                 @php
                 $matches=array();
                 $img='';
@@ -40,7 +40,7 @@ PIMUS 11 - Exhibition
                         break;
                     
                     case 4:
-                        preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_drive, $matches);
+                        preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
                         $img='https://drive.google.com/uc?export=view&id='.$matches[0];
                         break;
                         
@@ -102,12 +102,12 @@ PIMUS 11 - Exhibition
                                 </div>
                                 <div class="modal-body">
                                     <div class="container-fluid">
-                                        {{-- <form action="{{ route('exhibition.vote', [
+                                        <form action="{{ route('exhibition.vote', [
                                             'id' => $submission->id
-                                        ]) }}" method="POST"> --}}
+                                        ]) }}" method="POST">
                                             @csrf
                                             <div class="row justify-content-center mb-3 exhibition-content">
-                                                    @switch($cabang->idlomba)
+                                                    @switch($cabang->id)
                                                         @case(1)
                                                             <div class="col-lg-4 col-md-12 mt-3">
                                                                 <a href="{{ url($img) }}" target="_blank">
