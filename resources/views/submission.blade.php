@@ -37,7 +37,7 @@
                     <tr>
                         <td data-label="Competition Name">{{ $grp->name }}</td>
                         <td data-label="Deadline">21 Oktober 2021 23:59 WIB</td>
-                        @if ($grp->link_drive != null)
+                        @if ($grp->link_exhibition != null)
                             <td data-label="Status"><span class="text_open text-success">Submitted</span></td>
                             <td data-label="Submit" class="tdButton"><button class="btnSubmit" id="submitLink"
                                     onclick="SetID({{ $grp->id }}, {{ $grp->idkelompok_ketua }})" data-bs-toggle="modal"
