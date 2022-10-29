@@ -25,7 +25,8 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::user() != null){
-            if (Auth::user()->divisi == "Admin" || Auth::user()->divisi == "Sekre" || Auth::user()->divisi == "Panitia") {
+            if (Auth::user()->role == "Admin" || Auth::user()->role == "Sekre" || Auth::user()->role == "Panitia") {
+                // dd(Auth::user()->role);
                 return redirect()->route('admin.index');
             }
         } 

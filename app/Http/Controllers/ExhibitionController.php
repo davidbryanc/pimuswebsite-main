@@ -21,10 +21,10 @@ class ExhibitionController extends Controller
 
             // Catcher jika data tidak lengkap
             foreach ($submissions as $submission) {
-                if ($submission->idlomba == null) {
-                    $idcabang = DB::table('kelompok')
-                                ->where('idkelompok', '=', $submission->idkelompok)
-                                ->first()->idlomba;
+                if ($submission->competition_categories_id == null) {
+                    $idcabang = DB::table('teams')
+                                ->where('id', '=', $submission->teams_id)
+                                ->first()->competition_categories_id;
 
                     // DB::table('pengumpulan')
                     //     ->where('id', '=', $submission->id)
@@ -45,6 +45,8 @@ class ExhibitionController extends Controller
                     ->where('user_details.role', '=', 'Ketua')
                     ->get();
 
+            // dd($submission);
+
             return view('exhibition', [
                 'submissions' => $submissions,
                 'cabang' => $cabang,
@@ -60,7 +62,7 @@ class ExhibitionController extends Controller
     {
         try {
             if (Auth::user()->email_verified_at != null) {
-                $likes = DB::table('pengumpulan')
+                $likes = DB::table('submissions')
                 ->where('id', $id)->first()->like_count;
 
                 $tikets = Auth::user()->tiket_vote;
@@ -73,7 +75,7 @@ class ExhibitionController extends Controller
                         ]);
 
                     if ($decreaseTickets == true) {
-                        DB::table('pengumpulan')
+                        DB::table('submissions')
                             ->where('id', $id)
                             ->update([
                                 'like_count' => $likes + 1

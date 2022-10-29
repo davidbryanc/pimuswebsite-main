@@ -27,20 +27,20 @@ PIMUS 11 - Exhibition
                     $counter = 1;
                 @endphp
                 @foreach ($submissions as $submission)
-                @if ($submission->link_poster_youtube!=null)
+                @if ($submission->link_drive != null)
                 @php
                 $matches=array();
                 $img='';
                 $video='';
                 $kti='';
-                switch ($submission->idlomba) {
+                switch ($submission->competition_categories_id) {
                     case 1:
                         preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_poster_youtube, $matches);
                         $img='https://drive.google.com/uc?export=view&id='.$matches[0];
                         break;
                     
                     case 4:
-                        preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_poster_youtube, $matches);
+                        preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_drive, $matches);
                         $img='https://drive.google.com/uc?export=view&id='.$matches[0];
                         break;
                         
@@ -59,19 +59,19 @@ PIMUS 11 - Exhibition
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="wrapper">
                             <div class="card-exhibition">
-                                <img src="{{ url($img) }}" alt="{{ $cabang->nama." ".$counter }}">
+                                <img src="{{ url($img) }}" alt="{{ $cabang->name." ".$counter }}">
                                 <div class="info">
-                                    <h1>{{ $cabang->nama." ".$counter }}</h1>
+                                    <h1>{{ $cabang->name." ".$counter }}</h1>
                                     <p>
                                         <i>
-                                            @if ($submission->idkelompok != null)
+                                            @if ($submission->teams_id != null)
                                                 {{-- Get group leader name if no name --}}
                                                 @php
                                                     $name = null;
         
                                                     foreach ($leaders as $leader) {
-                                                        if ($leader->idkelompok == $submission->idkelompok)
-                                                            $name = $leader->nama;
+                                                        if ($leader->teams_id == $submission->teams_id)
+                                                            $name = $leader->name;
                                                     }
                                                 @endphp
                                                 
@@ -81,7 +81,7 @@ PIMUS 11 - Exhibition
                                                     {{ $name }}
                                                 @endif
                                             @else
-                                                {{ $submission->nama }}
+                                                {{ $submission->name }}
                                             @endif    
                                         </i>
                                     </p>
@@ -102,9 +102,9 @@ PIMUS 11 - Exhibition
                                 </div>
                                 <div class="modal-body">
                                     <div class="container-fluid">
-                                        <form action="{{ route('exhibition.vote', [
+                                        {{-- <form action="{{ route('exhibition.vote', [
                                             'id' => $submission->id
-                                        ]) }}" method="POST">
+                                        ]) }}" method="POST"> --}}
                                             @csrf
                                             <div class="row justify-content-center mb-3 exhibition-content">
                                                     @switch($cabang->idlomba)
@@ -122,7 +122,7 @@ PIMUS 11 - Exhibition
                                                                 <a href="{{ url($img) }}" target="_blank">
                                                                     <img class="exhibition-img"
                                                                         src="{{ url($img) }}"
-                                                                        alt="{{ $cabang->nama." ".$counter }}">
+                                                                        alt="{{ $cabang->name." ".$counter }}">
                                                                 </a>
                                                             </div>
                                                             @break
@@ -149,14 +149,14 @@ PIMUS 11 - Exhibition
                                                     <h5>Jumlah votes: {{ $submission->like_count }}</h5>
                                                     <p class="ex-by">
                                                         Ketua :
-                                                        @if ($submission->idkelompok != null)
+                                                        @if ($submission->teams_id != null)
                                                             {{-- Get group leader name if no name --}}
                                                             @php
                                                                 $name = null;
         
                                                                 foreach ($leaders as $leader) {
-                                                                    if ($leader->idkelompok == $submission->idkelompok)
-                                                                        $name = $leader->nama;
+                                                                    if ($leader->teams_id == $submission->teams_id)
+                                                                        $name = $leader->name;
                                                                 }
                                                             @endphp
                                                             
@@ -166,18 +166,18 @@ PIMUS 11 - Exhibition
                                                                 {{ $name }}
                                                             @endif
                                                         @else
-                                                            {{ $submission->nama }}
+                                                            {{ $submission->name }}
                                                         @endif
                                                     </p>
                                                     <p class="ex-desc">
-                                                        {{ $submission->deskripsi }}
+                                                        {{ $submission->description }}
                                                     </p>
                                                     <div class="div-vote">
                                                         @if (!Auth::guest())
-                                                            <p class="text-danger">vote left: {{ Auth::user()->tiket_vote }}</p>
+                                                            <p class="text-danger">vote left: {{ Auth::user()->vote_tickets }}</p>
                                                         @endif
 
-                                                        @if (time() <= strtotime("2021-11-12 00:00:00"))
+                                                        @if (time() <= strtotime("2023-11-12 00:00:00"))
                                                             <button type="submit" class="btnVote">Vote</button>
                                                         @else
                                                             <br>

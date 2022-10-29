@@ -33,6 +33,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('submitlink', "SubmissionController@submitLink")->name('submitlink');
     Route::post('/exhibition/{id}/vote', 'ExhibitionController@vote')->name('exhibition.vote');
     Route::get('/registration/cabang/register', 'RegisterLomba@showRegister');
+    
     Route::group(['middleware' => ['admin']], function () {
         
         // admin route
