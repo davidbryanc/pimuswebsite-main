@@ -80,7 +80,8 @@
                         </div>
                     </a>
                 </div>
-                <div class='col-lg-3 col-sm-6 mb-5'>
+       
+                <div class='col-lg-4 col-sm-6 mb-5'>
                     <a href='/registration/cabang?cabang=5'>
                         <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.5s'>
                             <div class='hidden-content'>
@@ -93,7 +94,7 @@
                         </div>
                     </a>
                 </div>
-                <div class='col-lg-3 col-sm-6 mb-5'>
+                <div class='col-lg-4 col-sm-6 mb-5'>
                     <a href='/registration/cabang?cabang=7'>
                         <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.5s'>
                             <div class='hidden-content'>
@@ -106,7 +107,7 @@
                         </div>
                     </a>
                 </div>
-                <div class='col-lg-3 col-sm-6 mb-5'>
+                {{-- <div class='col-lg-3 col-sm-6 mb-5'>
                     <a href='/registration/cabang?cabang=6'>
                         <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.4s'>
                             <div class='hidden-content'>
@@ -118,8 +119,8 @@
                             </div>
                         </div>
                     </a>
-                </div>
-                <div class='col-lg-3 col-sm-6 mb-5'>
+                </div> --}}
+                <div class='col-lg-4 col-sm-6 mb-5'>
                     <a href='/registration/cabang?cabang=8'>
                         <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.5s'>
                             <div class='hidden-content'>
