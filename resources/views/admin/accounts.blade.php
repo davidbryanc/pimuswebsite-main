@@ -40,12 +40,12 @@
             @foreach ($arrAccounts as $account)
                 <tr>
                     <th scope="row">{{ $account->nrp }}</th>
-                    <td>{{ $account->nama }}</td>
+                    <td>{{ $account->name }}</td>
                     <td>{{ $account->email }}</td>
-                    <td>{{ $account->divisi }}</td>
-                    <td>{{ $account->tiket_vote }}</td>
+                    <td>{{ $account->role }}</td>
+                    <td>{{ $account->vote_tickets }}</td>
                     <td>{{ $account->email_verified_at != null ? 'Yes' : 'No' }}</td>
-                    @if (Auth::user()->divisi == "Admin")                    
+                    @if (Auth::user()->role == "Admin")                    
                         <td>
                             <!-- Button Update User trigger modal -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Show{{ $account->nrp }}">
@@ -70,18 +70,18 @@
                                     <div class="modal-header">
                                         <input type="hidden" name="nrp" value="{{ $account->nrp }}">
     
-                                        <h5 class="modal-title" id="Show{{ $account->nrp }}Label">UPDATE : {{ $account->nama }} ({{ $account->nrp }})</h5>
+                                        <h5 class="modal-title" id="Show{{ $account->nrp }}Label">UPDATE : {{ $account->name }} ({{ $account->nrp }})</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div>
                                             <label class="form-label">Divisi :</label>
                                             <select name="updateDivisi" id="updateDivisi" class="form-select">
-                                                <option value="Admin"{{ $account->divisi == "Admin" ? ' selected=True' : ''}}>Admin</option>
-                                                <option value="Sekre"{{ $account->divisi == "Sekre" ? ' selected=True' : ''}}>Sekre</option>
-                                                <option value="Acara"{{ $account->divisi == "Acara" ? ' selected=True' : ''}}>Acara</option>
-                                                <option value="Panitia"{{ $account->divisi == "Panitia" ? ' selected=True' : ''}}>Panitia</option>
-                                                <option value="Umum"{{ $account->divisi == "Umum" ? ' selected=True' : ''}}>Umum</option>
+                                                <option value="Admin"{{ $account->role == "Admin" ? ' selected=True' : ''}}>Admin</option>
+                                                <option value="Sekre"{{ $account->role == "Sekre" ? ' selected=True' : ''}}>Sekre</option>
+                                                <option value="Acara"{{ $account->role == "Acara" ? ' selected=True' : ''}}>Acara</option>
+                                                <option value="Panitia"{{ $account->role == "Panitia" ? ' selected=True' : ''}}>Panitia</option>
+                                                <option value="Umum"{{ $account->role == "Umum" ? ' selected=True' : ''}}>Umum</option>
                                             </select>
                                         </div>
             
@@ -114,12 +114,12 @@
                                     <div class="modal-header">
                                         <input type="hidden" name="nrp" value="{{ $account->nrp }}">
     
-                                        <h5 class="modal-title" id="Delete{{ $account->nrp }}Label">DELETE : {{ $account->nama }} ({{ $account->nrp }})</h5>
+                                        <h5 class="modal-title" id="Delete{{ $account->nrp }}Label">DELETE : {{ $account->name }} ({{ $account->nrp }})</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <label>
-                                            This action will <b>DELETE</b> {{ $account->nama }} ({{ $account->nrp }}) from data.
+                                            This action will <b>DELETE</b> {{ $account->name }} ({{ $account->nrp }}) from data.
                                         </label>
                                         <label>
                                             Are You sure ?

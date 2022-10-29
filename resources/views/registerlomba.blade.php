@@ -51,6 +51,7 @@
                         <input type="text" id="nrpKetua" pattern="[0-9]{9}" onchange="nrp();" title="NRP UBAYA" placeholder="NRP Ketua Kelompok" maxlength="9" required><br>
 
                         <input type="text" name="line" placeholder="ID Line Ketua Kelompok" required><br>
+                        <input type="text" name="wa" placeholder="Nomor WhatsApp Ketua Kelompok" required><br>
 
                         <label>Surat Pernyataan Kesediaan Mewakili Ubaya (.pdf)</label><br>
                         <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
@@ -67,13 +68,6 @@
                         <input type="radio" id="jumlahAnggota5" name="jumlahAnggota" value="5" onclick="displayForm(this.value);" required>
                         <label for="jumlahAnggota5">5</label><br>
                         <label class="label-keterangan">*) termasuk ketua kelompok</label><br>
-
-                        <label>Jenis Kelompok</label><br>
-                        <input type="radio" id="homogen" name="jenisKelompok" value="homogen" checked required>
-                        <label for="homogen">Homogen (berasal dari fakultas yang sama)</label>
-                        <br>
-                        <input type="radio" id="heterogen" name="jenisKelompok" value="heterogen" required>
-                        <label for="heterogen">Heterogen (berasal dari fakultas yang berbeda)</label><br>
                         ';
                     }
                     else
@@ -84,6 +78,8 @@
                         <input type="text" pattern="[0-9]{9}" name="nrpAnggota[]" title="NRP UBAYA" placeholder="NRP" maxlength="9" required><br>
 
                         <input type="text" name="line" placeholder="ID Line" required><br>
+
+                        <input type="text" name="wa" placeholder="Nomor WhatsApp" required><br>
                         ';   
                     }
                     $formPendaftaran = '
@@ -96,10 +92,6 @@
                     <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
                     <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
                         format nama file: KesediaanMP_Nama Depan_NRP</label><br>
-
-                    <label>Borang (.pdf)</label>
-                    <input type="file" name="borang" class="inputLomba" id="form-pendaftaran" accept=".pdf" required><br>
-                    <label class="label-keterangan">*) format nama file: BPMP_Nama Depan_NRP</label><br>
 
                     <label>Rekap IPK (.pdf)</label><br>
                     <input type="file" name="rekapIPK" class="inputLomba" accept=".pdf" required><br>
@@ -136,16 +128,6 @@
                     <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
                     <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
                     format nama file: Surat Pernyataan_Nama_NRP</label><br>
-
-                    <label>Jenis Kompetisi</label><br>
-                    <input type="radio" id="matematika" name="jenisKompetisi" value="matematika" checked required>
-                    <label for="matematika">Matematika</label>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" id="fisika" name="jenisKompetisi" value="fisika" required>
-                    <label for="fisika">Fisika</label>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" id="kimia" name="jenisKompetisi" value="kimia" required>
-                    <label for="kimia">Kimia</label>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" id="biologi" name="jenisKompetisi" value="biologi" required>
-                    <label for="biologi">Biologi</label><br>
                     
                     <label>Scan KTM / Screenshot Kartu Studi MyUbaya (.pdf)</label><br>
                     <input type="file" name="ktm1" class="inputLomba" accept=".pdf" required><br>

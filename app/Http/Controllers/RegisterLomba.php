@@ -57,7 +57,6 @@ class RegisterLomba extends Controller
             rrmdir("storage/pasFoto/".$contestName."/".$idkelompok);
             rrmdir("storage/ktm/".$contestName."/".$idkelompok);
             rrmdir("storage/jadwalKuliah/".$contestName."/".$idkelompok);
-            rrmdir("storage/borang/".$contestName."/".$idkelompok);
             rrmdir("storage/rekapIPK/".$contestName."/".$idkelompok);
             rrmdir("storage/daftarPrestasi/".$contestName."/".$idkelompok);
             
@@ -104,10 +103,12 @@ class RegisterLomba extends Controller
                 if ($i == 1) {
                     $role = "Ketua";
                     $idLine = $req->line;
+                    $wa = $req->wa;
                 }
                 else {
                     $role = "Anggota";
                     $idLine = null;
+                    $wa = null;
                 }
 
                 // dd($nrp);
@@ -116,6 +117,7 @@ class RegisterLomba extends Controller
                     'id_card' => $path_ktm,
                     'self_photo' => $path_pasFoto,
                     'line' => $idLine,
+                    'phone_number' => $wa,
                     'teams_id' => $idkelompok,
                     'role' => $role
                 ]);
@@ -134,9 +136,6 @@ class RegisterLomba extends Controller
             switch($idLomba)
             {
                 case 1:
-                    $borang = $req->file("borang");
-                    $borang->move('storage/borang/'.$contestName.'/'.$idkelompok,$borang->getClientOriginalName());
-                    $path_borang = 'storage/borang/'.$contestName.'/'.$idkelompok.'/'.$borang->getClientOriginalName();
                     $rekapIPK = $req->file("rekapIPK");
                     $rekapIPK->move('storage/rekapIPK/'.$contestName.'/'.$idkelompok,$rekapIPK->getClientOriginalName());
                     $path_rekapIPK = 'storage/rekapIPK/'.$contestName.'/'.$idkelompok.'/'.$rekapIPK->getClientOriginalName();
@@ -144,23 +143,22 @@ class RegisterLomba extends Controller
                     $daftarPrestasi->move('storage/daftarPrestasi/'.$contestName.'/'.$idkelompok,$daftarPrestasi->getClientOriginalName());
                     $path_daftarPrestasi = 'storage/daftarPrestasi/'.$contestName.'/'.$idkelompok.'/'.$daftarPrestasi->getClientOriginalName();
                     DB::table('user_details')->where('nrp', $req->nrpAnggota[0])->update([
-                        'borang' => $path_borang,
                         'gpa_recap' => $path_rekapIPK,
                         'achievement_list' => $path_daftarPrestasi
                     ]);
                 break;
-                case 5:
-                    $jenisKompetisi = $req->jenisKompetisi;
-                    DB::table('user_details')->where('nrp', $req->nrpAnggota[0])->update([
-                        'competition_type' => $jenisKompetisi
-                    ]);
-                break;
-                default:
-                    $jenisKelompok = $req->jenisKelompok;
-                    DB::table('teams')->where('id',$idkelompok)->update([
-                        'team_type' => $jenisKelompok
-                    ]);
-                break;
+                // case 5:
+                //     $jenisKompetisi = $req->jenisKompetisi;
+                //     DB::table('user_details')->where('nrp', $req->nrpAnggota[0])->update([
+                //         'competition_type' => $jenisKompetisi
+                //     ]);
+                // break;
+                // default:
+                //     $jenisKelompok = $req->jenisKelompok;
+                //     DB::table('teams')->where('id',$idkelompok)->update([
+                //         'team_type' => $jenisKelompok
+                //     ]);
+                // break;
             }
 
             $pesan = 'Registrasi berhasil!';

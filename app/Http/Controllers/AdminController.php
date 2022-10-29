@@ -15,11 +15,11 @@ class AdminController extends Controller
     
     public function accounts()
     {
-        $accounts = DB::table('users')->orderBy('divisi')->orderBy('nrp')->get();
+        $accounts = DB::table('users')->orderBy('role')->orderBy('nrp')->get();
 
         $countAccount = DB::table('users')->count();
 
-        $countTicket = DB::table('users')->select(DB::raw('SUM(tiket_vote) as count_ticket'))->get();
+        $countTicket = DB::table('users')->select(DB::raw('SUM(vote_tickets) as count_ticket'))->get();
 
         return view('admin.accounts', ['arrAccounts' => $accounts, 'countAccount' => $countAccount, 'countTicket'=>$countTicket]);
     }
@@ -27,24 +27,26 @@ class AdminController extends Controller
     public function groups()
     {
         // get group data
-        $groups = DB::table('kelompok')
-                    ->join('cabang_lomba', 'kelompok.idlomba', '=', 'cabang_lomba.idlomba')
-                    ->select('kelompok.*', DB::raw('cabang_lomba.nama as nama_cabang'))
+        $groups = DB::table('teams')
+                    ->join('competition_categories', 'teams.competition_categories_id', '=', 'competition_categories.id')
+                    ->select('teams.*', DB::raw('competition_categories.name as nama_cabang') , DB::raw('competition_categories.competition_type'))
                     ->orderBy('nama_cabang')
                     ->get();
 
         // get all users data
         $detail_users = DB::table('users')
-                        ->join('detail_user', 'users.nrp', '=', 'detail_user.nrp')
-                        ->select(DB::raw('users.nama as nama_user'), 'users.email', 'detail_user.*')
-                        ->orderBy('detail_user.role', 'desc')
+                        ->join('user_details', 'users.nrp', '=', 'user_details.nrp')
+                        ->select(DB::raw('users.name as nama_user'), 'users.email', 'user_details.*')
+                        ->orderBy('user_details.role', 'desc')
                         ->get();
 
         // get all submissions
-        $submissions = DB::table('kelompok')
-                        ->join('pengumpulan', 'kelompok.idkelompok', '=', 'pengumpulan.idkelompok')
-                        ->select('kelompok.idkelompok', 'pengumpulan.*')
+        $submissions = DB::table('teams')
+                        ->join('submissions', 'teams.id', '=', 'submissions.teams_id')
+                        ->select('teams.id', 'submissions.*')
                         ->get();
+
+        // dd($groups);                
 
         return view('admin.groups', ['arrGroups'=>$groups, 'arrDetailUsers'=>$detail_users, 'arrSubmissions'=>$submissions]);
     }
@@ -73,7 +75,7 @@ class AdminController extends Controller
             $verification = null;  
 
         DB::table('users')->where('nrp', '=', $nrp)
-            ->update(['divisi'=>$divisi, 'email_verified_at'=>$verification]);
+            ->update(['role'=>$divisi, 'email_verified_at'=>$verification]);
         
         return redirect()->route('admin.accounts');
     }
@@ -88,8 +90,8 @@ class AdminController extends Controller
         else
             $message = "";
         
-        DB::table('kelompok')->where('idkelompok', '=', $idkelompok)
-            ->update(['status'=>$status, 'pesan'=>$message]);
+        DB::table('teams')->where('id', '=', $idkelompok)
+            ->update(['status'=>$status, 'message'=>$message]);
         
         return redirect()->route('admin.groups');
     }
@@ -98,17 +100,17 @@ class AdminController extends Controller
     {
         $nrp = $_POST['nrp'];
         
-        $idkelompok = DB::table('detail_user')
-                        ->select('idkelompok')
+        $idkelompok = DB::table('user_details')
+                        ->select('teams_id')
                         ->where('nrp', '=', $nrp)
                         ->where('role', '=', 'Ketua')
                         ->get();
 
-        DB::table('detail_user')->where('nrp', '=', $nrp)->delete();
+        DB::table('user_details')->where('nrp', '=', $nrp)->delete();
         
         foreach($idkelompok as $id) {
-            DB::table('pengumpulan')->where('idkelompok', '=', $id->idkelompok)->delete();
-            DB::table('kelompok')->where('idkelompok', '=', $id->idkelompok)->delete();
+            DB::table('submissions')->where('teams_id', '=', $id->idkelompok)->delete();
+            DB::table('teams')->where('id', '=', $id->idkelompok)->delete();
         }
         
         DB::table('users')->where('nrp', '=', $nrp)->delete();
@@ -118,11 +120,11 @@ class AdminController extends Controller
 
     public function specialCase()
     {
-        $contest = DB::table('cabang_lomba')->get();
+        $contest = DB::table('competition_categories')->get();
 
         $contestants = DB::table('users')
                         ->select('nrp', 'nama')
-                        ->where('divisi', '=', 'Umum')
+                        ->where('role', '=', 'Umum')
                         ->get();
 
         return view('admin.specialCase', ['contest'=>$contest, 'contestants'=>$contestants]);
@@ -132,21 +134,21 @@ class AdminController extends Controller
     {
         // Generate idkelompok where is Empty
         $idGroup = 1;
-        $group = DB::table('kelompok')->where('idkelompok', '=', $idGroup)->get();
+        $group = DB::table('teams')->where('id', '=', $idGroup)->get();
 
         while (!$group->isEmpty()) {
             $idGroup++;
-            $group = DB::table('kelompok')->where('idkelompok', '=', $idGroup)->get();
+            $group = DB::table('teams')->where('id', '=', $idGroup)->get();
         }
 
         $idContest = $request->contest;
 
         // Insert Data to kelompok table
-        DB::table('kelompok')->insert([
-            'idkelompok' => $idGroup,
-            'idlomba' => $idContest,
-            'formulir_pendaftaran' => "empty",
-            'surat_pernyataan' => "empty",
+        DB::table('teams')->insert([
+            'id' => $idGroup,
+            'competition_categories_id' => $idContest,
+            'registration_form' => "empty",
+            'statement_letter' => "empty",
             'status' => 'Pending'
         ]);
 
@@ -155,19 +157,19 @@ class AdminController extends Controller
             $nrp = $request->nrpKetua;
 
             $checkNRP =  DB::table('users')
-                            ->select('nrp', 'nama')
+                            ->select('nrp', 'name')
                             ->where('nrp', '=', $nrp)
                             ->get();
 
             if ($checkNRP->isEmpty())
                 return redirect()->route('admin.groups', ['messageType'=>'error', 'message'=>"NRP yang diinputkan salah, Silakan coba lagi"]);
 
-            DB::table('detail_user')->insert([
+            DB::table('user_details')->insert([
                 'nrp' => $nrp,
-                'idkelompok' => $idGroup,
+                'teams_id' => $idGroup,
                 'role' => "Ketua",
-                'ktm' => "empty",
-                'pas_foto' => "empty"
+                'id_card' => "empty",
+                'self_photo' => "empty"
             ]);
 
             // Anggota
@@ -178,19 +180,19 @@ class AdminController extends Controller
                     $nrp = $request->nrpAnggota[$i];
 
                     $checkNRP =  DB::table('users')
-                            ->select('nrp', 'nama')
+                            ->select('nrp', 'name')
                             ->where('nrp', '=', $nrp)
                             ->get();
 
                     if ($checkNRP->isEmpty())
                         return redirect()->route('admin.groups', ['messageType'=>'error', 'message'=>"NRP yang diinputkan salah, Silakan coba lagi"]);
     
-                    DB::table('detail_user')->insert([
+                    DB::table('user_details')->insert([
                         'nrp' => $nrp,
-                        'idkelompok' => $idGroup,
+                        'teams_id' => $idGroup,
                         'role' => "Anggota",
-                        'ktm' => "empty",
-                        'pas_foto' => "empty"
+                        'id_card' => "empty",
+                        'self_photo' => "empty"
                     ]);
                 }
             }
@@ -200,20 +202,21 @@ class AdminController extends Controller
 
     public function submissions()
     {
-        $submissions = DB::table('pengumpulan')
-                        ->orderBy('idlomba')
+        $submissions = DB::table('submissions')
+                        ->orderBy('competition_categories_id')
                         ->orderBy('like_count', 'desc')
                         ->get();
+        // dd($submissions);
 
         $leaders = DB::table('users')
-                    ->join('detail_user', 'users.nrp', '=', 'detail_user.nrp')
-                    ->select('users.nama', 'detail_user.idkelompok')
-                    ->where('detail_user.role', '=', 'Ketua')
+                    ->join('user_details', 'users.nrp', '=', 'user_details.nrp')
+                    ->select('users.name', 'user_details.teams_id')
+                    ->where('user_details.role', '=', 'Ketua')
                     ->get();
 
-        $contests = DB::table('cabang_lomba')->get();
+        $contests = DB::table('competition_categories')->get();
 
-        $countLike = DB::table('pengumpulan')->select(DB::raw('SUM(like_count) as count_like'))->get();
+        $countLike = DB::table('submissions')->select(DB::raw('SUM(like_count) as count_like'))->get();
 
         return view('admin.submissions', ['submissions'=>$submissions, 'leaders'=>$leaders, 'contests'=>$contests, 'countLike'=>$countLike]);
     }
@@ -224,13 +227,17 @@ class AdminController extends Controller
         $idContest = $request->updateContest;
         $name = $request->updateName;
         $description = $request->updateDescription;
-        $linkDrive = $request->updateLinkDrive;
-        $linkPosterYoutube = $request->updateLinkPosterYoutube;
+        $linkExhibition = $request->updateLinkExhibition;
+        $linkProposal = $request->updateLinkProposal;
 
-        if ($id != null && $idContest != null && $name != null && $description != null && $linkDrive != null && $linkPosterYoutube != null) {
-            DB::table('pengumpulan')
+        if ($id != null && $idContest != null && $description != null) {
+            DB::table('submissions')
                 ->where('id', '=', $id)
-                ->update(['idlomba'=>$idContest, 'nama'=>$name, 'deskripsi'=>$description, 'link_drive'=>$linkDrive, 'link_poster_youtube'=>$linkPosterYoutube]);
+                ->update(
+                    ['competition_categories_id'=>$idContest, 
+                    'description'=>$description, 
+                    'link_exhibition'=>$linkExhibition, 
+                    'link_proposal'=>$linkProposal]);
 
             return redirect()->route('admin.submissions', ['messageType'=>"success", 'message'=>"Data pengumpulan atas nama $name berhasil diubah"]);
         }
@@ -243,7 +250,7 @@ class AdminController extends Controller
         $id = $request->id;
 
         if ($id != null) {
-            DB::table('pengumpulan')
+            DB::table('submissions')
                 ->where('id', '=', $id)
                 ->delete();
 
@@ -256,33 +263,33 @@ class AdminController extends Controller
     public function addSubmission(Request $request)
     {
         $idContest = $request->addContest;
-        $name = $request->addName;
+        $teams_id = $request->addTeam;
         $description = $request->addDescription;
         $linkDrive = $request->addLinkDrive;
         $linkPosterYoutube = $request->addLinkPosterYoutube;
 
-        if ($idContest != null && $name != null && $description != null && $linkDrive != null && $linkPosterYoutube != null) {
+        if ($idContest != null && $teams_id != null && $description != null) {
             $id = 0;
 
             do {
                 $id++;
 
-                $submissions = DB::table('pengumpulan')
+                $submissions = DB::table('submissions')
                                 ->where('id', '=', $id)
                                 ->get();
             } while ($submissions->isNotEmpty());
 
-            DB::table('pengumpulan')->insert([
+            DB::table('submissions')->insert([
                 'id' => $id,
-                'idlomba' => $idContest,
-                'nama' => $name,
-                'deskripsi' => $description,
-                'link_drive' => $linkDrive,
-                'like_count' => 0,
-                'link_poster_youtube' => $linkPosterYoutube
+                'teams_id' => $teams_id,
+                'competition_categories_id' => $idContest,
+                'link_exhibition' => $linkDrive,
+                'link_proposal' => $linkPosterYoutube,
+                'description' => $description,
+                'like_count' => 0
             ]);
 
-            return redirect()->route('admin.submissions', ['messageType'=>"success", 'message'=>"Data pengumpulan atas nama $name berhasil ditambahkan"]);
+            return redirect()->route('admin.submissions', ['messageType'=>"success", 'message'=>"Data pengumpulan berhasil ditambahkan"]);
         }
         else
             return redirect()->route('admin.submissions', ['messageType'=>"error", 'message'=>"Terjadi kesalan dalam penambahan data, mohon cek kembali dan coba lagi"]);

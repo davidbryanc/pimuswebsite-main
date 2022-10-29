@@ -17,7 +17,7 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user() &&  (Auth::user()->divisi == "Admin" ||Auth::user()->divisi == "Sekre" || Auth::user()->divisi == 'Acara' || Auth::user()->divisi == "Panitia")) {
+        if (Auth::user() &&  (Auth::user()->role == "Admin" ||Auth::user()->role == "Sekre" || Auth::user()->role == 'Acara' || Auth::user()->role == "Panitia")) {
             return $next($request);
        }
        return redirect()->route('index');

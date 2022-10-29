@@ -14,7 +14,7 @@ class ExhibitionController extends Controller
 {
     public function index($idlomba)
     {
-        $viewable = [1, 4, 6, 7];
+        $viewable = [1, 4, 7];
         $cabang = CompetitionCategory::find($idlomba);
         if (in_array($idlomba, $viewable)) {
             $submissions = Submission::all();
