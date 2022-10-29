@@ -73,7 +73,7 @@
                 <h5>Apakah pemenang PIMUS tahun sebelumnya boleh mengikuti PIMUS tahun ini?</h5>
             </div>
             <div class="panel">
-                <p>Tidak.</p>
+                <p>Boleh.</p>
             </div>
 
             <div class="accordion-faq">
@@ -81,7 +81,7 @@
                 <h5>Apakah dalam satu tim diperbolehkan terdiri dari fakultas yang berbeda?</h5>
             </div>
             <div class="panel">
-                <p>Boleh kecuali perwakilan tim tiap fakultas.</p>
+                <p>Boleh.</p>
             </div>
 
             <div class="accordion-faq">

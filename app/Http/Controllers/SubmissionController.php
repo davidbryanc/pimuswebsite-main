@@ -30,7 +30,10 @@ class SubmissionController extends Controller
             ->where('user_details.nrp', '=', $user->nrp)
             ->where('user_details.role', '=', 'Ketua')
             ->where('teams.status', '=', 'Terima')
+            ->where('competition_categories.id', '=', [4, 7])
             ->get();
+        
+        // dd($group);
 
         if ($group->isNotEmpty()) {
             if (count($group) > 0) {
