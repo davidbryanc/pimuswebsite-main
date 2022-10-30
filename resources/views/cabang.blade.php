@@ -33,7 +33,7 @@
                     </div>
                     <div class="info">
                         <h1 class="title text-lowercase">'.$category_name.'</h1>
-                        <p class="desc">'.$category->description.'</p>';
+                        <p class="desc">'.$category->desc.'</p>';
                 if ($userId==null) {
                     if ($open == true) {
                         if($category->id==8)

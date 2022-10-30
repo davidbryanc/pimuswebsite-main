@@ -128,9 +128,8 @@
                         <p style="color: #fff;">Pekan Ilmiah Mahasiswa Universitas Surabaya atau PIMUS merupakan acara
                             tahunan yang diselenggarakan oleh Direktorat Pengembangan Kemahasiswaan Universitas Surabaya
                             dengan tujuan untuk menyaring mahasiswa/i terbaik UBAYA untuk menjadi perwakilan pada kompetisi
-                            nasional. Di tahun yang kesebelas ini, PIMUS memiliki 8 cabang lomba yang terdiri dari PKM 5
-                            Bidang, Karya Tulis Ilmiah, Pemilihan Mahasiswa Berprestasi, Video Digital Pendidikan, Poster
-                            Digital, Kompetisi MIPA, Debat Bahasa Inggris, dan Debat Bahasa Indonesia. Yuk daftarkan dirimu
+                            nasional. Di tahun yang kesebelas ini, PIMUS memiliki 7 cabang lomba yang terdiri dari PKM 4
+                            Bidang, Karya Tulis Ilmiah, Pemilihan Mahasiswa Berprestasi, Video Digital Pendidikan, Kompetisi MIPAS, Debat Bahasa Inggris, dan Debat Bahasa Indonesia. Yuk daftarkan dirimu
                             sekarang, dapatkan pengalaman berharga, kesempatan menjadi perwakilan UBAYA, dan total hadiah
                             puluhan juta rupiah!</p>
                     </div>
