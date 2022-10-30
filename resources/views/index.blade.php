@@ -25,12 +25,10 @@
                             <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                                 <h6><img src="{{ url('assets/images/web/Asset 1.png') }}" alt=""> </h6>
                                 <p style="color: #fff; font-weight: bold;">THE SURVIVOR, THE CONTRIVER</p>
-                                <p style="color: #fff" font size="1">Eksistensi dan masa depan dunia bergantung pada
-                                    manusia.
-                                    Untuk menyelamatkan dunia dan terus maju menjadi generasi penerus bangsa, manusia
-                                    “Conqueror”
-                                    dibutuhkan, yakni seorang penakluk yang berjuang dengan menyusun strategi untuk membawa
-                                    perubahan.</h6>
+                                <p style="color: #fff" font size="1">Para conqueror yang telah berhasil memulihkan dunia melihat ‘Gate’
+                                    yang mengarahkan mereka ke earth 2.0. Mereka harus unlock area baru ini menggunakan KOMPONEN. Setelah
+                                    semua diunlock, mereka harus berpisah tiap DISTRICT yang akan membuat mereka bisa menduduki kedudukan
+                                    tertinggi di earth 2.0—throne of triumph.</h6>
 
                             </div>
                         </div>
@@ -153,43 +151,47 @@
             <ul>
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #ffffff" class="date">16-22 September 2021</h3>
+                        <h3 style="color: #ffffff" class="date">7-14 November 2022</h3>
                         <h1>Open Registration </h1>
                     </div>
                 </li>
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #ffffff" class="date">25 September 2021</h3>
+                        <h3 style="color: #ffffff" class="date">16-17 November 2022</h3>
                         <h1>Technical Meeting PKM, PILMAPRES, Video Digital Pendidikan, KTI</h1>
                     </div>
                 </li>
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #ffffff" class="date">16 Oktober 2021</h3>
+                        <h3 style="color: #ffffff" class="date">23-24 November 2022</h3>
                         <h1>Klinik PKM, PILMAPRES, Video Digital Pendidikan, KTI</h1>
                     </div>
                 </li>
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #ffffff" class="date">18-24 Oktober 2021</h3>
+                        <h3 style="color: #ffffff" class="date">30 November 2022</h3>
                         <h1>Pengumpulan Proposal untuk di Revisi (PKM, KTI, dan Pilmapres)</h1>
                     </div>
                 </li>
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #ffffff" class="date">28-29 Oktober 2021</h3>
+                        <h3 style="color: #ffffff" class="date">2 Desember 2022</h3>
                         <h1>Pengumpulan Final Proposal (PKM, KTI, dan Pilmapres)</h1>
                     </div>
                 </li>
+                {{--
+
                 <li>
                     <div class="timeline-content">
                         <h3 style="color: #ffffff" class="date">30 Oktober 2021</h3>
                         <h1>Technical Meeting Debat Indonesia, Debat Inggris, K-MIPA, Poster</h1>
                     </div>
                 </li>
+
+                --}}
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #ffffff" class="date">8-12 November 2021</h3>
+                        <h3 style="color: #ffffff" class="date">5-9 Desember 2022</h3>
                         <h1>Acara Perlombaan PIMUS XI</h1>
                     </div>
                 </li>
