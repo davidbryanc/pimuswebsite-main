@@ -20,16 +20,16 @@
                             <label>Edit Kelompok</label><br>
                             @foreach ($team as $item1)
                                 @foreach ($teamLeader as $ketua)
-                                    @if ($ketua->idkelompok == $item1->idkelompok)
-                                            <input type="radio" id="{{$item1->idkelompok}}" name="idKelompok" value="{{$item1->idkelompok}}" required>
-                                            <label for="{{$item1->idkelompok}}">Kelompok {{$item1->idkelompok}} (Ketua : {{$ketua->nama}})</label><br>
+                                    @if ($ketua->id == $item1->id)
+                                            <input type="radio" id="{{$item1->id}}" name="idKelompok" value="{{$item1->id}}" required>
+                                            <label for="{{$item1->id}}">Kelompok {{$item1->id}} (Ketua : {{$ketua->name}})</label><br>
                                     @endif
                                 @endforeach
                             @endforeach
                             <label><small>*) Pilihan di atas ini ada karena anda telah terdaftar pada 1 atau lebih kelompok pada cabang lomba ini</small></label><br><br>
                         @else
                             {{-- Error because no leader --}}
-                            <input type="hidden" name="idKelompok" value="{{$item1->idkelompok}}" readonly>
+                            <input type="hidden" name="idKelompok" value="{{$item1->id}}" readonly>
                         @endif
                     @else
                         <input type="text" name="idKelompok" value='' readonly hidden>

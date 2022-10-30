@@ -1,6 +1,6 @@
 @if(isset($pesan))
 {
-    <script type='text/javascript'>alert('$pesan')</script>
+    <script type='text/javascript'>alert({{ $pesan }})</script>
 }
 @endif
 @extends('layout.mainweb')

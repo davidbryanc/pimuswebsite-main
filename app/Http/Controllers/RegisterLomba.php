@@ -251,7 +251,7 @@ class RegisterLomba extends Controller
                             ->where('user_details.role', '=', "Ketua")
                             ->orderBy('teams.id')
                             ->get();
-        
+                            
         if($team->isEmpty())
         {
             $team = null;

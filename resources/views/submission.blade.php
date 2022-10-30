@@ -93,7 +93,7 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row justify-content-center mb-2">
-                            @if($grp->competition_categories_id == 1 || $grp->competition_categories_id == 7)
+                            @if($grp->competition_categories_id == 7)
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="LinkGoogleDrive" class="form-label">Link Drive Poster/Video</label>
@@ -107,7 +107,7 @@
                                     </div>
                                 </div>
 
-                            @elseif($grp->competition_categories_id == 4)
+                            @elseif($grp->competition_categories_id == 1 || $grp->competition_categories_id == 4)
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="LinkGoogleDrive" class="form-label">Link Drive Poster/Video</label>
