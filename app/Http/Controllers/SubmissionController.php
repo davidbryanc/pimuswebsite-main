@@ -26,13 +26,13 @@ class SubmissionController extends Controller
             ->join('teams', 'user_details.teams_id', '=', 'teams.id')
             ->join('competition_categories', 'teams.competition_categories_id', '=', 'competition_categories.id')
             ->join('submissions', 'teams.id', '=', 'submissions.teams_id', 'left')
-            ->select(DB::raw('teams.id as idkelompok_ketua'), 'user_details.*', 'teams.*', 'competition_categories.*', 'submissions.*')
+            ->select('submissions.*', 'teams.*', 'user_details.*', 'competition_categories.*')
             ->where('user_details.nrp', '=', $user->nrp)
             ->where('user_details.role', '=', 'Ketua')
             ->where('teams.status', '=', 'Terima')
             ->where('competition_categories.id', '=', [1, 4, 7])
             ->get();
-        
+
         // dd($group);
 
         if ($group->isNotEmpty()) {
@@ -69,30 +69,46 @@ class SubmissionController extends Controller
     {
         $lomba = $request->idlomba;
         $idkelompok = $request->idkelompok;
-        $link = $request->linkdrive;
+        $linkEx = $request->linkEx;
+        $linkProp = $request->linkProp;
+        $description = $request->description;
+
+        DB::table('submissions')->insert([
+                    'teams_id' => $idkelompok,
+                    'competition_categories_id' => $lomba,
+                    'link_exhibition' => $linkEx,
+                    'link_proposal' => $linkProp,
+                    'description' => $description,
+                    'like_count' => 0
+        ]);
 
 
-        if ($lomba == 1 || $lomba == 7) {
-            DB::table('submissions')->insert([
-                'teams_id' => $idkelompok,
-                'competition_categories_id' => $lomba,
-                'link_drive' => $link,
-                'like_count' => 0
-            ]);
-            $status = "Berhasil";
-            $message = "Kelompok Anda telah berhasil mengunggah link pengumpulan.";
-        } else if ($lomba == 4 || $lomba == 8 || $lomba == 9 || $lomba == 10 || $lomba == 11) {
-            DB::table('submissions')->insert([
-                'teams_id' => $idkelompok,
-                'competition_categories_id' => $lomba,
-                'link_drive' => $link,
-            ]);
-            $status = "Berhasil";
-            $message = "Kelompok Anda telah berhasil mengunggah link pengumpulan.";
-        } else {
-            $status = "Gagal";
-            $message = "Lomba kelompok Anda tidak perlu mengumpulkan link pengumpulan.";
-        }
+        // if ($lomba == 1 || $lomba == 7) {
+        //     DB::table('submissions')->insert([
+        //         'teams_id' => $idkelompok,
+        //         'competition_categories_id' => $lomba,
+        //         'link_drive' => $link,
+        //         'like_count' => 0
+        //     ]);
+        //     $status = "Berhasil";
+        //     $message = "Kelompok Anda telah berhasil mengunggah link pengumpulan.";
+        // } else if ($lomba == 4 || $lomba == 8 || $lomba == 9 || $lomba == 10 || $lomba == 11) {
+        //     DB::table('submissions')->insert([
+        //         'teams_id' => $idkelompok,
+        //         'competition_categories_id' => $lomba,
+        //         'link_drive' => $link,
+        //     ]);
+        //     $status = "Berhasil";
+        //     $message = "Kelompok Anda telah berhasil mengunggah link pengumpulan.";
+        // } else if("a"){
+
+        // } else {
+        //     $status = "Gagal";
+        //     $message = "Lomba kelompok Anda tidak perlu mengumpulkan link pengumpulan.";
+        // }
+
+        $status = "Berhasil";
+        $message = "Kelompok Anda telah berhasil mengunggah link pengumpulan.";
         return response()->json(array(
             'status' => $status,
             'message' => $message

@@ -40,13 +40,13 @@
                         @if ($grp->link_exhibition != null)
                             <td data-label="Status"><span class="text_open text-success">Submitted</span></td>
                             <td data-label="Submit" class="tdButton"><button class="btnSubmit" id="submitLink"
-                                    onclick="SetID({{ $grp->id }}, {{ $grp->idkelompok_ketua }})" data-bs-toggle="modal"
+                                    onclick="SetID({{ $grp->id }}, {{ $grp->teams_id }})" data-bs-toggle="modal"
                                     data-bs-target="#formGDriveSubmission" disabled>Submit</button>
                             </td>
                         @else
                             <td data-label="Status"><span class="text_open text-danger">NOT Submitted</span></td>
                             <td data-label="Submit" class="tdButton"><button class="btnSubmit" id="submitLink"
-                                    onclick="SetID({{ $grp->id }}, {{ $grp->idkelompok_ketua }})" data-bs-toggle="modal"
+                                    onclick="SetID({{ $grp->id }}, {{ $grp->teams_id }})" data-bs-toggle="modal"
                                     data-bs-target="#formGDriveSubmission">Submit</button></td>
                         @endif
                     </tr>
@@ -87,19 +87,51 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header" style="background-color: #ebb010;">
-                    <h5 class="modal-title text-white" id="formGDriveSubmissionLabel">Poster</h5>
+                    <h5 class="modal-title text-white" id="formGDriveSubmissionLabel">Submission</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row justify-content-center mb-2">
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label for="LinkGoogleDrive" class="form-label">Google Drive Link</label>
-                                    <input type="text" class="form-control" id="linkDrive" name="linkDrive"
-                                        placeholder="Input Google Drive Link">
+                            @if($grp->competition_categories_id == 1 || $grp->competition_categories_id == 7)
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="LinkGoogleDrive" class="form-label">Link Drive Poster/Video</label>
+                                        <input type="text" class="form-control" id="linkDrive" name="linkDrive"
+                                            placeholder="Input Google Drive Link" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="description" class="form-label">Deskripsi</label>
+                                        <textarea type="text" class="form-control" id="description" name="description"
+                                            placeholder="Deskripsi" rows="3" maxlength="200" required></textarea>
+                                    </div>
                                 </div>
-                            </div>
+
+                            @elseif($grp->competition_categories_id == 4)
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="LinkGoogleDrive" class="form-label">Link Drive Poster/Video</label>
+                                        <input type="text" class="form-control" id="linkDrive" name="linkDrive"
+                                            placeholder="Input Google Drive Link" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="LinkProposal" class="form-label">Link Drive Proposal</label>
+                                        <input type="text" class="form-control" id="LinkProposal" name="LinkProposal"
+                                            placeholder="Input Google Drive Link" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="description" class="form-label">Deskripsi</label>
+                                        <textarea type="text" class="form-control" id="description" name="description"
+                                            placeholder="Deskripsi" rows="3" maxlength="200" required></textarea>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="mb-3">
+                                    <label for="LinkProposal" class="form-label">Link Drive Proposal</label>
+                                    <input type="text" class="form-control" id="LinkProposal" name="LinkProposal"
+                                        placeholder="Input Google Drive Link" required>
+                                </div>
+                            @endif
                         </div>
                         <div class="row mb-3">
                             <div class="col"></div>
@@ -126,7 +158,27 @@
             idkelompok = pidkelompok;
         }
 
+        var linkEx = null;
+        var linkProp = null;
+        var description = null;
+
+        
         $('#btnSubmit').on('click', function() {
+            if (!confirm("Are you sure?")) return
+
+            if(idlomba == 1 || idlomba == 7){
+                var linkEx = $("#linkDrive").val()
+                var description = $("#description").val()
+            }
+            else if(idlomba == 4){
+                var linkEx = $("#linkDrive").val()
+                var linkProp = $("#linkProposal").val()
+                var description = $("#description").val()
+            }
+            else{
+                var linkProp = $("#linkProposal").val()
+            }
+
             $.ajax({
                 url: "{{ route('submitlink') }}",
                 type: "POST",
@@ -134,7 +186,9 @@
                     '_token': '<?php echo csrf_token(); ?>',
                     'idlomba': idlomba,
                     'idkelompok': idkelompok,
-                    'linkdrive': $("#linkDrive").val(),
+                    'linkEx': linkEx,
+                    'linkProp': linkProp,
+                    'description': description,
                 },
                 success: function(data) {
                     alert(data.message);
