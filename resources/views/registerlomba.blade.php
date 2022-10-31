@@ -92,6 +92,10 @@
                     <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
                     <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
                         format nama file: KesediaanMP_Nama Depan_NRP</label><br>
+                    
+                    <label>Borang (.pdf)</label>
+                    <input type="file" name="borang" class="inputLomba" id="form-pendaftaran" accept=".pdf" required><br>
+                    <label class="label-keterangan">*) format nama file: BPMP_Nama Depan_NRP</label><br>
 
                     <label>Rekap IPK (.pdf)</label><br>
                     <input type="file" name="rekapIPK" class="inputLomba" accept=".pdf" required><br>

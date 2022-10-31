@@ -24,7 +24,7 @@
                         <div class="col-lg-6 align-self-center">
                             <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                                 <h6><img src="{{ url('assets/images/web/Asset 1.png') }}" alt=""> </h6>
-                                <p style="color: #fff; font-weight: bold;">Prepare for your triumph</p>
+                                <p style="color: #fff; font-weight: bold;">PREPARE FOR YOUR TRIUMPH</p>
                                 <p style="color: #fff" font size="1">Para conqueror yang telah berhasil memulihkan dunia melihat ‘Gate’
                                     yang mengarahkan mereka ke earth 2.0. Mereka harus unlock area baru ini menggunakan KOMPONEN. Setelah
                                     semua diunlock, mereka harus berpisah tiap DISTRICT yang akan membuat mereka bisa menduduki kedudukan
