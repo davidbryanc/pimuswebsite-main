@@ -123,7 +123,7 @@ class AdminController extends Controller
         $contest = DB::table('competition_categories')->get();
 
         $contestants = DB::table('users')
-                        ->select('nrp', 'nama')
+                        ->select('nrp', 'name')
                         ->where('role', '=', 'Umum')
                         ->get();
 

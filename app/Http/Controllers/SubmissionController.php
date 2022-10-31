@@ -33,6 +33,8 @@ class SubmissionController extends Controller
             ->whereIn('competition_categories.id', [1, 4, 7, 8, 9, 10, 11])
             ->get();
 
+        // dd($group);
+
         if ($group->isNotEmpty()) {
             if (count($group) > 0) {
                 return view('submission', ["group" => $group]);

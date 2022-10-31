@@ -115,7 +115,7 @@
                             @elseif($grp->competition_categories_id == 1 || $grp->competition_categories_id == 4)
                                 <div class="col">
                                     <div class="mb-3">
-                                        <label for="LinkGoogleDrive" class="form-label">Link Drive Poster/Video</label>
+                                        <label for="LinkGoogleDrive" class="form-label">Link Drive Poster</label>
                                         <input type="text" class="form-control" id="linkDrive" name="linkDrive"
                                             placeholder="Input Google Drive Link" required>
                                     </div>

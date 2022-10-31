@@ -158,14 +158,14 @@
                                                         </span><br>
                                                     @endif
     
-                                                    <span>
+                                                    {{-- <span>
                                                         Jadwal Kuliah :
                                                         @if ($detailUser->schedule != "empty")
                                                              <a href="/{{ $detailUser->schedule }}" target="_blank">Jadwal Kuliah {{ $detailUser->nama_user }}</a>
                                                         @else
                                                             -
                                                         @endif
-                                                    </span><br>
+                                                    </span><br> --}}
                                                     
                                                     {{-- Khusus Pilmapres --}}
                                                     @if ($group->nama_cabang == "Pilmapres")
