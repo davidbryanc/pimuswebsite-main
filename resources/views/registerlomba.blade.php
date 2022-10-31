@@ -101,7 +101,7 @@
                     <input type="file" name="daftarPrestasi" class="inputLomba" accept=".pdf" required><br>
                     <label class="label-keterangan">*) format nama file: PrestasiMP_Nama Depan_NRP</label><br>
 
-                    <label>Scan KTM / Screenshot Kartu Studi MyUbaya dan KTP / KITAS (.pdf)</label><br>
+                    <label>Scan KTM / Screenshot KTM Online dan KTP / KITAS (.pdf)</label><br>
                     <input type="file" name="ktm1" class="inputLomba" accept=".pdf" required><br>
                     <label class="label-keterangan">*) Screenshot MyUbaya pada bagian Kartu Studi Mahasiswa (dalam fitur KS/KHS) wajib terdapat Nama dan NRP
                         <br>format nama file: KTMKTP-MP_Nama Depan_NRP / KTMKITAS-MP_Nama Depan_NRP </label><br>
@@ -110,18 +110,12 @@
                     <input type="file" name="pasFoto1" class="inputLomba" accept=".png, .jpg" required><br>
                     <label class="label-keterangan">*) format nama file: PasFotoMP_Nama Depan_NRP</label><br>
 
-                    <label>Jadwal Kuliah (.pdf)</label><br>
-                    <input type="file" name="jadwalKuliah1" class="inputLomba" accept=".pdf" required><br>
-                    <label class="label-keterangan">*) format nama file: JadwalPerkuliahanMP_Nama Depan_NRP</label><br>
                     ';
                     $tambahan = '
                     <label>Pas Foto 4x6 (.png / .jpg)</label><br>
                     <input type="file" name="pasFoto1" class="inputLomba" accept=".png, .jpg" required><br>
                     <label class="label-keterangan">*) format nama file: Foto_Nama_NRP</label><br>
 
-                    <label>Jadwal Kuliah (.pdf)</label><br>
-                    <input type="file" name="jadwalKuliah1" class="inputLomba" accept=".pdf" required><br>
-                    <label class="label-keterangan">*) format nama file: Jadwal_Nama_NRP</label><br>
                     ';
                     $pilihanMIPA = '
                     <label>Surat Pernyataan Kesediaan Mewakili Ubaya (.pdf)</label><br>
@@ -129,18 +123,15 @@
                     <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
                     format nama file: Surat Pernyataan_Nama_NRP</label><br>
                     
-                    <label>Scan KTM / Screenshot Kartu Studi MyUbaya (.pdf)</label><br>
+                    <label>Scan KTM / Screenshot KTM Online (.pdf)</label><br>
                     <input type="file" name="ktm1" class="inputLomba" accept=".pdf" required><br>
                     <label class="label-keterangan">*) Screenshot MyUbaya pada bagian Kartu Studi Mahasiswa (dalam fitur KS/KHS) wajib terdapat Nama dan NRP
-                        <br>format nama file: KTM_Nama_NRP / MyUbaya_Nama_NRP</label><br>
+                        <br>format nama file: KTM_Nama_NRP</label><br>
 
                     <label>Pas Foto 4x6 (.png / .jpg)</label><br>
                     <input type="file" name="pasFoto1" class="inputLomba" accept=".png, .jpg" required><br>
                     <label class="label-keterangan">*) format nama file: Foto_Nama_NRP</label><br>
                     
-                    <label>Jadwal Kuliah (.pdf)</label><br>
-                    <input type="file" name="jadwalKuliah1" class="inputLomba" accept=".pdf" required><br>
-                    <label class="label-keterangan">*) format nama file: Jadwal_Nama_NRP</label><br>
                     ';
                     echo $formPendaftaran;
                     
@@ -217,19 +208,19 @@
                 <label>Pas Foto 4x6 (.png / .jpg)</label><br>
                 <input type="file" name="pasFoto${i}" class="inputLomba" accept=".png, .jpg" required><br>
                 <label class="label-keterangan">*) format nama file: Foto_Nama_NRP</label><br>
-                <label>Scan KTM / Screenshot Kartu Studi MyUbaya(.pdf)</label><br>
+                <label>Scan KTM / Screenshot KTM Online(.pdf)</label><br>
                 <input type="file" name="ktm${i}" class="inputLomba" accept=".pdf" required><br>
                 <label class="label-keterangan">*) Screenshot MyUbaya pada bagian Kartu Studi Mahasiswa (dalam fitur KS/KHS) wajib terdapat Nama dan NRP
-                    <br>format nama file: KTM_Nama_NRP / MyUbaya_Nama_NRP</label><br>
+                    <br>format nama file: KTM_Nama_NRP</label><br>
                 `;
-                if(cabang>=2 && cabang<=4 || cabang>=6 && cabang<=7)
-                {
-                    form.innerHTML += `
-                    <label>Jadwal Kuliah (.pdf)</label><br>
-                    <input type="file" name="jadwalKuliah${i}" class="inputLomba" accept=".pdf" required><br>
-                    <label class="label-keterangan">*) format nama file: Jadwal_Nama_NRP</label><br>
-                    `;
-                }
+                // if(cabang>=2 && cabang<=4 || cabang>=6 && cabang<=7)
+                // {
+                //     form.innerHTML += `
+                //     <label>Jadwal Kuliah (.pdf)</label><br>
+                //     <input type="file" name="jadwalKuliah${i}" class="inputLomba" accept=".pdf" required><br>
+                //     <label class="label-keterangan">*) format nama file: Jadwal_Nama_NRP</label><br>
+                //     `;
+                // }
             }
             nrp();
             document.getElementById('nrpAnggota1').readOnly = true;

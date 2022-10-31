@@ -96,8 +96,13 @@
                             @if($grp->competition_categories_id == 7)
                                 <div class="col">
                                     <div class="mb-3">
-                                        <label for="LinkGoogleDrive" class="form-label">Link Drive Poster/Video</label>
+                                        <label for="LinkGoogleDrive" class="form-label">Link Youtube Video</label>
                                         <input type="text" class="form-control" id="linkDrive" name="linkDrive"
+                                            placeholder="Input Google Drive Link" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="LinkProposal" class="form-label">Link Drive Proposal</label>
+                                        <input type="text" class="form-control" id="LinkProposal" name="LinkProposal"
                                             placeholder="Input Google Drive Link" required>
                                     </div>
                                     <div class="mb-3">
