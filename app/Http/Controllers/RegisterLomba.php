@@ -135,7 +135,6 @@ class RegisterLomba extends Controller
                 //     ]);
                 // }
             }
-            dd($idLomba);
             switch($idLomba)
             {
                 case 1:

@@ -157,7 +157,7 @@
                 <li>
                     <div class="timeline-content">
                         <h3 style="color: #ffffff" class="date">16-17 November 2022</h3>
-                        <h1>Technical Meeting PKM, PILMAPRES, Video Digital Pendidikan, KTI</h1>
+                        <h1>Technical Meeting</h1>
                     </div>
                 </li>
                 <li>
