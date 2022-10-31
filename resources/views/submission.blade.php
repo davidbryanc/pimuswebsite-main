@@ -98,7 +98,7 @@
                                     <div class="mb-3">
                                         <label for="LinkGoogleDrive" class="form-label">Link Youtube Video</label>
                                         <input type="text" class="form-control" id="linkDrive" name="linkDrive"
-                                            placeholder="Input Google Drive Link" required>
+                                            placeholder="Input Youtube Link" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="LinkProposal" class="form-label">Link Drive Proposal</label>
@@ -171,11 +171,7 @@
         $('#btnSubmit').on('click', function() {
             if (!confirm("Are you sure?")) return
 
-            if(idlomba == 1 || idlomba == 7){
-                var linkEx = $("#linkDrive").val()
-                var description = $("#description").val()
-            }
-            else if(idlomba == 4){
+            if(idlomba == 4 || idlomba == 7 || idlomba == 1){
                 var linkEx = $("#linkDrive").val()
                 var linkProp = $("#linkProposal").val()
                 var description = $("#description").val()
