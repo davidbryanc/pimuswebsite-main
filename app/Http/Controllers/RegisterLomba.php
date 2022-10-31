@@ -200,8 +200,8 @@ class RegisterLomba extends Controller
                 }
             }
             else {                
-                DB::table('user_details')->where('idkelompok',$idkelompok)->delete();
-                DB::table('teams')->where('idKelompok',$idkelompok)->delete();
+                DB::table('user_details')->where('teams_id',$idkelompok)->delete();
+                DB::table('teams')->where('id',$idkelompok)->delete();
             }
 
             $pesan = 'GAGAL melakukan registrasi !\nPerhatikan apakah: \n    Ada anggota yang belum registrasi awal\n   Salah mengisi NRP\n   Penamaan file salah';
