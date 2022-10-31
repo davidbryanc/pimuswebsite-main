@@ -1,7 +1,7 @@
 @extends('layout.mainweb')
 
 @section('title')
-    PIMUS 11 - About Us
+    PIMUS 12 - About Us
 @endsection
 
 @section('style')
