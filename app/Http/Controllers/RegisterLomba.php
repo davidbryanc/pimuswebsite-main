@@ -269,7 +269,7 @@ class RegisterLomba extends Controller
         }
         
         //return view('registerlomba', ['cabang' => $category, 'kelompok' => $kelompok, 'ketuakelompok'=>$ketuakelompok]);
-        return view('registerLomba', compact('category', 'team', 'teamLeader'));
+        return view('registerlomba', compact('category', 'team', 'teamLeader'));
     }
 
     public function showRegistration()
