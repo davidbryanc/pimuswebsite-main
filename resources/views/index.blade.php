@@ -24,11 +24,11 @@
                         <div class="col-lg-6 align-self-center">
                             <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                                 <h6><img src="{{ url('assets/images/web/Asset 1.png') }}" alt=""> </h6>
-                                <p style="color: #fff; font-weight: bold;">PREPARE FOR YOUR TRIUMPH</p>
-                                <p style="color: #fff" font size="1">Para conqueror yang telah berhasil memulihkan dunia melihat ‘Gate’
-                                    yang mengarahkan mereka ke earth 2.0. Mereka harus unlock area baru ini menggunakan KOMPONEN. Setelah
-                                    semua diunlock, mereka harus berpisah tiap DISTRICT yang akan membuat mereka bisa menduduki kedudukan
-                                    tertinggi di earth 2.0—throne of triumph.</h6>
+                                <p style="color: #fff; font-weight: bold;">XII-ATHLON: PREPARE FOR YOUR TRIUMPH</p>
+                                <p style="color: #fff" font size="1">Para conqueror yang telah berhasil memulihkan dunia dan melihat <i>gate</i>
+                                    yang mengarahkan mereka ke Earth 2.0. Mereka harus meng-<i>unlock</i> area baru ini menggunakan komponen. Setelah
+                                    semua di-<i>unlock</i>, mereka harus berpisah ke setiap <i>district</i> yang membuat mereka dapat menduduki kedudukan
+                                    tertinggi di Earth 2.0, yaitu  <b>Throne of Triumph.</b></h6>
 
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                             <div class="col-lg-6">
                                 <div data-tilt class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
                                     <div class="icon">
-                                        <i class="fas fa-trophy" style="height: 175px; width: 100px; color: #de8d00;"></i>
+                                        <i class="fas fa-trophy"  style="height: 175px; width: 100px; color: #faba8e;"></i>
                                     </div>
                                     <div class="right-text">
                                         <p>Fakultas dengan perolehan gelar Juara Umum terbanyak adalah Fakultas Teknik</p>
@@ -69,7 +69,7 @@
                             <div class="col-lg-6">
                                 <div data-tilt class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
                                     <div class="icon">
-                                        <i class="fas fa-film" style="height: 175px; width: 100px; color: #de8d00;"></i>
+                                        <i class="fas fa-film" style="height: 175px; width: 100px; color: #faba83;"></i>
                                     </div>
                                     <div class="right-text">
                                         <p>Video Digital Pendidikan merupakan cabang baru yang menggantikan cabang Film
@@ -81,10 +81,10 @@
                                 <div data-tilt class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
                                     <div class="icon">
                                         <i class="fas fa-hand-holding-heart"
-                                            style="height: 175px; width: 100px; color: #de8d00;"></i>
+                                            style="height: 175px; width: 100px; color: #faba8e;"></i>
                                     </div>
                                     <div class="right-text">
-                                        <p>Maskot PIMUS merupakan burung hantu yang bernama dr. Pimly. Burung hantu
+                                        <p>Maskot PIMUS merupakan burung hantu yang bernama Dr. Pimsy. Burung hantu
                                             merupakan hewan yang melambangkan pengetahuan, kebijaksanaan, dan pembawa
                                             perubahan</p>
                                     </div>
@@ -94,7 +94,7 @@
                                 <div data-tilt class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="1.1s">
                                     <div class="icon">
                                         <i class="fas fa-hands-helping"
-                                            style="height: 175px; width: 100px; color: #de8d00;"></i>
+                                            style="height: 175px; width: 100px; color: #faba8e;"></i>
                                     </div>
                                     <div class="right-text">
                                         <p>Logo PIMUS berupa tangan-tangan dengan warna yang melambangkan setiap fakultas
@@ -125,13 +125,12 @@
                     <div class="section-heading">
                         <h2 style="color: #ffffff; text-align: left; font-family: joyrideextended, Montserrat, sans-serif; text-transform: none;"
                             data-aos="zoom-in">pekan ilmiah mahasiswa</h2>
-                        <p style="color: #fff;">Pekan Ilmiah Mahasiswa Universitas Surabaya atau PIMUS merupakan acara
-                            tahunan yang diselenggarakan oleh Direktorat Pengembangan Kemahasiswaan Universitas Surabaya
-                            dengan tujuan untuk menyaring mahasiswa/i terbaik UBAYA untuk menjadi perwakilan pada kompetisi
-                            nasional. Di tahun yang kesebelas ini, PIMUS memiliki 7 cabang lomba yang terdiri dari PKM 4
-                            Bidang, Karya Tulis Ilmiah, Pemilihan Mahasiswa Berprestasi, Video Digital Pendidikan, Kompetisi MIPAS, Debat Bahasa Inggris, dan Debat Bahasa Indonesia. Yuk daftarkan dirimu
-                            sekarang, dapatkan pengalaman berharga, kesempatan menjadi perwakilan UBAYA, dan total hadiah
-                            puluhan juta rupiah!</p>
+                        <p style="color: #fff;" class="text-justify">Pekan Ilmiah Mahasiswa Universitas Surabaya atau PIMUS merupakan acara tahunan yang diselenggarakan
+                             oleh Direktorat Pengembangan Kemahasiswaan Universitas Surabaya dengan tujuan untuk menyaring mahasiswa/i terbaik UBAYA
+                             untuk menjadi perwakilan pada kompetisi nasional. Di tahun yang kesebelas ini, PIMUS memiliki 7 cabang lomba yang terdiri
+                              dari PKM 4 Bidang (PKM RSH, PKM K, PKM PM, PKM KC), Karya Tulis Ilmiah, Pemilihan Mahasiswa Berprestasi, Video Digital Pendidikan,
+                              Kompetisi MIPAS, Debat Bahasa Inggris, dan Debat Bahasa Indonesia. Yuk daftarkan dirimu sekarang, dapatkan pengalaman berharga, kesempatan menjadi
+                               perwakilan UBAYA, dan total hadiah puluhan juta rupiah!</p>
                     </div>
 
                 </div>

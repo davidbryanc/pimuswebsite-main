@@ -73,7 +73,7 @@
                 <h5>Apakah pemenang PIMUS tahun sebelumnya boleh mengikuti PIMUS tahun ini?</h5>
             </div>
             <div class="panel">
-                <p>Boleh.</p>
+                <p>Boleh.Kecuali Pilmapres</p>
             </div>
 
             <div class="accordion-faq">
@@ -156,8 +156,8 @@
                 </div>
                 <div class="phone-info col-lg-6 wow fadeInLeft">
                     <h4 style="color: #ffffff">Contact Us</h4>
-                    <h2 style="color: #ffffff"><a style="color: #ffffff" href="https://www.instagram.com/pimus11/"
-                            TARGET="_blank"><i class="bi bi-instagram"></i> Pimus11 </a></span></h2>
+                    <h2 style="color: #ffffff"><a style="color: #ffffff" href="https://www.instagram.com/pimus12/"
+                            TARGET="_blank"><i class="bi bi-instagram"></i> Pimus12 </a></span></h2>
                 </div>
             </div>
         </div>

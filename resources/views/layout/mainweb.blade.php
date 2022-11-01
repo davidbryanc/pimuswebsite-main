@@ -67,7 +67,7 @@
                         <div class="dropdown-menu nav-center" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{{ route('exhibition',1) }}">Pilmapres</a>
                             <a class="dropdown-item" href="{{ route('exhibition',4) }}">KTI</a>
-                            
+
                             <a class="dropdown-item" href="{{ route('exhibition',7) }}">Video Digital Pendidikan</a>
                         </div>
                     </li>
@@ -111,7 +111,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-                    <p style="color: #fdfdfd">© Copyright 2021 SI PIMUS XI Committee.</p>
+                    <p style="color: #fdfdfd">© Copyright 2022 SI PIMUS XII Committee.</p>
 
                     <!-- <br>Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p> -->
                 </div>
