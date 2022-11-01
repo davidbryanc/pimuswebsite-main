@@ -142,7 +142,9 @@ PIMUS 12 - Exhibition
                                                 <div class="col-lg-8 col-md-12 mt-3">
                                                     <h1 class="ex-title">
                                                         {{ $cabang->nama." ".$counter }}</h1>
-                                                    <h5>Jumlah votes: {{ $submission->like_count }}</h5>
+                                                    @if($submission->competition_categories_id != 4)
+                                                        <h5>Jumlah votes: {{ $submission->like_count }}</h5>
+                                                    @endif
                                                     <p class="ex-by">
                                                         Ketua :
                                                         @if ($submission->teams_id != null)
@@ -169,15 +171,17 @@ PIMUS 12 - Exhibition
                                                         {{ $submission->description }}
                                                     </p>
                                                     <div class="div-vote">
-                                                        @if (!Auth::guest())
+                                                        @if (!Auth::guest() && $submission->competition_categories_id != 4)
                                                             <p class="text-danger">vote left: {{ Auth::user()->vote_tickets }}</p>
                                                         @endif
 
-                                                        @if (time() <= strtotime("2023-11-12 00:00:00"))
-                                                            <button type="submit" class="btnVote">Vote</button>
-                                                        @else
-                                                            <br>
-                                                            <h4 style="color: red">*) Masa Vote telah berakhir</h4>
+                                                        @if($submission->competition_categories_id != 4)
+                                                            @if (time() <= strtotime("2023-11-12 00:00:00"))
+                                                                <button type="submit" class="btnVote">Vote</button>
+                                                            @else
+                                                                <br>
+                                                                <h4 style="color: red">*) Masa Vote telah berakhir</h4>
+                                                            @endif
                                                         @endif
                                                     </div>
                                                 </div>
