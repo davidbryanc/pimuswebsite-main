@@ -73,7 +73,7 @@
                 <h5>Apakah pemenang PIMUS tahun sebelumnya boleh mengikuti PIMUS tahun ini?</h5>
             </div>
             <div class="panel">
-                <p>Boleh.Kecuali Pilmapres</p>
+                <p>Boleh, kecuali cabang lomba Pilmapres</p>
             </div>
 
             <div class="accordion-faq">
