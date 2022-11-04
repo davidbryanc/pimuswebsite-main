@@ -221,7 +221,16 @@ class RegisterLomba extends Controller
                 ->where('teams.competition_categories_id','=',$id)
                 ->get();
 
-        // dd($user);
+        if($id == 8){
+            $user = DB::table('user_details')
+                ->join('teams','user_details.teams_id','=','teams.id')
+                ->join('competition_categories','teams.competition_categories_id','=','competition_categories.id')
+                ->where('user_details.nrp','=',$userId)
+                ->whereIn('teams.competition_categories_id', [8, 9, 10, 11])
+                ->get();
+        }
+
+        // dd($id);
 
 
         $category = CompetitionCategory::find($id);
