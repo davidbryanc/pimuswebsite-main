@@ -1,7 +1,7 @@
 @extends('layout.mainweb')
 
 @section('title')
-    PIMUS 11 - Register
+    PIMUS 12 - Register
 @endsection
 
 @section('content')
@@ -20,16 +20,16 @@
                             <label>Edit Kelompok</label><br>
                             @foreach ($team as $item1)
                                 @foreach ($teamLeader as $ketua)
-                                    @if ($ketua->idkelompok == $item1->idkelompok)
-                                            <input type="radio" id="{{$item1->idkelompok}}" name="idKelompok" value="{{$item1->idkelompok}}" required>
-                                            <label for="{{$item1->idkelompok}}">Kelompok {{$item1->idkelompok}} (Ketua : {{$ketua->nama}})</label><br>
+                                    @if ($ketua->id == $item1->id)
+                                            <input type="radio" id="{{$item1->id}}" name="idKelompok" value="{{$item1->id}}" required>
+                                            <label for="{{$item1->id}}">Kelompok {{$item1->id}} (Ketua : {{$ketua->name}})</label><br>
                                     @endif
                                 @endforeach
                             @endforeach
                             <label><small>*) Pilihan di atas ini ada karena anda telah terdaftar pada 1 atau lebih kelompok pada cabang lomba ini</small></label><br><br>
                         @else
                             {{-- Error because no leader --}}
-                            <input type="hidden" name="idKelompok" value="{{$item1->idkelompok}}" readonly>
+                            <input type="hidden" name="idKelompok" value="{{$item1->id}}" readonly>
                         @endif
                     @else
                         <input type="text" name="idKelompok" value='' readonly hidden>
@@ -92,6 +92,10 @@
                     <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
                     <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
                         format nama file: KesediaanMP_Nama Depan_NRP</label><br>
+                    
+                    <label>Borang (.pdf)</label>
+                    <input type="file" name="borang" class="inputLomba" id="form-pendaftaran" accept=".pdf" required><br>
+                    <label class="label-keterangan">*) format nama file: BPMP_Nama Depan_NRP</label><br>
 
                     <label>Rekap IPK (.pdf)</label><br>
                     <input type="file" name="rekapIPK" class="inputLomba" accept=".pdf" required><br>
@@ -101,7 +105,7 @@
                     <input type="file" name="daftarPrestasi" class="inputLomba" accept=".pdf" required><br>
                     <label class="label-keterangan">*) format nama file: PrestasiMP_Nama Depan_NRP</label><br>
 
-                    <label>Scan KTM / Screenshot Kartu Studi MyUbaya dan KTP / KITAS (.pdf)</label><br>
+                    <label>Scan KTM / Screenshot KTM Online dan KTP / KITAS (.pdf)</label><br>
                     <input type="file" name="ktm1" class="inputLomba" accept=".pdf" required><br>
                     <label class="label-keterangan">*) Screenshot MyUbaya pada bagian Kartu Studi Mahasiswa (dalam fitur KS/KHS) wajib terdapat Nama dan NRP
                         <br>format nama file: KTMKTP-MP_Nama Depan_NRP / KTMKITAS-MP_Nama Depan_NRP </label><br>
@@ -110,18 +114,12 @@
                     <input type="file" name="pasFoto1" class="inputLomba" accept=".png, .jpg" required><br>
                     <label class="label-keterangan">*) format nama file: PasFotoMP_Nama Depan_NRP</label><br>
 
-                    <label>Jadwal Kuliah (.pdf)</label><br>
-                    <input type="file" name="jadwalKuliah1" class="inputLomba" accept=".pdf" required><br>
-                    <label class="label-keterangan">*) format nama file: JadwalPerkuliahanMP_Nama Depan_NRP</label><br>
                     ';
                     $tambahan = '
                     <label>Pas Foto 4x6 (.png / .jpg)</label><br>
                     <input type="file" name="pasFoto1" class="inputLomba" accept=".png, .jpg" required><br>
                     <label class="label-keterangan">*) format nama file: Foto_Nama_NRP</label><br>
 
-                    <label>Jadwal Kuliah (.pdf)</label><br>
-                    <input type="file" name="jadwalKuliah1" class="inputLomba" accept=".pdf" required><br>
-                    <label class="label-keterangan">*) format nama file: Jadwal_Nama_NRP</label><br>
                     ';
                     $pilihanMIPA = '
                     <label>Surat Pernyataan Kesediaan Mewakili Ubaya (.pdf)</label><br>
@@ -129,18 +127,15 @@
                     <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
                     format nama file: Surat Pernyataan_Nama_NRP</label><br>
                     
-                    <label>Scan KTM / Screenshot Kartu Studi MyUbaya (.pdf)</label><br>
+                    <label>Scan KTM / Screenshot KTM Online (.pdf)</label><br>
                     <input type="file" name="ktm1" class="inputLomba" accept=".pdf" required><br>
                     <label class="label-keterangan">*) Screenshot MyUbaya pada bagian Kartu Studi Mahasiswa (dalam fitur KS/KHS) wajib terdapat Nama dan NRP
-                        <br>format nama file: KTM_Nama_NRP / MyUbaya_Nama_NRP</label><br>
+                        <br>format nama file: KTM_Nama_NRP</label><br>
 
                     <label>Pas Foto 4x6 (.png / .jpg)</label><br>
                     <input type="file" name="pasFoto1" class="inputLomba" accept=".png, .jpg" required><br>
                     <label class="label-keterangan">*) format nama file: Foto_Nama_NRP</label><br>
                     
-                    <label>Jadwal Kuliah (.pdf)</label><br>
-                    <input type="file" name="jadwalKuliah1" class="inputLomba" accept=".pdf" required><br>
-                    <label class="label-keterangan">*) format nama file: Jadwal_Nama_NRP</label><br>
                     ';
                     echo $formPendaftaran;
                     
@@ -217,19 +212,19 @@
                 <label>Pas Foto 4x6 (.png / .jpg)</label><br>
                 <input type="file" name="pasFoto${i}" class="inputLomba" accept=".png, .jpg" required><br>
                 <label class="label-keterangan">*) format nama file: Foto_Nama_NRP</label><br>
-                <label>Scan KTM / Screenshot Kartu Studi MyUbaya(.pdf)</label><br>
+                <label>Scan KTM / Screenshot KTM Online(.pdf)</label><br>
                 <input type="file" name="ktm${i}" class="inputLomba" accept=".pdf" required><br>
                 <label class="label-keterangan">*) Screenshot MyUbaya pada bagian Kartu Studi Mahasiswa (dalam fitur KS/KHS) wajib terdapat Nama dan NRP
-                    <br>format nama file: KTM_Nama_NRP / MyUbaya_Nama_NRP</label><br>
+                    <br>format nama file: KTM_Nama_NRP</label><br>
                 `;
-                if(cabang>=2 && cabang<=4 || cabang>=6 && cabang<=7)
-                {
-                    form.innerHTML += `
-                    <label>Jadwal Kuliah (.pdf)</label><br>
-                    <input type="file" name="jadwalKuliah${i}" class="inputLomba" accept=".pdf" required><br>
-                    <label class="label-keterangan">*) format nama file: Jadwal_Nama_NRP</label><br>
-                    `;
-                }
+                // if(cabang>=2 && cabang<=4 || cabang>=6 && cabang<=7)
+                // {
+                //     form.innerHTML += `
+                //     <label>Jadwal Kuliah (.pdf)</label><br>
+                //     <input type="file" name="jadwalKuliah${i}" class="inputLomba" accept=".pdf" required><br>
+                //     <label class="label-keterangan">*) format nama file: Jadwal_Nama_NRP</label><br>
+                //     `;
+                // }
             }
             nrp();
             document.getElementById('nrpAnggota1').readOnly = true;

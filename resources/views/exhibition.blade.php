@@ -1,7 +1,7 @@
 @extends('layout.mainweb')
 
 @section('title')
-PIMUS 11 - Exhibition
+PIMUS 12 - Exhibition
 @endsection
 
 @section('content')
@@ -54,6 +54,11 @@ PIMUS 11 - Exhibition
                         $img='https://img.youtube.com/vi/'.$matches[0].'/0.jpg';
                         $video='https://www.youtube.com/embed/'.$matches[0];
                         break;
+
+                    // case 7:
+                    //     preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
+                    //     $video='https://drive.google.com/uc?export=view&id='.$matches[0];
+                    //     break;
                 }
                 @endphp
                     <div class="col-lg-3 col-md-6 col-sm-6">
@@ -126,19 +131,10 @@ PIMUS 11 - Exhibition
                                                                 </a>
                                                             </div>
                                                             @break
-                                                        @case(6)
-                                                            <div class="col-lg-4 col-md-12 mt-3">
-                                                                <a href="{{ url($img) }}" target="_blank">
-                                                                    <img class="exhibition-img"
-                                                                        src="{{ url($img) }}"
-                                                                        alt="{{ $cabang->nama." ".$counter }}">
-                                                                </a>
-                                                            </div>
-                                                            @break
                                                         @case(7)
                                                             <div class="col-12 ex-video">
                                                                 <iframe class="exhibition-content" style="width: 100%; height: 100%;"
-                                                                    src="{{ url($video) }}?autoplay=0&rel=0" allow="fullscreen">
+                                                                    src={{ url($video) }} frameborder="0" allow="fullscreen">
                                                                 </iframe>
                                                             </div>
                                                         @break
@@ -146,7 +142,9 @@ PIMUS 11 - Exhibition
                                                 <div class="col-lg-8 col-md-12 mt-3">
                                                     <h1 class="ex-title">
                                                         {{ $cabang->nama." ".$counter }}</h1>
-                                                    <h5>Jumlah votes: {{ $submission->like_count }}</h5>
+                                                    @if($submission->competition_categories_id != 4)
+                                                        <h5>Jumlah votes: {{ $submission->like_count }}</h5>
+                                                    @endif
                                                     <p class="ex-by">
                                                         Ketua :
                                                         @if ($submission->teams_id != null)
@@ -173,15 +171,17 @@ PIMUS 11 - Exhibition
                                                         {{ $submission->description }}
                                                     </p>
                                                     <div class="div-vote">
-                                                        @if (!Auth::guest())
+                                                        @if (!Auth::guest() && $submission->competition_categories_id != 4)
                                                             <p class="text-danger">vote left: {{ Auth::user()->vote_tickets }}</p>
                                                         @endif
 
-                                                        @if (time() <= strtotime("2023-11-12 00:00:00"))
-                                                            <button type="submit" class="btnVote">Vote</button>
-                                                        @else
-                                                            <br>
-                                                            <h4 style="color: red">*) Masa Vote telah berakhir</h4>
+                                                        @if($submission->competition_categories_id != 4)
+                                                            @if (time() <= strtotime("2023-11-12 00:00:00"))
+                                                                <button type="submit" class="btnVote">Vote</button>
+                                                            @else
+                                                                <br>
+                                                                <h4 style="color: red">*) Masa Vote telah berakhir</h4>
+                                                            @endif
                                                         @endif
                                                     </div>
                                                 </div>

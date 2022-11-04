@@ -1,7 +1,7 @@
 @extends('layout.mainweb')
 
 @section('title')
-    PIMUS 11 - Reset Password
+    PIMUS 12 - Reset Password
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layout.mainweb')
 
 @section('title')
-    PIMUS 11 - Registration
+    PIMUS 12 - Registration
 @endsection
 
 @section('style')
@@ -33,7 +33,7 @@
                     </div>
                     <div class="info">
                         <h1 class="title text-lowercase">'.$category_name.'</h1>
-                        <p class="desc">'.$category->description.'</p>';
+                        <p class="desc">'.$category->desc.'</p>';
                 if ($userId==null) {
                     if ($open == true) {
                         if($category->id==8)
@@ -74,7 +74,7 @@
                                 {
                                     echo '
                                     <div>
-                                        <a href="/registration/cabang/register?cabang=8" class="buttons" id="register">Register PKM-Riset</a><br><br>
+                                        <a href="/registration/cabang/register?cabang=8" class="buttons" id="register">Register PKM-Riset Sosial Humaniora</a><br><br>
                                         <a href="/registration/cabang/register?cabang=9" class="buttons" id="register">Register PKM-Kewirausahaan</a><br><br>
                                         <a href="/registration/cabang/register?cabang=10" class="buttons" id="register">Register PKM-Karsa Cipta</a><br><br>
                                         <a href="/registration/cabang/register?cabang=11" class="buttons" id="register">Register PKM-Pengabdian kepada Masyarakat</a><br><br>

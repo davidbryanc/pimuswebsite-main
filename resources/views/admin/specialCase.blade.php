@@ -13,7 +13,7 @@
             <select name="contest" id="cabangLomba" class="form-select" onchange="contestType()" required>
                 <option selected disabled>Lomba</option>
                 @foreach ($contest as $lomba)
-                    <option value="{{ $lomba->idlomba }}">{{ $lomba->nama }}</option>
+                    <option value="{{ $lomba->id }}">{{ $lomba->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -41,7 +41,7 @@
                     <select class="form-select" name="nrpKetua" required>
                         <option selected disabled>NRP - Nama</option>
                         @foreach ($contestants as $contestant)
-                            <option value="{{ $contestant->nrp }}">{{ $contestant->nrp }} - {{ $contestant->nama }}</option>
+                            <option value="{{ $contestant->nrp }}">{{ $contestant->nrp }} - {{ $contestant->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -70,7 +70,7 @@
                     <select class="form-select" name="nrpKetua" required>
                         <option selected disabled>NRP - Nama</option>
                         @foreach ($contestants as $contestant)
-                            <option value="{{ $contestant->nrp }}">{{ $contestant->nrp }} - {{ $contestant->nama }}</option>
+                            <option value="{{ $contestant->nrp }}">{{ $contestant->nrp }} - {{ $contestant->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -80,7 +80,7 @@
                     <select class="form-select" name="nrpAnggota[]" required>
                         <option selected disabled>NRP - Nama</option>
                         @foreach ($contestants as $contestant)
-                            <option value="{{ $contestant->nrp }}">{{ $contestant->nrp }} - {{ $contestant->nama }}</option>
+                            <option value="{{ $contestant->nrp }}">{{ $contestant->nrp }} - {{ $contestant->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -108,7 +108,7 @@
                         <select class="form-select" name="nrpAnggota[]" required>
                             <option selected disabled>NRP - Nama</option>
                             @foreach ($contestants as $contestant)
-                                <option value="{{ $contestant->nrp }}">{{ $contestant->nrp }} - {{ $contestant->nama }}</option>
+                                <option value="{{ $contestant->nrp }}">{{ $contestant->nrp }} - {{ $contestant->name }}</option>
                             @endforeach
                         </select>
                     </div>

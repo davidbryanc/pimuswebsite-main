@@ -1,12 +1,12 @@
 @if(isset($pesan))
 {
-    <script type='text/javascript'>alert('$pesan')</script>
+    <script type='text/javascript'>alert({{ $pesan }})</script>
 }
 @endif
 @extends('layout.mainweb')
 
 @section('title')
-    PIMUS 11 - Registration
+    PIMUS 12 - Registration
 @endsection
 
 @section('style')
@@ -85,11 +85,11 @@
                     <a href='/registration/cabang?cabang=5'>
                         <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.5s'>
                             <div class='hidden-content'>
-                                <h4>Kompetisi MIPA</h4>
-                                <p>Kompetisi di bidang Matematika dan Ilmu Pengetahuan Alam. </p>
+                                <h4>Kompetisi MIPAS</h4>
+                                <p>Kompetisi di bidang Matematika, Ilmu Pengetahuan Alam dan Statisik. </p>
                             </div>
                             <div class='showed-content'>
-                                <img src='/assets/images/icon cabang/Kompetisi MIPA.png' alt=''>
+                                <img src='/assets/images/icon cabang/Kompetisi MIPAS.png' alt=''>
                             </div>
                         </div>
                     </a>
@@ -129,7 +129,7 @@
                                 </p>
                             </div>
                             <div class='showed-content'>
-                                <img src='/assets/images/icon cabang/PKM-Riset.png' alt=''>
+                                <img src='/assets/images/icon cabang/PKM-Riset Sosial Humaniora.png' alt=''>
                             </div>
                         </div>
                     </a>
@@ -150,7 +150,7 @@
             <div class="modal-body">
                 <p>
                     1. Peserta melengkapi berkas yang dibutuhkan untuk pendaftaran sesuai dengan pedoman cabang/PKM yang diikuti. Pedoman dapat dilihat <a href='http://tiny.cc/PedomanPesertaPIMUSXI' target='_blank'>disini</a>.<br>
-                    2. Pendaftaran dapat dilakukan pada website <a href='https://pimusxiubaya.com' target='_blank'>pimusxiubaya.com</a><br>
+                    2. Pendaftaran dapat dilakukan pada website <a href='https://pimusubaya.com' target='_blank'>pimusubaya.com</a><br>
                     3.  Peserta harus register/sign up terlebih dahulu pada website.<br>
                         <small class='text-danger'>Note &#58; Jika mendaftar berkelompok, maka seluruh anggota harus register/sign up terlebih dahulu pada website sebelum melakukan pendaftaran.</small><br>
                     4. Peserta mengupload formulir pendaftaran dan seluruh berkas yang dibutuhkan sesuai dengan cabang/PKM yang diikuti.<br>
@@ -158,7 +158,7 @@
                     5. Perhatikan ketentuan pada saat mendaftar dan pastikan telah sesuai.<br>
                     6. Berkas yang telah disubmit saat pendaftaran akan dilakukan pengecekan oleh panitia.<br>
                     7. Jika berkas yang dikumpulkan tidak sesuai dengan ketentuan, panitia akan menghubungi ketua kelompok untuk mensubmit ulang berkas pendaftaran.<br>
-                    8. Jika hingga batas akhir pendaftaran, berkas yang dikumpulkan tidak sesuai maka peserta dianggap <b>TIDAK TERDAFTAR SEBAGAI PESERTA PIMUS XI.</b><br>
+                    8. Jika hingga batas akhir pendaftaran, berkas yang dikumpulkan tidak sesuai maka peserta dianggap <b>TIDAK TERDAFTAR SEBAGAI PESERTA PIMUS XII.</b><br>
                 </p>
             </div>
             </div>

@@ -35,7 +35,7 @@ img {
     transform: translateX(-8rem);
     position: relative;
     border-radius: 0.8rem;
-    background-color: #ebb014;
+    background-color: #faba8e;
 }
 
 .card-cabang .image img {
@@ -60,7 +60,7 @@ img {
 
 .title {
     font-family: joyrideextended, Montserrat, sans-serif;
-    color: #ebb010 !important;
+    color: #faba8e !important;
     font-size: 3rem;
     margin: 1.5rem 0 2rem;
     text-transform: lowercase;
@@ -79,7 +79,7 @@ img {
     font-size: 15px;
     color: #fff;
     font-weight: 500;
-    background-color: #ebb014;
+    background-color: #faba8e;
     border-radius: 25px;
     text-decoration: none;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
@@ -139,7 +139,7 @@ img {
     .card-cabang .buttons {
         margin-bottom: 10px;
     }
-    
+
     .title {
         font-size: 2rem;
     }

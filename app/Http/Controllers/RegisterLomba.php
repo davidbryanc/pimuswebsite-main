@@ -56,7 +56,8 @@ class RegisterLomba extends Controller
             rrmdir("storage/suratPernyataan/".$contestName."/".$idkelompok);
             rrmdir("storage/pasFoto/".$contestName."/".$idkelompok);
             rrmdir("storage/ktm/".$contestName."/".$idkelompok);
-            rrmdir("storage/jadwalKuliah/".$contestName."/".$idkelompok);
+            rrmdir("storage/borang/".$contestName."/".$idkelompok);
+            // rrmdir("storage/jadwalKuliah/".$contestName."/".$idkelompok);
             rrmdir("storage/rekapIPK/".$contestName."/".$idkelompok);
             rrmdir("storage/daftarPrestasi/".$contestName."/".$idkelompok);
             
@@ -93,9 +94,11 @@ class RegisterLomba extends Controller
             for($i=1; $i<=$jumlahAnggota; $i++)
             {
                 $nrp = $req->nrpAnggota[$i-1];           
+
                 $pasFoto = $req->file("pasFoto$i");
                 $pasFoto->move('storage/pasFoto/'.$contestName.'/'.$idkelompok,$pasFoto->getClientOriginalName());
                 $path_pasFoto = 'storage/pasFoto/'.$contestName.'/'.$idkelompok.'/'.$pasFoto->getClientOriginalName();
+
                 $ktm = $req->file("ktm$i");
                 $ktm->move('storage/ktm/'.$contestName.'/'.$idkelompok,$ktm->getClientOriginalName());
                 $path_ktm = 'storage/ktm/'.$contestName.'/'.$idkelompok.'/'.$ktm->getClientOriginalName();
@@ -122,27 +125,33 @@ class RegisterLomba extends Controller
                     'role' => $role
                 ]);
 
-                if($idLomba<8)
-                {
-                    $jadwalKuliah = $req->file("jadwalKuliah$i");
-                    $jadwalKuliah->move('storage/jadwalKuliah/'.$contestName.'/'.$idkelompok,$jadwalKuliah->getClientOriginalName());
-                    $path_jadwalKuliah = 'storage/jadwalKuliah/'.$contestName.'/'.$idkelompok.'/'.$jadwalKuliah->getClientOriginalName();
-                    DB::table('user_details')->where('nrp', $req->nrpAnggota[$i-1])->update([
-                        'schedule' => $path_jadwalKuliah,
-                    ]);
-                }
+                // if($idLomba<8)
+                // {
+                //     $jadwalKuliah = $req->file("jadwalKuliah$i");
+                //     $jadwalKuliah->move('storage/jadwalKuliah/'.$contestName.'/'.$idkelompok,$jadwalKuliah->getClientOriginalName());
+                //     $path_jadwalKuliah = 'storage/jadwalKuliah/'.$contestName.'/'.$idkelompok.'/'.$jadwalKuliah->getClientOriginalName();
+                //     DB::table('user_details')->where('nrp', $req->nrpAnggota[$i-1])->update([
+                //         'schedule' => $path_jadwalKuliah,
+                //     ]);
+                // }
             }
-            
             switch($idLomba)
             {
                 case 1:
+                    $borang = $req->file("borang");
+                    $borang->move('storage/borang/'.$contestName.'/'.$idkelompok,$borang->getClientOriginalName());
+                    $path_borang = 'storage/borang/'.$contestName.'/'.$idkelompok.'/'.$borang->getClientOriginalName();
+
                     $rekapIPK = $req->file("rekapIPK");
                     $rekapIPK->move('storage/rekapIPK/'.$contestName.'/'.$idkelompok,$rekapIPK->getClientOriginalName());
                     $path_rekapIPK = 'storage/rekapIPK/'.$contestName.'/'.$idkelompok.'/'.$rekapIPK->getClientOriginalName();
+
                     $daftarPrestasi = $req->file("daftarPrestasi");
                     $daftarPrestasi->move('storage/daftarPrestasi/'.$contestName.'/'.$idkelompok,$daftarPrestasi->getClientOriginalName());
                     $path_daftarPrestasi = 'storage/daftarPrestasi/'.$contestName.'/'.$idkelompok.'/'.$daftarPrestasi->getClientOriginalName();
+
                     DB::table('user_details')->where('nrp', $req->nrpAnggota[0])->update([
+                        'borang' => $path_borang,
                         'gpa_recap' => $path_rekapIPK,
                         'achievement_list' => $path_daftarPrestasi
                     ]);
@@ -191,8 +200,8 @@ class RegisterLomba extends Controller
                 }
             }
             else {                
-                DB::table('user_details')->where('idkelompok',$idkelompok)->delete();
-                DB::table('teams')->where('idKelompok',$idkelompok)->delete();
+                DB::table('user_details')->where('teams_id',$idkelompok)->delete();
+                DB::table('teams')->where('id',$idkelompok)->delete();
             }
 
             $pesan = 'GAGAL melakukan registrasi !\nPerhatikan apakah: \n    Ada anggota yang belum registrasi awal\n   Salah mengisi NRP\n   Penamaan file salah';
@@ -251,7 +260,7 @@ class RegisterLomba extends Controller
                             ->where('user_details.role', '=', "Ketua")
                             ->orderBy('teams.id')
                             ->get();
-        
+                            
         if($team->isEmpty())
         {
             $team = null;
@@ -259,7 +268,7 @@ class RegisterLomba extends Controller
         }
         
         //return view('registerlomba', ['cabang' => $category, 'kelompok' => $kelompok, 'ketuakelompok'=>$ketuakelompok]);
-        return view('registerLomba', compact('category', 'team', 'teamLeader'));
+        return view('registerlomba', compact('category', 'team', 'teamLeader'));
     }
 
     public function showRegistration()

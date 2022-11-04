@@ -1,7 +1,7 @@
 @extends('layout.mainweb')
 
 @section('title')
-    PIMUS 11 - Login
+    PIMUS 12 - Login
 @endsection
 
 @section('content')
