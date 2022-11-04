@@ -1426,7 +1426,7 @@ form#contact textarea::placeholder {
 
 form#contact button {
   display: inline-block;
-  background-color: #de8d00;
+  background-color: #ffee96;
   font-size: 15px;
   font-weight: 400;
   color: #090907;
@@ -1440,7 +1440,7 @@ form#contact button {
 }
 
 form#contact button:hover {
-  background-color: #ffee96;
+  background-color: #de8d00;
 }
 
 
