@@ -143,7 +143,7 @@
 
     <!-- Timeline Pimus -->
     <h1 style="color: #ffffff; margin-top: 1em ; text-align: center; font-family: joyrideextended, Montserrat, sans-serif;"
-        data-aos="zoom-in">timeline pimus xi</h1>
+        data-aos="zoom-in">timeline pimus xii</h1>
     <link rel="stylesheet" href="{{ url('/assets/css/timeline.css') }}">
     <div class="content">
         <div class="timeline col-lg-6 wow fadeInRight">
