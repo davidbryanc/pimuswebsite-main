@@ -82,7 +82,7 @@
                                     <div class="icon">
                                         {{-- <i class="fas fa-hand-holding-heart"
                                             style="height: 175px; width: 100px; color: #faba8e;"></i> --}}
-                                            <img src="{{ url('assets/images/logo/siluet.png') }}" alt="person graphic" style="height: 175px;  color: #faba8e;">
+                                            <i><img src="{{ url('assets/images/logo/siluet.png') }}" alt="person graphic" style="height: 155px;  color: #faba8e;"></i>
                                     </div>
                                     <div class="right-text">
                                         <p>Maskot PIMUS merupakan burung hantu yang bernama Dr. Pimsy. Burung hantu
