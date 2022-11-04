@@ -1115,7 +1115,7 @@ Portfolio
   text-transform: none;
   text-align: center;
   margin: 0px 90px 0px 90px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   position: relative;
   z-index: 1;
 }
@@ -1131,7 +1131,7 @@ Portfolio
 }
 
 .our-portfolio .item:hover .showed-content {
-  top: 90px;
+  top: 75px;
 }
 
 .our-portfolio .hidden-content {
