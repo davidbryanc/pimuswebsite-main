@@ -1148,6 +1148,7 @@ Portfolio
   transition: all 0.5s;
 }
 
+/*
 .our-portfolio .hidden-content:after {
   width: 20px;
   height: 20px;
@@ -1162,6 +1163,7 @@ Portfolio
     background: linear-gradient(105deg, rgba(222, 141, 0,1) 0%, rgba(235, 176, 20,1) 100%);
   z-index: -1;
 }
+*/
 
 .our-portfolio .hidden-content h4 {
   font-size: 20px;
