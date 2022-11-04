@@ -156,7 +156,7 @@
                 </li>
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #ffffff" class="date">16-17 November 2022</h3>
+                        <h3 style="color: #ffffff" class="date">18 November 2022</h3>
                         <h1>Technical Meeting</h1>
                     </div>
                 </li>
