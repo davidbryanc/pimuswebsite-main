@@ -25,7 +25,7 @@
                             <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                                 <h6><img src="{{ url('assets/images/web/Asset 1.png') }}" alt=""> </h6>
                                 <p style="color: #fff; font-weight: bold;">XII-ATHLON: PREPARE FOR YOUR TRIUMPH</p>
-                                <p style="color: #fff" font size="1" style="text-align:justify; text-justify:inter-word">Para conqueror yang telah berhasil memulihkan dunia dan melihat <i>gate</i>
+                                <p style="color: #fff;text-align:justify !important; text-justify:inter-word" font size="1" >Para <i>conqueror</i> yang telah berhasil memulihkan dunia dan melihat <i>gate</i>
                                     yang mengarahkan mereka ke Earth 2.0. Mereka harus meng-<i>unlock</i> area baru ini menggunakan komponen. Setelah
                                     semua di-<i>unlock</i>, mereka harus berpisah ke setiap <i>district</i> yang membuat mereka dapat menduduki kedudukan
                                     tertinggi di Earth 2.0, yaitu  <b>Throne of Triumph.</b></h6>
@@ -126,7 +126,7 @@
                     <div class="section-heading">
                         <h2 style="color: #ffffff; text-align: left; font-family: joyrideextended, Montserrat, sans-serif; text-transform: none;"
                             data-aos="zoom-in">pekan ilmiah mahasiswa</h2>
-                        <p style="color: #fff;" class="text-justify" style="text-align:justify; text-justify:inter-word">Pekan Ilmiah Mahasiswa Universitas Surabaya atau PIMUS merupakan acara tahunan yang diselenggarakan
+                        <p style="color: #fff; text-align:justify !important; " class="text-justify" >Pekan Ilmiah Mahasiswa Universitas Surabaya atau PIMUS merupakan acara tahunan yang diselenggarakan
                              oleh Direktorat Pengembangan Kemahasiswaan Universitas Surabaya dengan tujuan untuk menyaring mahasiswa/i terbaik UBAYA
                              untuk menjadi perwakilan pada kompetisi nasional. Di tahun yang kesebelas ini, PIMUS memiliki 7 cabang lomba yang terdiri
                               dari PKM 4 Bidang (PKM RSH, PKM K, PKM PM, PKM KC), Karya Tulis Ilmiah, Pemilihan Mahasiswa Berprestasi, Video Digital Pendidikan,
