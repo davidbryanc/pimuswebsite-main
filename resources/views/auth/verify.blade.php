@@ -23,7 +23,7 @@
                             @endif
                             
                             <div class="text-center text-white" style="font-weight: 500;">                            
-                                {{ __('Before proceeding, please check your email for a verification link.') }}
+                                {{ __('Before proceeding, please check your email (wait for around 10-15 minutes) for a verification link.') }}
                                 {{ __('If you did not receive the email') }} <br>
                                 <form class="d-inline form-reset" method="POST" action="{{ route('verification.resend') }}">
                                     @csrf
