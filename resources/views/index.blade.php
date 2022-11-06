@@ -191,7 +191,7 @@
                 <li>
                     <div class="timeline-content">
                         <h3 style="color: #ffffff" class="date">5-9 Desember 2022</h3>
-                        <h1>Acara Perlombaan PIMUS XI</h1>
+                        <h1>Acara Perlombaan PIMUS XII</h1>
                     </div>
                 </li>
             </ul>
