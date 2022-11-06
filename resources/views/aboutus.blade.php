@@ -89,7 +89,7 @@
                 <h5>Apakah boleh mengikuti lebih dari 1 cabang PIMUS?</h5>
             </div>
             <div class="panel">
-                <p>Boleh, tapi dari 2 (dua) cabang tidak boleh menjadi ketua.</p>
+                <p>boleh, namun peserta tidak dapat menjadi ketua di 2 cabang lomba yang berbeda.</p>
             </div>
 
             <div class="accordion-faq">
