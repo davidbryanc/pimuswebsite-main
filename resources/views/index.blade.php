@@ -156,7 +156,7 @@
                 </li>
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #ffffff" class="date">18 November 2022</h3>
+                        <h3 style="color: #ffffff" class="date">17-18 November 2022</h3>
                         <h1>Technical Meeting</h1>
                     </div>
                 </li>
@@ -168,7 +168,7 @@
                 </li>
                 <li>
                     <div class="timeline-content">
-                        <h3 style="color: #ffffff" class="date">30 November 2022</h3>
+                        <h3 style="color: #ffffff" class="date">24-30 November 2022</h3>
                         <h1>Pengumpulan Proposal untuk di Revisi (PKM, KTI, dan Pilmapres)</h1>
                     </div>
                 </li>
