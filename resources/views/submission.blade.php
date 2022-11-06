@@ -36,7 +36,7 @@
                 @foreach ($group as $grp)
                     <tr>
                         <td data-label="Competition Name">{{ $grp->name }}</td>
-                        <td data-label="Deadline">21 Oktober 2021 23:59 WIB</td>
+                        <td data-label="Deadline">2 Desember 2022 23:59 WIB</td>
                         @if ($grp->link_exhibition != null)
                             <td data-label="Status"><span class="text_open text-success">Submitted</span></td>
                             <td data-label="Submit" class="tdButton"><button class="btnSubmit" id="submitLink"
@@ -199,7 +199,7 @@
         });
 
         // Set the date we're counting down to
-        var countDownDate = new Date("Oct 23, 2023 23:59:59").getTime();
+        var countDownDate = new Date("Dec 02, 2022 23:59:59").getTime();
 
         // Update the count down every 1 second
         var x = setInterval(function() {

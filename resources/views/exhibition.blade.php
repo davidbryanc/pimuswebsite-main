@@ -176,11 +176,11 @@ PIMUS 12 - Exhibition
                                                         @endif
 
                                                         @if($submission->competition_categories_id != 4)
-                                                            @if (time() <= strtotime("2023-11-12 00:00:00"))
+                                                            @if (time() <= strtotime("2022-12-09 00:00:00") && time() >= strtotime("2022-12-05 00:00:00"))
                                                                 <button type="submit" class="btnVote">Vote</button>
                                                             @else
                                                                 <br>
-                                                                <h4 style="color: red">*) Masa Vote telah berakhir</h4>
+                                                                <h4 style="color: red">*) Masa Vote adalah 5-8 Desember</h4>
                                                             @endif
                                                         @endif
                                                     </div>

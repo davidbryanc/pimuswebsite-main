@@ -149,7 +149,7 @@
             </div>
             <div class="modal-body">
                 <p>
-                    1. Peserta melengkapi berkas yang dibutuhkan untuk pendaftaran sesuai dengan pedoman cabang/PKM yang diikuti. Pedoman dapat dilihat <a href='http://tiny.cc/PedomanPesertaPIMUSXI' target='_blank'>disini</a>.<br>
+                    1. Peserta melengkapi berkas yang dibutuhkan untuk pendaftaran sesuai dengan pedoman cabang/PKM yang diikuti. Pedoman dapat dilihat <a href='https://drive.google.com/drive/folders/11A7k7Ng94aJzfCg4UygO67BsS-D3IEQI' target='_blank'>disini</a>.<br>
                     2. Pendaftaran dapat dilakukan pada website <a href='https://pimusubaya.com' target='_blank'>pimusubaya.com</a><br>
                     3.  Peserta harus register/sign up terlebih dahulu pada website.<br>
                         <small class='text-danger'>Note &#58; Jika mendaftar berkelompok, maka seluruh anggota harus register/sign up terlebih dahulu pada website sebelum melakukan pendaftaran.</small><br>
