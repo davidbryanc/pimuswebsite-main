@@ -156,12 +156,12 @@ class RegisterLomba extends Controller
                         'achievement_list' => $path_daftarPrestasi
                     ]);
                 break;
-                // case 5:
-                //     $jenisKompetisi = $req->jenisKompetisi;
-                //     DB::table('user_details')->where('nrp', $req->nrpAnggota[0])->update([
-                //         'competition_type' => $jenisKompetisi
-                //     ]);
-                // break;
+                case 5:
+                    $jenisKompetisi = $req->jenisKompetisi;
+                    DB::table('user_details')->where('nrp', $req->nrpAnggota[0])->update([
+                        'competition_type' => $jenisKompetisi
+                    ]);
+                break;
                 // default:
                 //     $jenisKelompok = $req->jenisKelompok;
                 //     DB::table('teams')->where('id',$idkelompok)->update([

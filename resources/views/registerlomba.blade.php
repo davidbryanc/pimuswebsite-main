@@ -126,6 +126,18 @@
                     <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
                     <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
                     format nama file: Surat Pernyataan_Nama_NRP</label><br>
+
+                    <label>Jenis Kompetisi</label><br>
+                    <input type="radio" id="matematika" name="jenisKompetisi" value="Matematika" checked required>
+                    <label for="matematika">Matematika</label>&nbsp;&nbsp;&nbsp;
+                    <input type="radio" id="fisika" name="jenisKompetisi" value="Fisika" required>
+                    <label for="fisika">Fisika</label>&nbsp;&nbsp;&nbsp;
+                    <input type="radio" id="kimia" name="jenisKompetisi" value="Kimia" required>
+                    <label for="kimia">Kimia</label>&nbsp;&nbsp;&nbsp;
+                    <input type="radio" id="biologi" name="jenisKompetisi" value="Biologi" required>
+                    <label for="biologi">Biologi</label>&nbsp;;&nbsp;
+                    <input type="radio" id="statistika" name="jenisKompetisi" value="Statistika" required>
+                    <label for="statistika">Statistika</label><br>
                     
                     <label>Scan KTM / Screenshot KTM Online (.pdf)</label><br>
                     <input type="file" name="ktm1" class="inputLomba" accept=".pdf" required><br>

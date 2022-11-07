@@ -169,14 +169,14 @@
                                                     
                                                     {{-- Khusus Pilmapres --}}
                                                     @if ($group->nama_cabang == "Pilmapres")
-                                                        {{-- <span>
+                                                        <span>
                                                             Borang : 
                                                             @if ($detailUser->borang != "empty")
                                                                 <a href="/{{ $detailUser->borang }}" target="_blank">Borang {{ $detailUser->nama_user }}</a>
                                                             @else
                                                                 -
                                                             @endif
-                                                        </span><br> --}}
+                                                        </span><br>
                                                         <span>
                                                             Rekap IPK : 
                                                             @if ($detailUser->gpa_recap != "empty")
@@ -196,16 +196,16 @@
                                                     @endif
     
                                                     {{-- Khusus Kompetisi MIPA --}}
-                                                    {{-- @if ($group->nama_cabang == "Kompetisi MIPA")
+                                                    @if ($group->nama_cabang == "Kompetisi MIPAS")
                                                         <span>
                                                             Jenis Kompetisi : 
-                                                            @if ($detailUser->jenis_kompetisi != "empty")
-                                                                {{ $detailUser->jenis_kompetisi }}
+                                                            @if ($detailUser->competition_type != "empty")
+                                                                {{ $detailUser->competition_type }}
                                                             @else
                                                                 -
                                                             @endif
                                                         </span><br>
-                                                    @endif --}}
+                                                    @endif
                                                 </div>
                                                 
                                                 <div class="dropdown-divider mt-4 mb-4"></div>
