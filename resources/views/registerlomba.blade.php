@@ -51,142 +51,145 @@
                         $id = $category->id;
                         if ($id != 1 && $id != 5 && $id != 2 && $id != 3) {
                             echo '
-                                                                        <input type="text" id="nrpKetua" pattern="[0-9]{9}" onchange="nrp();" title="NRP UBAYA" placeholder="NRP Ketua Kelompok" maxlength="9" required><br>
+                                    <input type="text" id="nrpKetua" pattern="[0-9]{9}" onchange="nrp();" title="NRP UBAYA" placeholder="NRP Ketua Kelompok" maxlength="9" required><br>
 
-                                                                        <input type="text" name="line" placeholder="ID Line Ketua Kelompok" required><br>
-                                                                        <input type="text" name="wa" placeholder="Nomor WhatsApp Ketua Kelompok" required><br>
+                                    <input type="text" name="line" placeholder="ID Line Ketua Kelompok" required><br>
+                                    <input type="text" name="wa" placeholder="Nomor WhatsApp Ketua Kelompok" required><br>
 
-                                                                        <label>Surat Pernyataan Kesediaan Mewakili Ubaya (.pdf)</label><br>
-                                                                        <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
-                                                                        <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
-                                                                        format nama file: Surat Pernyataan_Nama_NRP</label><br>
+                                    <label>Form Pendaftaran (.pdf)</label><br>
+                                    <input type="file" name="formDaftar" class="inputLomba" accept=".pdf" required><br>
+                                    <label class="label-keterangan">*) format nama file: Nama_NRP</label><br>
+                                    
+                                    <label>Surat Pernyataan Kesediaan Mewakili Ubaya (.pdf)</label><br>
+                                    <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
+                                    <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
+                                    format nama file: Surat Pernyataan_Nama_NRP</label><br>
 
-                                                                        <label>Jumlah Anggota Kelompok</label><br>
-                                                                        <input type="radio" id="jumlahAnggota2" name="jumlahAnggota" value="2" onclick="displayForm(this.value);" checked required>
-                                                                        <label for="jumlahAnggota2">2</label>&nbsp;&nbsp;&nbsp;
-                                                                        <input type="radio" id="jumlahAnggota3" name="jumlahAnggota" value="3" onclick="displayForm(this.value);" required>
-                                                                        <label for="jumlahAnggota3">3</label>&nbsp;&nbsp;&nbsp;
-                                                                        <input type="radio" id="jumlahAnggota4" name="jumlahAnggota" value="4" onclick="displayForm(this.value);" required>
-                                                                        <label for="jumlahAnggota4">4</label>&nbsp;&nbsp;&nbsp;
-                                                                        <input type="radio" id="jumlahAnggota5" name="jumlahAnggota" value="5" onclick="displayForm(this.value);" required>
-                                                                        <label for="jumlahAnggota5">5</label><br>
-                                                                        <label class="label-keterangan">*) termasuk ketua kelompok</label><br>
-                                                                        ';
+                                    <label>Jumlah Anggota Kelompok</label><br>
+                                    <input type="radio" id="jumlahAnggota2" name="jumlahAnggota" value="2" onclick="displayForm(this.value);" checked required>
+                                    <label for="jumlahAnggota2">2</label>&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" id="jumlahAnggota3" name="jumlahAnggota" value="3" onclick="displayForm(this.value);" required>
+                                    <label for="jumlahAnggota3">3</label>&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" id="jumlahAnggota4" name="jumlahAnggota" value="4" onclick="displayForm(this.value);" required>
+                                    <label for="jumlahAnggota4">4</label>&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" id="jumlahAnggota5" name="jumlahAnggota" value="5" onclick="displayForm(this.value);" required>
+                                    <label for="jumlahAnggota5">5</label><br>
+                                    <label class="label-keterangan">*) termasuk ketua kelompok</label><br>
+                                    ';
                         } 
                         else if($id == 2 || $id == 3){
                             echo '
-                                                                        <input type="text" id="nrpKetua" pattern="[0-9]{9}" onchange="nrp();" title="NRP UBAYA" placeholder="NRP Ketua Kelompok" maxlength="9" required><br>
+                                    <input type="text" id="nrpKetua" pattern="[0-9]{9}" onchange="nrp();" title="NRP UBAYA" placeholder="NRP Ketua Kelompok" maxlength="9" required><br>
 
-                                                                        <input type="text" name="line" placeholder="ID Line Ketua Kelompok" required><br>
-                                                                        <input type="text" name="wa" placeholder="Nomor WhatsApp Ketua Kelompok" required><br>
+                                    <input type="text" name="line" placeholder="ID Line Ketua Kelompok" required><br>
+                                    <input type="text" name="wa" placeholder="Nomor WhatsApp Ketua Kelompok" required><br>
 
-                                                                        <label>Surat Pernyataan Kesediaan Mewakili Ubaya (.pdf)</label><br>
-                                                                        <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
-                                                                        <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
-                                                                        format nama file: Surat Pernyataan_Nama_NRP</label><br>
+                                    <label>Form Pendaftaran (.pdf)</label><br>
+                                    <input type="file" name="formDaftar" class="inputLomba" accept=".pdf" required><br>
+                                    <label class="label-keterangan">*) format nama file: Nama_NRP</label><br>
 
-                                                                        <label>Jumlah Anggota Kelompok</label><br>
-                                                                        <input type="radio" id="jumlahAnggota2" name="jumlahAnggota" value="2" onclick="displayForm(this.value);" checked required>
-                                                                        <label for="jumlahAnggota2">2</label>&nbsp;&nbsp;&nbsp;
-                                                                        <label class="label-keterangan">*) termasuk ketua kelompok</label><br>
-                                                                        ';
+                                    <label>Surat Pernyataan Kesediaan Mewakili Ubaya (.pdf)</label><br>
+                                    <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
+                                    <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
+                                    format nama file: Surat Pernyataan_Nama_NRP</label><br>
+
+                                    <label>Jumlah Anggota Kelompok</label><br>
+                                    <input type="radio" id="jumlahAnggota2" name="jumlahAnggota" value="2" onclick="displayForm(this.value);" checked required>
+                                    <label for="jumlahAnggota2">2</label>&nbsp;&nbsp;&nbsp;
+                                    <label class="label-keterangan">*) termasuk ketua kelompok</label><br>
+                                    ';
                         }
 
                         else {
                             echo '
-                                                                        <input type="number" name="jumlahAnggota" value=1 hidden readonly>
+                                    <input type="number" name="jumlahAnggota" value=1 hidden readonly>
 
-                                                                        <input type="text" pattern="[0-9]{9}" name="nrpAnggota[]" title="NRP UBAYA" placeholder="NRP" maxlength="9" required><br>
+                                    <input type="text" pattern="[0-9]{9}" name="nrpAnggota[]" title="NRP UBAYA" placeholder="NRP" maxlength="9" required><br>
 
-                                                                        <input type="text" name="line" placeholder="ID Line" required><br>
+                                    <input type="text" name="line" placeholder="ID Line" required><br>
 
-                                                                        <input type="text" name="wa" placeholder="Nomor WhatsApp" required><br>
-                                                                        ';
+                                    <input type="text" name="wa" placeholder="Nomor WhatsApp" required><br>
+                                    ';
                         }
-                        $formPendaftaran = '
-                                                                    <label>Form Pendaftaran (.pdf)</label><br>
-                                                                    <input type="file" name="formDaftar" class="inputLomba" accept=".pdf" required><br>
-                                                                    <label class="label-keterangan">*) format nama file: Nama_NRP</label><br>
-                                                                    ';
+
+                        // $formPendaftaran = '
+                        //             <label>Form Pendaftaran (.pdf)</label><br>
+                        //             <input type="file" name="formDaftar" class="inputLomba" accept=".pdf" required><br>
+                        //             <label class="label-keterangan">*) format nama file: Nama_NRP</label><br>
+                        //             ';
+
                         $pilmapres = '
-                                                                    <label>Surat Pernyataan Kesediaan Mewakili Ubaya (.pdf)</label><br>
-                                                                    <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
-                                                                    <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
-                                                                        format nama file: KesediaanMP_Nama Depan_NRP</label><br>
+                                    <label>Form Pendaftaran (.pdf)</label><br>
+                                    <input type="file" name="formDaftar" class="inputLomba" accept=".pdf" required><br>
+                                    <label class="label-keterangan">*) format nama file: Nama_NRP</label><br>
+                        
+                                    <label>Surat Pernyataan Kesediaan Mewakili Ubaya (.pdf)</label><br>
+                                    <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
+                                    <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
+                                        format nama file: KesediaanMP_Nama Depan_NRP</label><br>
 
-                                                                    <label>Borang (.pdf)</label>
-                                                                    <input type="file" name="borang" class="inputLomba" id="form-pendaftaran" accept=".pdf" required><br>
-                                                                    <label class="label-keterangan">*) format nama file: BPMP_Nama Depan_NRP</label><br>
+                                    <label>Borang (.pdf)</label>
+                                    <input type="file" name="borang" class="inputLomba" id="form-pendaftaran" accept=".pdf" required><br>
+                                    <label class="label-keterangan">*) format nama file: BPMP_Nama Depan_NRP</label><br>
 
-                                                                    <label>Rekap IPK (.pdf)</label><br>
-                                                                    <input type="file" name="rekapIPK" class="inputLomba" accept=".pdf" required><br>
-                                                                    <label class="label-keterangan">*) Dalam bentuk Transkrip. Format nama: Transkrip_Nama Depan_NRP </label><br>
+                                    <label>Rekap IPK (.pdf)</label><br>
+                                    <input type="file" name="rekapIPK" class="inputLomba" accept=".pdf" required><br>
+                                    <label class="label-keterangan">*) Dalam bentuk Transkrip. Format nama: Transkrip_Nama Depan_NRP </label><br>
 
-                                                                    <label>Daftar 10 Prestasi + Bukti (.pdf)</label><br>
-                                                                    <input type="file" name="daftarPrestasi" class="inputLomba" accept=".pdf" required><br>
-                                                                    <label class="label-keterangan">*) format nama file: PrestasiMP_Nama Depan_NRP</label><br>
+                                    <label>Daftar 10 Prestasi + Bukti (.pdf)</label><br>
+                                    <input type="file" name="daftarPrestasi" class="inputLomba" accept=".pdf" required><br>
+                                    <label class="label-keterangan">*) format nama file: PrestasiMP_Nama Depan_NRP</label><br>
 
-                                                                    <label>Scan KTM / Screenshot KTM Online dan KTP / KITAS (.pdf)</label><br>
-                                                                    <input type="file" name="ktm1" class="inputLomba" accept=".pdf" required><br>
-                                                                    <label class="label-keterangan">*) Screenshot MyUbaya pada bagian Kartu Studi Mahasiswa (dalam fitur KS/KHS) wajib terdapat Nama dan NRP
-                                                                        <br>format nama file: KTMKTP-MP_Nama Depan_NRP / KTMKITAS-MP_Nama Depan_NRP </label><br>
+                                    <label>Scan KTM / Screenshot KTM Online dan KTP / KITAS (.pdf)</label><br>
+                                    <input type="file" name="ktm1" class="inputLomba" accept=".pdf" required><br>
+                                    <label class="label-keterangan">*) Screenshot MyUbaya pada bagian Kartu Studi Mahasiswa (dalam fitur KS/KHS) wajib terdapat Nama dan NRP
+                                        <br>format nama file: KTMKTP-MP_Nama Depan_NRP / KTMKITAS-MP_Nama Depan_NRP </label><br>
 
-                                                                    <label>Pas Foto 4x6 (.png / .jpg)</label><br>
-                                                                    <input type="file" name="pasFoto1" class="inputLomba" accept=".png, .jpg" required><br>
-                                                                    <label class="label-keterangan">*) format nama file: PasFotoMP_Nama Depan_NRP</label><br>
+                                    <label>Pas Foto 4x6 (.png / .jpg)</label><br>
+                                    <input type="file" name="pasFoto1" class="inputLomba" accept=".png, .jpg" required><br>
+                                    <label class="label-keterangan">*) format nama file: PasFotoMP_Nama Depan_NRP</label><br>
 
-                                                                    ';
+                                    ';
                         $tambahan = '
-                                                                    <label>Pas Foto 4x6 (.png / .jpg)</label><br>
-                                                                    <input type="file" name="pasFoto1" class="inputLomba" accept=".png, .jpg" required><br>
-                                                                    <label class="label-keterangan">*) format nama file: Foto_Nama_NRP</label><br>
+                                    <label>Pas Foto 4x6 (.png / .jpg)</label><br>
+                                    <input type="file" name="pasFoto1" class="inputLomba" accept=".png, .jpg" required><br>
+                                    <label class="label-keterangan">*) format nama file: Foto_Nama_NRP</label><br>
 
-                                                                    ';
+                                    ';
                         $pilihanMIPA = '
-                                                                    <label>Surat Pernyataan Kesediaan Mewakili Ubaya (.pdf)</label><br>
-                                                                    <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
-                                                                    <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
-                                                                    format nama file: Surat Pernyataan_Nama_NRP</label><br>
+                                <label>Form Pendaftaran (.pdf)</label><br>
+                                <input type="file" name="formDaftar" class="inputLomba" accept=".pdf" required><br>
+                                <label class="label-keterangan">*) format nama file: Nama_NRP</label><br>        
+                                        
+                                <label>Surat Pernyataan Kesediaan Mewakili Ubaya (.pdf)</label><br>
+                                <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
+                                <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
+                                format nama file: Surat Pernyataan_Nama_NRP</label><br>
 
-                                                                    <label>Jenis Kompetisi</label><br>
-                                                                    <input type="radio" id="matematika" name="jenisKompetisi" value="Matematika" checked required>
-                                                                    <label for="matematika">Matematika</label>&nbsp;&nbsp;&nbsp;
-                                                                    <input type="radio" id="fisika" name="jenisKompetisi" value="Fisika" required>
-                                                                    <label for="fisika">Fisika</label>&nbsp;&nbsp;&nbsp;
-                                                                    <input type="radio" id="kimia" name="jenisKompetisi" value="Kimia" required>
-                                                                    <label for="kimia">Kimia</label>&nbsp;&nbsp;&nbsp;
-                                                                    <input type="radio" id="biologi" name="jenisKompetisi" value="Biologi" required>
-                                                                    <label for="biologi">Biologi</label>&nbsp;;&nbsp;
-                                                                    <input type="radio" id="statistika" name="jenisKompetisi" value="Statistika" required>
-                                                                    <label for="statistika">Statistika</label><br>
+                                <label>Jenis Kompetisi</label><br>
+                                <input type="radio" id="matematika" name="jenisKompetisi" value="Matematika" checked required>
+                                <label for="matematika">Matematika</label>&nbsp;&nbsp;&nbsp;
+                                <input type="radio" id="fisika" name="jenisKompetisi" value="Fisika" required>
+                                <label for="fisika">Fisika</label>&nbsp;&nbsp;&nbsp;
+                                <input type="radio" id="kimia" name="jenisKompetisi" value="Kimia" required>
+                                <label for="kimia">Kimia</label>&nbsp;&nbsp;&nbsp;
+                                <input type="radio" id="biologi" name="jenisKompetisi" value="Biologi" required>
+                                <label for="biologi">Biologi</label>&nbsp;;&nbsp;
+                                <input type="radio" id="statistika" name="jenisKompetisi" value="Statistika" required>
+                                <label for="statistika">Statistika</label><br>
 
-                                                                    <label>Scan KTM / Screenshot KTM Online (.pdf)</label><br>
-                                                                    <input type="file" name="ktm1" class="inputLomba" accept=".pdf" required><br>
-                                                                    <label class="label-keterangan">*) Screenshot MyUbaya pada bagian Kartu Studi Mahasiswa (dalam fitur KS/KHS) wajib terdapat Nama dan NRP
-                                                                        <br>format nama file: KTM_Nama_NRP</label><br>
+                                <label>Scan KTM / Screenshot KTM Online (.pdf)</label><br>
+                                <input type="file" name="ktm1" class="inputLomba" accept=".pdf" required><br>
+                                <label class="label-keterangan">*) Screenshot MyUbaya pada bagian Kartu Studi Mahasiswa (dalam fitur KS/KHS) wajib terdapat Nama dan NRP
+                                    <br>format nama file: KTM_Nama_NRP</label><br>
 
-                                                                    <label>Pas Foto 4x6 (.png / .jpg)</label><br>
-                                                                    <input type="file" name="pasFoto1" class="inputLomba" accept=".png, .jpg" required><br>
-                                                                    <label class="label-keterangan">*) format nama file: Foto_Nama_NRP</label><br>
+                                <label>Pas Foto 4x6 (.png / .jpg)</label><br>
+                                <input type="file" name="pasFoto1" class="inputLomba" accept=".png, .jpg" required><br>
+                                <label class="label-keterangan">*) format nama file: Foto_Nama_NRP</label><br>
 
-                                                                    ';
-                        // $debatindodaninggris = '<input type="text" id="nrpKetua" pattern="[0-9]{9}" onchange="nrp();" title="NRP UBAYA" placeholder="NRP Ketua Kelompok" maxlength="9" required><br>
-
-                        //                         <input type="text" name="line" placeholder="ID Line Ketua Kelompok" required><br>
-                        //                         <input type="text" name="wa" placeholder="Nomor WhatsApp Ketua Kelompok" required><br>
-
-                        //                         <label>Surat Pernyataan Kesediaan Mewakili Ubaya (.pdf)</label><br>
-                        //                         <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
-                        //                         <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
-                        //                         format nama file: Surat Pernyataan_Nama_NRP</label><br>
-
-                        //                         <label>Jumlah Anggota Kelompok</label><br>
-                        //                         <input type="radio" id="jumlahAnggota2" name="jumlahAnggota" value="2" onclick="displayForm(this.value);" checked required>
-                        //                         <label for="jumlahAnggota2">2</label>&nbsp;&nbsp;&nbsp;
-                        //                         <br>
-                        //                         <label class="label-keterangan">*) termasuk ketua kelompok</label><br>
-                        //                                             ';
-                        echo $formPendaftaran;
+                                ';
+                            
+                        // echo $formPendaftaran;
 
                         switch ($id) {
                             case 1:
@@ -196,12 +199,6 @@
                             case 5:
                                 echo $pilihanMIPA;
                                 break;
-                            // case 2:
-                            //     echo $debatindodaninggris;
-                            //     break;
-                            // case 3:
-                            //     echo $debatindodaninggris;
-                            //     break;
                         }
                         ?>
                     </div>
