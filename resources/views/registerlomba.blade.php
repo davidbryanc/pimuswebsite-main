@@ -50,6 +50,33 @@
                         <?php
                         $id = $category->id;
                         if ($id != 1 && $id != 5 && $id != 2 && $id != 3) {
+                            if ($id != 4 && $id != 7){
+                                echo '
+                                    <input type="text" id="nrpKetua" pattern="[0-9]{9}" onchange="nrp();" title="NRP UBAYA" placeholder="NRP Ketua Kelompok" maxlength="9" required><br>
+
+                                    <input type="text" name="line" placeholder="ID Line Ketua Kelompok" required><br>
+                                    <input type="text" name="wa" placeholder="Nomor WhatsApp Ketua Kelompok" required><br>
+
+                                    <label>Form Pendaftaran (.pdf)</label><br>
+                                    <input type="file" name="formDaftar" class="inputLomba" accept=".pdf" required><br>
+                                    <label class="label-keterangan">*) format nama file: Nama_NRP</label><br>
+                                    
+                                    <label>Surat Pernyataan Kesediaan Mewakili Ubaya (.pdf)</label><br>
+                                    <input type="file" name="suratPernyataan" class="inputLomba" accept=".pdf" required><br>
+                                    <label class="label-keterangan">*) wajib diprint, diberi materai Rp 10.000,00, diberi tandatangan basah mengenai materai Rp10.000,00<br>
+                                    format nama file: Surat Pernyataan_Nama_NRP</label><br>
+
+                                    <label>Jumlah Anggota Kelompok</label><br>
+                                    <input type="radio" id="jumlahAnggota3" name="jumlahAnggota" value="3" onclick="displayForm(this.value);" checked required>
+                                    <label for="jumlahAnggota3">3</label>&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" id="jumlahAnggota4" name="jumlahAnggota" value="4" onclick="displayForm(this.value);" required>
+                                    <label for="jumlahAnggota4">4</label>&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" id="jumlahAnggota5" name="jumlahAnggota" value="5" onclick="displayForm(this.value);" required>
+                                    <label for="jumlahAnggota5">5</label><br>
+                                    <label class="label-keterangan">*) termasuk ketua kelompok</label><br>
+                                    ';
+                            }
+                            else{
                             echo '
                                     <input type="text" id="nrpKetua" pattern="[0-9]{9}" onchange="nrp();" title="NRP UBAYA" placeholder="NRP Ketua Kelompok" maxlength="9" required><br>
 
@@ -76,6 +103,7 @@
                                     <label for="jumlahAnggota5">5</label><br>
                                     <label class="label-keterangan">*) termasuk ketua kelompok</label><br>
                                     ';
+                                    }
                         } 
                         else if($id == 2 || $id == 3){
                             echo '
