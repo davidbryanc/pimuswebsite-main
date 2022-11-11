@@ -50,7 +50,7 @@
                         <?php
                         $id = $category->id;
                         if ($id != 1 && $id != 5 && $id != 2 && $id != 3) {
-                            if ($id != 4 && $id != 7){
+                            if ($id != 7){
                                 echo '
                                     <input type="text" id="nrpKetua" pattern="[0-9]{9}" onchange="nrp();" title="NRP UBAYA" placeholder="NRP Ketua Kelompok" maxlength="9" required><br>
 
@@ -98,9 +98,7 @@
                                     <input type="radio" id="jumlahAnggota3" name="jumlahAnggota" value="3" onclick="displayForm(this.value);" required>
                                     <label for="jumlahAnggota3">3</label>&nbsp;&nbsp;&nbsp;
                                     <input type="radio" id="jumlahAnggota4" name="jumlahAnggota" value="4" onclick="displayForm(this.value);" required>
-                                    <label for="jumlahAnggota4">4</label>&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" id="jumlahAnggota5" name="jumlahAnggota" value="5" onclick="displayForm(this.value);" required>
-                                    <label for="jumlahAnggota5">5</label><br>
+                                    <label for="jumlahAnggota4">4</label>&nbsp;&nbsp;&nbsp;<br>
                                     <label class="label-keterangan">*) termasuk ketua kelompok</label><br>
                                     ';
                                     }
@@ -250,8 +248,13 @@
             console.debug(id);
 
             if (id > 1 && id < 5 || id > 5) {
-                console.debug("masuk if");
-                displayForm(2);
+                if(id == 4 || id >= 8){
+                    displayForm(3);
+                }
+                else{
+                    console.debug("masuk if");
+                    displayForm(2);
+                }
             } else
                 console.debug("masuk else");
         } catch (error) {
