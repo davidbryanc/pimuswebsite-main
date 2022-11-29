@@ -36,7 +36,12 @@
                 @foreach ($group as $grp)
                     <tr>
                         <td data-label="Competition Name">{{ $grp->name }}</td>
-                        <td data-label="Deadline">2 Desember 2022 23:59 WIB</td>
+                        @if($grp->competition_categories_id == 1)
+                            <td data-label="Deadline">5 Desember 2022 23:59 WIB</td>
+                        @else
+                            <td data-label="Deadline">2 Desember 2022 23:59 WIB</td>
+                        @endif
+
                         @if ($grp->link_exhibition != null)
                             <td data-label="Status"><span class="text_open text-success">Submitted</span></td>
                             <td data-label="Submit" class="tdButton"><button class="btnSubmit" id="submitLink"
@@ -46,7 +51,7 @@
                         @else
                             <td data-label="Status"><span class="text_open text-danger">NOT Submitted</span></td>
                             <td data-label="Submit" class="tdButton"><button class="btnSubmit" id="submitLink"
-                                    onclick="SetID({{ $grp->id }}, {{ $grp->teams_id }})" data-bs-toggle="modal"
+                                    onclick="SetID({{ $grp->id }}, {{ $grp->teams_id }}, {{ $grp->competition_categories_id }})"  data-bs-toggle="modal"
                                     data-bs-target="#formGDriveSubmission">Submit</button></td>
                         @endif
                     </tr>
@@ -88,55 +93,13 @@
             <div class="modal-content">
                 <div class="modal-header" style="background-color: #ebb010;">
                     <h5 class="modal-title text-white" id="formGDriveSubmissionLabel">Submission</h5>
+                    <div class="invisible" id="idtes">Tes</div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <div class="row justify-content-center mb-2">
-                            @if($grp->competition_categories_id == 7)
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="LinkGoogleDrive" class="form-label">Link Youtube Video</label>
-                                        <input type="text" class="form-control" id="linkDrive" name="linkDrive"
-                                            placeholder="Input Youtube Link" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="LinkProposal" class="form-label">Link Drive Proposal</label>
-                                        <input type="text" class="form-control" id="LinkProposal" name="LinkProposal"
-                                            placeholder="Input Google Drive Link" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="description" class="form-label">Deskripsi</label>
-                                        <textarea type="text" class="form-control" id="description" name="description"
-                                            placeholder="Deskripsi" rows="3" maxlength="200" required></textarea>
-                                    </div>
-                                </div>
-
-                            @elseif($grp->competition_categories_id == 1 || $grp->competition_categories_id == 4)
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="LinkGoogleDrive" class="form-label">Link Drive Poster</label>
-                                        <input type="text" class="form-control" id="linkDrive" name="linkDrive"
-                                            placeholder="Input Google Drive Link" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="LinkProposal" class="form-label">Link Drive Proposal</label>
-                                        <input type="text" class="form-control" id="LinkProposal" name="LinkProposal"
-                                            placeholder="Input Google Drive Link" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="description" class="form-label">Deskripsi</label>
-                                        <textarea type="text" class="form-control" id="description" name="description"
-                                            placeholder="Deskripsi" rows="3" maxlength="200" required></textarea>
-                                    </div>
-                                </div>
-                            @else
-                                <div class="mb-3">
-                                    <label for="LinkProposal" class="form-label">Link Drive Proposal</label>
-                                    <input type="text" class="form-control" id="LinkProposal" name="LinkProposal"
-                                        placeholder="Input Google Drive Link" required>
-                                </div>
-                            @endif
+                        <div class="row justify-content-center mb-2" id="isi">
+                            
                         </div>
                         <div class="row mb-3">
                             <div class="col"></div>
@@ -158,9 +121,66 @@
         var idlomba = null;
         var idkelompok = null;
 
-        function SetID (pidlomba, pidkelompok) {
+        function SetID (pidlomba, pidkelompok, pidkategori) {
             idlomba = pidlomba;
             idkelompok = pidkelompok;
+            
+            $('#idtes').val(pidkategori)
+
+            const isi = document.getElementById('isi')
+            isi.innerHTML = ''
+
+            if(pidkategori == 7){
+                isi.innerHTML += `<div class="col">
+                                    <div class="mb-3">
+                                        <label for="LinkGoogleDrive" class="form-label">Link Youtube Video</label>
+                                        <input type="text" class="form-control" id="linkDrive" name="linkDrive"
+                                            placeholder="Input Youtube Link" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="LinkProposal" class="form-label">Link Drive Proposal</label>
+                                        <input type="text" class="form-control" id="LinkProposal" name="LinkProposal"
+                                            placeholder="Input Google Drive Link" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="description" class="form-label">Deskripsi</label>
+                                        <textarea type="text" class="form-control" id="description" name="description"
+                                            placeholder="Deskripsi" rows="3" maxlength="200" required></textarea>
+                                    </div>
+                                </div>`
+            }
+            else if (pidkategori == 1){
+                isi.innerHTML += `<div class="mb-3">
+                                    <label for="LinkProposal" class="form-label">Link Drive</label>
+                                    <input type="text" class="form-control" id="LinkProposal" name="LinkProposal"
+                                        placeholder="Input Google Drive Link" required>
+                                </div>`
+            }
+            else if (pidkategori == 4){
+                isi.innerHTML += `<div class="col">
+                                    <div class="mb-3">
+                                        <label for="LinkGoogleDrive" class="form-label">Link Drive Poster</label>
+                                        <input type="text" class="form-control" id="linkDrive" name="linkDrive"
+                                            placeholder="Input Google Drive Link" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="LinkProposal" class="form-label">Link Drive Proposal</label>
+                                        <input type="text" class="form-control" id="LinkProposal" name="LinkProposal"
+                                            placeholder="Input Google Drive Link" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="description" class="form-label">Deskripsi</label>
+                                        <textarea type="text" class="form-control" id="description" name="description"
+                                            placeholder="Deskripsi" rows="3" maxlength="200" required></textarea>
+                                    </div>
+                                </div>`
+            }else{
+                isi.innerHTML += `<div class="mb-3">
+                                    <label for="LinkProposal" class="form-label">Link Drive Proposal</label>
+                                    <input type="text" class="form-control" id="LinkProposal" name="LinkProposal"
+                                        placeholder="Input Google Drive Link" required>
+                                </div>`
+            }
         }
 
         var linkEx = null;
@@ -199,7 +219,11 @@
         });
 
         // Set the date we're counting down to
-        var countDownDate = new Date("Dec 02, 2022 23:59:59").getTime();
+        if(idlomba == 1){
+            var countDownDate = new Date("Dec 05, 2022 23:59:59").getTime();
+        }else{
+            var countDownDate = new Date("Dec 02, 2022 23:59:59").getTime();
+        }
 
         // Update the count down every 1 second
         var x = setInterval(function() {

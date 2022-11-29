@@ -30,7 +30,8 @@
 <script>
     function contestType() {
         var select = document.getElementById('cabangLomba');
-        var type = select.options[select.selectedIndex].value;
+        var type = Number(select.options[select.selectedIndex].value);
+
         const form = document.getElementById('form');
         
         if (type in [1, 5]) {
@@ -92,7 +93,7 @@
             document.getElementById('btnSubmit').disabled = false;
         }
         else
-            document.getElementById('btnSubmit').disabled = true;
+            document.getElementById('btnSubmit').disabled = false;
     }
 
     function updateAnggota (amount) {
