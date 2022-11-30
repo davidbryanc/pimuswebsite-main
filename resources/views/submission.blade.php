@@ -35,9 +35,16 @@
                 {{-- Submission with website --}}
                 @foreach ($group as $grp)
                     <tr>
+                        {{-- @php
+                            $currentDateTime = date('Y-m-d H:i:s');
+                            $datetime1 = new DateTime('2019-9-10');
+                            $diff = abs(strtotime($currentDateTime) - strtotime($date));
+                        @endphp --}}
                         <td data-label="Competition Name">{{ $grp->name }}</td>
                         @if($grp->competition_categories_id == 1)
                             <td data-label="Deadline">5 Desember 2022 23:59 WIB</td>
+                        @elseif($grp->competition_categories_id == 4)
+                            <td data-label="Deadline">30 November 2022 23:59 WIB</td>
                         @else
                             <td data-label="Deadline">2 Desember 2022 23:59 WIB</td>
                         @endif
@@ -191,13 +198,13 @@
         $('#btnSubmit').on('click', function() {
             if (!confirm("Are you sure?")) return
 
-            if(idlomba == 4 || idlomba == 7 || idlomba == 1){
+            if(idlomba == 4 || idlomba == 7){
                 var linkEx = $("#linkDrive").val()
-                var linkProp = $("#linkProposal").val()
+                var linkProp = $("#LinkProposal").val()
                 var description = $("#description").val()
             }
             else{
-                var linkProp = $("#linkProposal").val()
+                var linkProp = $("#LinkProposal").val()
             }
 
             $.ajax({
@@ -221,6 +228,9 @@
         // Set the date we're counting down to
         if(idlomba == 1){
             var countDownDate = new Date("Dec 05, 2022 23:59:59").getTime();
+        }
+        else if(idlomba == 4){
+            var countDownDate = new Date("Nov 20, 2022 23:59:59").getTime();
         }else{
             var countDownDate = new Date("Dec 02, 2022 23:59:59").getTime();
         }
