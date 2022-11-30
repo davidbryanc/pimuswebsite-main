@@ -35,22 +35,36 @@
                 {{-- Submission with website --}}
                 @foreach ($group as $grp)
                     <tr>
-                        {{-- @php
-                            $currentDateTime = date('Y-m-d H:i:s');
-                            $datetime1 = new DateTime('2019-9-10');
-                            $diff = abs(strtotime($currentDateTime) - strtotime($date));
-                        @endphp --}}
                         <td data-label="Competition Name">{{ $grp->name }}</td>
+
                         @if($grp->competition_categories_id == 1)
                             <td data-label="Deadline">5 Desember 2022 23:59 WIB</td>
+                            @php
+                                $datetime1 = new DateTime('2022-12-05 23:59:59');
+                                $datetime1 = $datetime1->format('Y-m-d H:i:s');
+                            @endphp
                         @elseif($grp->competition_categories_id == 4)
                             <td data-label="Deadline">30 November 2022 23:59 WIB</td>
+                            @php
+                                $datetime1 = new DateTime('2022-11-30 23:59:59');
+                                $datetime1 = $datetime1->format('Y-m-d H:i:s');
+                            @endphp
                         @else
                             <td data-label="Deadline">2 Desember 2022 23:59 WIB</td>
+                            @php
+                                $datetime1 = new DateTime('2022-12-02 23:59:59');
+                                $datetime1 = $datetime1->format('Y-m-d H:i:s');
+                            @endphp
                         @endif
 
-                        @if ($grp->link_exhibition != null)
-                            <td data-label="Status"><span class="text_open text-success">Submitted</span></td>
+                        @php
+                            $currentDateTime = date('Y-m-d H:i:s');
+                            $diff = strtotime($datetime1) - strtotime($currentDateTime);
+                            
+                        @endphp
+
+                        @if ($grp->link_exhibition != null || $diff < 0)
+                            <td data-label="Status"><span class="text_open text-danger">NOT Submitted</span></td>
                             <td data-label="Submit" class="tdButton"><button class="btnSubmit" id="submitLink"
                                     onclick="SetID({{ $grp->id }}, {{ $grp->teams_id }})" data-bs-toggle="modal"
                                     data-bs-target="#formGDriveSubmission" disabled>Submit</button>
@@ -61,6 +75,7 @@
                                     onclick="SetID({{ $grp->id }}, {{ $grp->teams_id }}, {{ $grp->competition_categories_id }})"  data-bs-toggle="modal"
                                     data-bs-target="#formGDriveSubmission">Submit</button></td>
                         @endif
+
                     </tr>
                 @endforeach
 
