@@ -35,14 +35,17 @@ PIMUS 12 - Exhibition
                 $kti='';
                 switch ($submission->competition_categories_id) {
                     case 1:
-                        preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
-                        $img='https://drive.google.com/uc?export=view&id='.$matches[0];
-                        break;
+                        // preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
+                        // $img='https://drive.google.com/uc?export=view&id='.$matches[0];
+                        // break;
                     
                     case 4:
-                        preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
-                        $img='https://drive.google.com/uc?export=view&id='.$matches[0];
+                        @if($submission->link_exhibition != null)
+                            preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
+                            $img='https://drive.google.com/uc?export=view&id='.$matches[0];
+                        @endif    
                         break;
+                        
                         
                     // case 6:
                     //     preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
@@ -50,9 +53,11 @@ PIMUS 12 - Exhibition
                     //     break;
         
                     case 7:
-                        preg_match('/(?<=youtu.be\/)(.*)/', $submission->link_exhibition, $matches);
-                        $img='https://img.youtube.com/vi/'.$matches[0].'/0.jpg';
-                        $video='https://www.youtube.com/embed/'.$matches[0];
+                        @if($submission->link_exhibition != null)
+                            preg_match('/(?<=youtu.be\/)(.*)/', $submission->link_exhibition, $matches);
+                            $img='https://img.youtube.com/vi/'.$matches[0].'/0.jpg';
+                            $video='https://www.youtube.com/embed/'.$matches[0];
+                        @endif    
                         break;
 
                     // case 7:

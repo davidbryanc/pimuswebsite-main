@@ -63,12 +63,19 @@
                             
                         @endphp
 
-                        @if ($grp->link_exhibition != null || $diff < 0)
+                        @if ($grp->link_proposal != null)
+                            <td data-label="Status"><span class="text_open text-success">Submitted</span></td>
+                            <td data-label="Submit" class="tdButton"><button class="btnSubmit" id="submitLink"
+                                    onclick="SetID({{ $grp->id }}, {{ $grp->teams_id }})" data-bs-toggle="modal"
+                                    data-bs-target="#formGDriveSubmission" disabled>Submit</button>
+                            </td>
+                        @elseif($diff < 0)
                             <td data-label="Status"><span class="text_open text-danger">NOT Submitted</span></td>
                             <td data-label="Submit" class="tdButton"><button class="btnSubmit" id="submitLink"
                                     onclick="SetID({{ $grp->id }}, {{ $grp->teams_id }})" data-bs-toggle="modal"
                                     data-bs-target="#formGDriveSubmission" disabled>Submit</button>
                             </td>
+
                         @else
                             <td data-label="Status"><span class="text_open text-danger">NOT Submitted</span></td>
                             <td data-label="Submit" class="tdButton"><button class="btnSubmit" id="submitLink"
