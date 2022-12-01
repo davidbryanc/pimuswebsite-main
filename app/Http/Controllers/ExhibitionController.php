@@ -36,7 +36,6 @@ class ExhibitionController extends Controller
 
             
             $submissions = Submission::where('competition_categories_id', $idlomba)->get();
-            dd($submissions);
             $groups = Team::all();
 
             $leaders = DB::table('users')
