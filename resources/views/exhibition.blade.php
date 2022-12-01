@@ -27,41 +27,41 @@ PIMUS 12 - Exhibition
                     $counter = 1;
                 @endphp
                 @foreach ($submissions as $submission)
-                @if ($submission->link_exhibition != null)
-                @php
-                $matches=array();
-                $img='';
-                $video='';
-                $kti='';
-                switch ($submission->competition_categories_id) {
-                    case 1:
-                        // preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
-                        // $img='https://drive.google.com/uc?export=view&id='.$matches[0];
-                        // break;
-                    
-                    case 4:
-                        preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
-                        $img='https://drive.google.com/uc?export=view&id='.$matches[0];
-                        break;
-                        
-                        
-                    // case 6:
-                    //     preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
-                    //     $img='https://drive.google.com/uc?export=view&id='.$matches[0];
-                    //     break;
-        
-                    case 7:
-                        preg_match('/(?<=youtu.be\/)(.*)/', $submission->link_exhibition, $matches);
-                        $img='https://img.youtube.com/vi/'.$matches[0].'/0.jpg';
-                        $video='https://www.youtube.com/embed/'.$matches[0];
-                        break;
+                    @if ($submission->link_exhibition != null)
+                        @php
+                        $matches=array();
+                        $img='';
+                        $video='';
+                        $kti='';
+                        switch ($submission->competition_categories_id) {
+                            // case 1:
+                                // preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
+                                // $img='https://drive.google.com/uc?export=view&id='.$matches[0];
+                                // break;
+                            
+                            case 4:
+                                preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
+                                $img='https://drive.google.com/uc?export=view&id='.$matches[0];
+                                break;
+                                
+                                
+                            // case 6:
+                            //     preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
+                            //     $img='https://drive.google.com/uc?export=view&id='.$matches[0];
+                            //     break;
+                
+                            case 7:
+                                preg_match('/(?<=youtu.be\/)(.*)/', $submission->link_exhibition, $matches);
+                                $img='https://img.youtube.com/vi/'.$matches[0].'/0.jpg';
+                                $video='https://www.youtube.com/embed/'.$matches[0];
+                                break;
 
-                    // case 7:
-                    //     preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
-                    //     $video='https://drive.google.com/uc?export=view&id='.$matches[0];
-                    //     break;
-                }
-                @endphp
+                            // case 7:
+                            //     preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
+                            //     $video='https://drive.google.com/uc?export=view&id='.$matches[0];
+                            //     break;
+                        }
+                        @endphp
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="wrapper">
                             <div class="card-exhibition">
@@ -143,9 +143,7 @@ PIMUS 12 - Exhibition
                                                 <div class="col-lg-8 col-md-12 mt-3">
                                                     <h1 class="ex-title">
                                                         {{ $cabang->nama." ".$counter }}</h1>
-                                                    @if($submission->competition_categories_id != 4)
                                                         <h5>Jumlah votes: {{ $submission->like_count }}</h5>
-                                                    @endif
                                                     <p class="ex-by">
                                                         Ketua :
                                                         @if ($submission->teams_id != null)
@@ -176,13 +174,11 @@ PIMUS 12 - Exhibition
                                                             <p class="text-danger">vote left: {{ Auth::user()->vote_tickets }}</p>
                                                         @endif
 
-                                                        @if($submission->competition_categories_id != 4)
-                                                            @if (time() <= strtotime("2022-12-09 00:00:00") && time() >= strtotime("2022-12-05 00:00:00"))
-                                                                <button type="submit" class="btnVote">Vote</button>
-                                                            @else
-                                                                <br>
-                                                                <h4 style="color: red">*) Masa Vote adalah 5-8 Desember</h4>
-                                                            @endif
+                                                        @if (time() <= strtotime("2022-12-09 00:00:00") && time() >= strtotime("2022-12-05 00:00:00"))
+                                                            <button type="submit" class="btnVote">Vote</button>
+                                                        @else
+                                                            <br>
+                                                            <h4 style="color: red">*) Masa Vote adalah 5-8 Desember</h4>
                                                         @endif
                                                     </div>
                                                 </div>

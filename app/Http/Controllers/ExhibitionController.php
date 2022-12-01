@@ -14,7 +14,7 @@ class ExhibitionController extends Controller
 {
     public function index($idlomba)
     {
-        $viewable = [1, 4, 7];
+        $viewable = [4, 7];
         $cabang = CompetitionCategory::find($idlomba);
         if (in_array($idlomba, $viewable)) {
             $submissions = Submission::all();
@@ -36,7 +36,7 @@ class ExhibitionController extends Controller
 
             
             $submissions = Submission::where('competition_categories_id', $idlomba)->get();
-
+            dd($submissions);
             $groups = Team::all();
 
             $leaders = DB::table('users')
