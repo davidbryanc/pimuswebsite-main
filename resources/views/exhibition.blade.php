@@ -40,10 +40,8 @@ PIMUS 12 - Exhibition
                         // break;
                     
                     case 4:
-                        @if($submission->link_exhibition != null)
-                            preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
-                            $img='https://drive.google.com/uc?export=view&id='.$matches[0];
-                        @endif    
+                        preg_match('/(?<=file\/d\/)(.*)(?=\/)/', $submission->link_exhibition, $matches);
+                        $img='https://drive.google.com/uc?export=view&id='.$matches[0];
                         break;
                         
                         
@@ -53,11 +51,9 @@ PIMUS 12 - Exhibition
                     //     break;
         
                     case 7:
-                        @if($submission->link_exhibition != null)
-                            preg_match('/(?<=youtu.be\/)(.*)/', $submission->link_exhibition, $matches);
-                            $img='https://img.youtube.com/vi/'.$matches[0].'/0.jpg';
-                            $video='https://www.youtube.com/embed/'.$matches[0];
-                        @endif    
+                        preg_match('/(?<=youtu.be\/)(.*)/', $submission->link_exhibition, $matches);
+                        $img='https://img.youtube.com/vi/'.$matches[0].'/0.jpg';
+                        $video='https://www.youtube.com/embed/'.$matches[0];
                         break;
 
                     // case 7:
