@@ -265,10 +265,10 @@ class AdminController extends Controller
         $idContest = $request->addContest;
         $teams_id = $request->addTeam;
         $description = $request->addDescription;
-        $linkDrive = $request->addLinkDrive;
-        $linkPosterYoutube = $request->addLinkPosterYoutube;
+        $linkExhib = $request->addLinkExhib;
+        $linkProposal = $request->addLinkProposal;
 
-        if ($idContest != null && $teams_id != null && $description != null) {
+        if ($idContest != null && $teams_id != null && $linkProposal != null) {
             $id = 0;
 
             do {
@@ -283,8 +283,8 @@ class AdminController extends Controller
                 'id' => $id,
                 'teams_id' => $teams_id,
                 'competition_categories_id' => $idContest,
-                'link_exhibition' => $linkDrive,
-                'link_proposal' => $linkPosterYoutube,
+                'link_exhibition' => $linkExhib,
+                'link_proposal' => $linkProposal,
                 'description' => $description,
                 'like_count' => 0
             ]);
@@ -292,6 +292,6 @@ class AdminController extends Controller
             return redirect()->route('admin.submissions', ['messageType'=>"success", 'message'=>"Data pengumpulan berhasil ditambahkan"]);
         }
         else
-            return redirect()->route('admin.submissions', ['messageType'=>"error", 'message'=>"Terjadi kesalan dalam penambahan data, mohon cek kembali dan coba lagi"]);
+            return redirect()->route('admin.submissions', ['messageType'=>"error", 'message'=>"Terjadi kesalahan dalam penambahan data, mohon cek kembali dan coba lagi"]);
     }
 }

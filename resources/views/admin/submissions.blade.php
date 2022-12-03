@@ -221,17 +221,17 @@
 
                         <div class="mb-3">
                             <label for="addDescription" class="form-label">Deskripsi :</label>
-                            <textarea name="addDescription" id="addDescription" cols="30" rows="5" class="form-control" required></textarea>
+                            <textarea name="addDescription" id="addDescription" cols="30" rows="5" class="form-control"></textarea>
                         </div>
 
                         <div class="mb-3">
-                            <label for="addLinkDrive" class="form-label">Link Poster/YouTube :</label>
-                            <textarea name="addLinkDrive" id="addLinkDrive" cols="30" rows="2" class="form-control"></textarea>
+                            <label for="addLinkExhib" class="form-label">Link Poster/YouTube :</label>
+                            <textarea name="addLinkExhib" id="addLinkExhib" cols="30" rows="2" class="form-control"></textarea>
                         </div>
 
                         <div>
-                            <label for="addLinkPosterYoutube" class="form-label">Link Proposal :</label>
-                            <textarea name="addLinkPosterYoutube" id="addLinkPosterYoutube" cols="30" rows="2" class="form-control"></textarea>
+                            <label for="addLinkProposal" class="form-label">Link Proposal :</label>
+                            <textarea name="addLinkProposal" id="addLinkProposal" cols="30" rows="2" class="form-control" required></textarea>
                             <div class="form-text">
                                 Semua link harus dalam bentuk : https://drive.google.com/file/d/.... <br>(Gunakan fitur share pada Google Drive lalu tekan tombol setting dan hilangkan centang untuk mendownload file)
                             {{-- </div>
