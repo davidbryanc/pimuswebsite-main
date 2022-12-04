@@ -170,7 +170,7 @@ PIMUS 12 - Exhibition
                                                         {{ $submission->description }}
                                                     </p>
                                                     <div class="div-vote">
-                                                        @if (!Auth::guest() && $submission->competition_categories_id != 4)
+                                                        @if (!Auth::guest())
                                                             <p class="text-danger">vote left: {{ Auth::user()->vote_tickets }}</p>
                                                         @endif
 
