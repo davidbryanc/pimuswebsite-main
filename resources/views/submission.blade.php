@@ -291,7 +291,7 @@
                 minutes + "m " + seconds + "s" + ". Don't forget to submit!");
 
             // If the count down is finished, write some text
-            if (distance < 0) {
+            if (distance > 0) {
                 clearInterval(x);
                 $("#timer").text("Submission ends now.");
                 $(".btnSubmit").attr('disabled','true');
